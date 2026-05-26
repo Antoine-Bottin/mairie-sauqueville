@@ -1,6 +1,10 @@
 import "./styles.scss";
 
-const LoaderLogo = () => {
+interface Props {
+  size: "small" | "medium" | "large";
+}
+
+const LoaderLogo = ({ size = "small" }: Props) => {
   return (
     <div className="loader-container">
       <svg
@@ -9,7 +13,7 @@ const LoaderLogo = () => {
         viewBox="0 0 210 297"
         version="1.1"
         id="svg1"
-        className="loader-svg"
+        className={`loader-svg__${size}`}
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs id="defs1" />
@@ -56,7 +60,6 @@ const LoaderLogo = () => {
           </g>
         </g>
       </svg>
-      <h1 className="loader-container__title">Mairie de Sauqueville</h1>
     </div>
   );
 };
