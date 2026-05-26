@@ -1,3 +1,52 @@
+:root {
+  --neutral-color: #f8f9f1;
+  --primary-color: #2d5a27;
+  --secondary-color: #f8f9f1;
+  --tertiary-color: #d4a373;
+  --main-font-color: #1a1c18;
+
+  --title-font-size: 2rem;
+
+  // ==========================================
+  // 2. SM : GRANDS TÉLÉPHONES / PETITES TABLETTES
+  // (À partir de 640px)
+  // ==========================================
+  @media (min-width: 640px) and (min-height: 501px) {
+    --title-font-size: 3rem;
+  }
+
+  // ==========================================
+  // 3. MD : TABLETTES (iPad, etc.)
+  // (À partir de 768px)
+  // ==========================================
+  @media (min-width: 768px) and (min-height: 501px) {
+    --title-font-size: 4rem;
+  }
+
+  // ==========================================
+  // 4. LG : ÉCRANS D'ORDINATEURS / ORDINATEURS PORTABLES
+  // (À partir de 1024px)
+  // ==========================================
+  @media (min-width: 1024px) and (min-height: 501px) {
+    --title-font-size: 5rem;
+  }
+
+  // ==========================================
+  // 5. XL : GRANDS ÉCRANS DE BUREAU
+  // (À partir de 1280px)
+  // ==========================================
+  @media (min-width: 1280px) and (min-height: 501px) {
+    --title-font-size: 6rem;
+  }
+
+  // ==========================================
+  // 6. LANDSCAPE : ECRANS LARGES MAIS COURTS
+  // ==========================================
+  @media (orientation: landscape) and (max-height: 500px) {
+    --title-font-size: 2rem;
+  }
+}
+
 html {
   height: 100dvh;
 }
@@ -10,13 +59,11 @@ body {
 
 body {
   min-height: 100%;
+  font-size: 62.5%;
   display: flex;
   flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--primary-color);
+  background: var(--neutral-color);
 }
 
 * {

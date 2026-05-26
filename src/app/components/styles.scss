@@ -1,69 +1,78 @@
 // Configuration des variables
-$bg-color: #f8f9fa; // Fond clair (gris très léger) pour faire ressortir le noir
-$logo-color: #1a1a1a; // Ton noir (un noir pur #000 ou un noir adouci)
 $animation-duration: 2s;
 
+$line-length: 4296;
+
 .loader-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  background-color: $bg-color;
+  background-color: transparent;
   overflow: hidden;
 
   .loader-svg {
-    max-width: 300px;
-    height: auto;
-    animation: pulse-scale $animation-duration ease-in-out infinite;
+    color: var(--primary-color);
 
-    // Optionnel : On peut définir la couleur ici si on utilise currentColor plus bas
-    color: $logo-color;
+    &__small {
+      max-height: 2.5rem;
+      max-width: 2rem;
+    }
+
+    &__medium {
+      max-height: 7rem;
+      max-width: 5rem;
+    }
+
+    &__large {
+      max-height: 20rem;
+      max-width: 15rem;
+    }
   }
 
   .logo-path {
-    // C'est ici qu'on pilote la couleur !
-    fill: $logo-color; // Ou fill: currentColor;
-    opacity: 0.2;
-    animation: fadeInOut $animation-duration ease-in-out infinite;
+    stroke: var(--primary-color); // Utilisation de ta variable noire adoucie
+    stroke-width: 1.5;
+    fill: none;
+    stroke-linecap: round;
+
+    // Utilisation de la valeur exacte !
+    stroke-dasharray: $line-length;
+    stroke-dashoffset: $line-length;
+
+    /* Liaison avec l'animation :
+       - On utilise 'both' pour que l'état initial (caché) soit respecté pendant le delay.
+    */
+    animation: drawLine 2s ease-in-out infinite alternate both;
 
     &.path-1 {
       animation-delay: 0s;
     }
     &.path-2 {
-      animation-delay: 0.2s;
+      animation-delay: 0.3s; // Légèrement réduit pour resserrer l'enchaînement
     }
     &.path-3 {
-      animation-delay: 0.4s;
+      animation-delay: 0.6s;
     }
     &.path-4 {
-      animation-delay: 0.6s;
+      animation-delay: 0.9s;
     }
   }
 }
 
-// --- Keyframes mis à jour ---
+// --- Keyframes ---
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: $line-length; /* Totalement masqué */
+  }
+  to {
+    stroke-dashoffset: 0; /* Totalement dessiné */
+  }
+}
 
 @keyframes pulse-scale {
   0%,
   100% {
-    transform: scale(0.98);
+    transform: scale(0.96);
   }
   50% {
-    transform: scale(1.02);
-  }
-}
-
-@keyframes fadeInOut {
-  0%,
-  100% {
-    opacity: 0.2;
-    filter: drop-shadow(0 0 0px rgba(0, 0, 0, 0));
-  }
-  50% {
-    opacity: 1;
-    // Halo noir discret pour donner de la profondeur lors de l'activation
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+    transform: scale(1.04);
   }
 }
