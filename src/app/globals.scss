@@ -1,49 +1,22 @@
 :root {
+  // --- 1. Ta palette de couleurs (Top !) ---
   --neutral-color: #f8f9f1;
   --primary-color: #2d5a27;
   --secondary-color: #f8f9f1;
   --tertiary-color: #d4a373;
   --main-font-color: #1a1c18;
 
-  --title-font-size: 2rem;
+  // --- 2. Typographie fluide avec clamp() ---
+  // Syntaxe : clamp(Taille_Min, Valeur_Dynamique_Ecran, Taille_Max)
 
-  // ==========================================
-  // 2. SM : GRANDS TÉLÉPHONES / PETITES TABLETTES
-  // (À partir de 640px)
-  // ==========================================
-  @media (min-width: 640px) and (min-height: 501px) {
-    --title-font-size: 3rem;
-  }
+  --title-font-size: #{clamp(2rem, 8vw, 6rem)};
+  --body-font-size: #{clamp(1rem, 2vw, 1.125rem)};
+}
 
-  // ==========================================
-  // 3. MD : TABLETTES (iPad, etc.)
-  // (À partir de 768px)
-  // ==========================================
-  @media (min-width: 768px) and (min-height: 501px) {
-    --title-font-size: 4rem;
-  }
-
-  // ==========================================
-  // 4. LG : ÉCRANS D'ORDINATEURS / ORDINATEURS PORTABLES
-  // (À partir de 1024px)
-  // ==========================================
-  @media (min-width: 1024px) and (min-height: 501px) {
-    --title-font-size: 5rem;
-  }
-
-  // ==========================================
-  // 5. XL : GRANDS ÉCRANS DE BUREAU
-  // (À partir de 1280px)
-  // ==========================================
-  @media (min-width: 1280px) and (min-height: 501px) {
-    --title-font-size: 6rem;
-  }
-
-  // ==========================================
-  // 6. LANDSCAPE : ECRANS LARGES MAIS COURTS
-  // ==========================================
-  @media (orientation: landscape) and (max-height: 500px) {
-    --title-font-size: 2rem;
+@media (orientation: landscape) and (max-height: 500px) {
+  :root {
+    --title-font-size: 2.5rem; // On écrase la fluidité juste pour ce cas extrême
+    --h2-font-size: 1.5rem;
   }
 }
 

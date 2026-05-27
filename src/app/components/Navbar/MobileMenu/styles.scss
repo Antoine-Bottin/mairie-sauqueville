@@ -1,0 +1,55 @@
+// mobile-menu.scss
+$breakpoint-md: 768px;
+
+// PAR DÉFAUT (Mobile) : Le bouton et l'overlay sont actifs
+.navbar-mobile {
+  display: block;
+
+  .burger-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+  }
+
+  .mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 25, 15, 0.95);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+
+    &.is-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  // Logique d'accordéon pour les sous-menus mobiles
+  .mobile-submenu {
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    padding-left: 1rem;
+
+    &.is-expanded {
+      max-height: 300px;
+    }
+  }
+}
+
+// SUR GRAND ÉCRAN : On fait disparaître tout le bloc mobile (le burger et l'overlay)
+@media (min-width: $breakpoint-md) {
+  .navbar-mobile {
+    display: none;
+  }
+}

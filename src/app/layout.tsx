@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Literata } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.scss";
+import Navbar from "./components/Navbar/NavBar";
 
 const PlusJakartaSansFont = Plus_Jakarta_Sans({
   variable: "--font-jakarta-sans",
@@ -52,7 +53,10 @@ export default function RootLayout({
     >
       <SpeedInsights />
       <Analytics />
-      <body className={PlusJakartaSansFont.className}>{children}</body>
+      <body className={PlusJakartaSansFont.className}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
