@@ -1,0 +1,21 @@
+.small-card-container {
+  display: flex;
+  flex-direction: column;
+  height: 20rem;
+  border: 0.2rem solid red;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  border-radius: 1rem;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: 768px) {
+    width: 30%;
+    min-width: 30rem;
+  }
+
+  &--green {
+    border: 0.2rem solid var(--primary-color);
+  }
+}

@@ -12,7 +12,6 @@ const DesktopMenu = ({ links }: DesktopMenuProps) => {
       {links.map((link, index) => (
         <li key={index} className="desktop-menu-item">
           {link.subMenu ? (
-            // Si on a un sous-menu, on met un bouton ou un span (pas de lien direct)
             <>
               <span className="desktop-menu-link has-submenu">
                 {link.label} <span className="arrow">▾</span>
@@ -26,7 +25,6 @@ const DesktopMenu = ({ links }: DesktopMenuProps) => {
               </ul>
             </>
           ) : (
-            // Si c'est un lien simple
             <a href={link.href} className="desktop-menu-link">
               {link.label}
             </a>

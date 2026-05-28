@@ -28,7 +28,7 @@ $breakpoint-md: 768px;
       cursor: pointer;
 
       &:hover {
-        color: #a7f3d0;
+        color: var(--primary-color);
       }
     }
 

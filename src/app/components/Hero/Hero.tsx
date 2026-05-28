@@ -10,16 +10,12 @@ export default function Hero() {
 
   useEffect(() => {
     if (videoRef.current) {
-      // 2. On applique le coefficient de vitesse dès que le composant est monté
-      // 0.5 = Vitesse divisée par 2
-      // 0.75 = Vitesse idéale pour garder un mouvement naturel mais apaisant
       videoRef.current.playbackRate = 0.6;
     }
   }, []);
 
   return (
     <header className="hero-section">
-      {/* COUCHE 1 : La vidéo en arrière-plan */}
       <video
         className="hero-video"
         autoPlay
@@ -40,18 +36,19 @@ export default function Hero() {
         Votre navigateur ne supporte pas la lecture de vidéos.
       </video>
 
-      {/* COUCHE 2 : L'overlay (le filtre coloré pour le contraste) */}
       <div className="hero-overlay"></div>
 
-      {/* COUCHE 3 : Le contenu textuel */}
       <div className="hero-content">
         <h1 className="hero-title">Bien vivre ensemble à Sauqueville</h1>
         <p className="hero-subtitle">
-          Découvrez l&apos;actualité et les démarches de votre commune
+          Découvrez l&apos;actualité et les services de votre commune
         </p>
         <div className="hero-actions">
-          <Button size="large" variant="primary">
+          <Button size="medium" variant="primary">
             Actualités
+          </Button>
+          <Button size="medium" variant="secondary">
+            Nous conctacter
           </Button>
         </div>
       </div>
