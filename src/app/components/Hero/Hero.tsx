@@ -3,6 +3,7 @@
 
 import { useEffect, useRef } from "react";
 import "./styles.scss";
+import Button from "../Button/Button";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -12,7 +13,7 @@ export default function Hero() {
       // 2. On applique le coefficient de vitesse dès que le composant est monté
       // 0.5 = Vitesse divisée par 2
       // 0.75 = Vitesse idéale pour garder un mouvement naturel mais apaisant
-      videoRef.current.playbackRate = 0.4;
+      videoRef.current.playbackRate = 0.6;
     }
   }, []);
 
@@ -29,7 +30,11 @@ export default function Hero() {
         ref={videoRef}
       >
         <source
-          src="https://u4qk5gakwyzi6aiz.public.blob.vercel-storage.com/site-assets/Hero_section_video.mp4"
+          src="https://u4qk5gakwyzi6aiz.public.blob.vercel-storage.com/site-assets/Hero%20Section%20Video_reworked%20_trimmed.webm"
+          type="video/webm"
+        />
+        <source
+          src="https://u4qk5gakwyzi6aiz.public.blob.vercel-storage.com/site-assets/Hero%20Section%20Video_reworked%20_trimmed.mp4"
           type="video/mp4"
         />
         Votre navigateur ne supporte pas la lecture de vidéos.
@@ -45,12 +50,9 @@ export default function Hero() {
           Découvrez l&apos;actualité et les démarches de votre commune
         </p>
         <div className="hero-actions">
-          <a href="/demarches" className="btn btn-primary">
-            Démarches en ligne
-          </a>
-          <a href="/actualites" className="btn btn-secondary">
+          <Button size="large" variant="primary">
             Actualités
-          </a>
+          </Button>
         </div>
       </div>
     </header>
