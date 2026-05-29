@@ -1,13 +1,22 @@
 :root {
-  // --- 1. Ta palette de couleurs (Top !) ---
+  //Colors
   --neutral-color: #f8f9f1;
-  --primary-color: #2d5a27;
-  --secondary-color: #f8f9f1;
-  --tertiary-color: #d4a373;
-  --main-font-color: #1a1c18;
 
-  // --- 2. Typographie fluide avec clamp() ---
-  // Syntaxe : clamp(Taille_Min, Valeur_Dynamique_Ecran, Taille_Max)
+  --primary-color: #2d5a27;
+  --light-primary-color: #bcf0ae;
+  --dark-primary-color: #002201;
+
+  --secondary-color: #8ecae6;
+  --light-secondary-color: #bde9ff;
+  --dark-secondary-color: #001f2a;
+
+  --tertiary-color: #ffdcbd;
+  --light-tertiary-color: #ffdcbd;
+  --dark-tertiary-color: #2c1600;
+
+  --main-font-color: #2f312c;
+
+  //Fonts
 
   --title-font-size: #{clamp(2rem, 8vw, 6rem)};
   --body-font-size: #{clamp(1rem, 2vw, 1.125rem)};
@@ -15,7 +24,7 @@
 
 @media (orientation: landscape) and (max-height: 500px) {
   :root {
-    --title-font-size: 2.5rem; // On écrase la fluidité juste pour ce cas extrême
+    --title-font-size: 2.5rem;
     --h2-font-size: 1.5rem;
   }
 }

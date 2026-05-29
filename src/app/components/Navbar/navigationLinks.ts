@@ -22,6 +22,13 @@ export const navigationLinks: NavItem[] = [
       { label: "Evenements", href: "/vie-locale/evenements" },
     ],
   },
-  { label: "Sauqueville d'avant", href: "/avant" },
+  {
+    label: "Sauqueville",
+    href: "/sauqueville",
+    subMenu: [
+      { label: "D'avant", href: "/sauqueville/avant" },
+      { label: "En chiffres", href: "/sauqueville/chiffres" },
+    ],
+  },
   { label: "Contact", href: "/contact" },
 ];
