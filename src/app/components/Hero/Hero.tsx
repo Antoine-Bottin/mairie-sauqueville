@@ -1,4 +1,3 @@
-// components/Hero/Hero.tsx
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -15,9 +14,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <header className="hero-section">
+    <header className="hero">
       <video
-        className="hero-video"
+        className="hero__video"
         autoPlay
         loop
         muted
@@ -36,19 +35,19 @@ export default function Hero() {
         Votre navigateur ne supporte pas la lecture de vidéos.
       </video>
 
-      <div className="hero-overlay"></div>
+      <div className="hero__overlay"></div>
 
-      <div className="hero-content">
-        <h1 className="hero-title">Bien vivre ensemble à Sauqueville</h1>
-        <p className="hero-subtitle">
+      <div className="hero__content">
+        <h1 className="hero__title">Bien vivre ensemble à Sauqueville</h1>
+        <p className="hero__subtitle">
           Découvrez l&apos;actualité et les services de votre commune
         </p>
-        <div className="hero-actions">
+        <div className="hero__actions">
           <Button size="medium" variant="primary">
             Actualités
           </Button>
           <Button size="medium" variant="secondary">
-            Nous conctacter
+            Nous contacter
           </Button>
         </div>
       </div>
