@@ -18,7 +18,8 @@ $breakpoint-md: 768px;
 
   .desktop-menu-item {
     position: relative;
-    padding: 0.5rem 0;
+    padding-top: 0.5rem;
+    padding-bottom: 1.25rem;
 
     .desktop-menu-link {
       color: var(--primary-color);
@@ -39,21 +40,37 @@ $breakpoint-md: 768px;
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      // --- LE FIX VISUEL ---
+      // On passe sur un blanc un peu plus opaque (0.7 au lieu de 0.15) pour bloquer le blanc pur du fond de page
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px); // Un flou un poil plus prononcé
+
+      // Une bordure fine et une vraie ombre portée pour créer du contraste sur le blanc
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 30px rgba(47, 49, 44, 0.12);
+
       border-radius: 8px;
       min-width: 240px;
       padding: 0.5rem 0;
       list-style: none;
+      z-index: 150; // On garde la sécurité d'empilement
 
       li a {
         display: block;
         padding: 0.75rem 1.2rem;
-        color: white;
+
+        // --- LE FIX TEXTE ---
+        // On passe le texte dans la couleur principale de ton site (sombre) pour qu'il tranche
+        color: var(--main-font-color, #2f312c);
         text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
+
         &:hover {
-          background: rgba(255, 255, 255, 0.2);
+          // Au survol d'un lien, le fond s'assombrit légèrement
+          background: rgba(0, 0, 0, 0.05);
+          color: var(--main-font-color, #2f312c);
         }
       }
     }
