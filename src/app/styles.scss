@@ -5,27 +5,6 @@
   align-items: center;
   padding-block-end: 3rem;
 
-  &__title {
-    font-family: var(--font-literata-serif);
-    font-size: var(--title-font-size);
-    text-align: center;
-  }
-
-  &__badge {
-    font-size: 0.8rem;
-    font-weight: bold;
-    font-family: var(--font-jakarta-sans);
-    padding: 0.5rem 1rem;
-    border: 0.1rem solid #77b3cf;
-    background-color: #bde9ff;
-    border-radius: 2rem;
-    margin-top: 2rem;
-
-    opacity: 0;
-    animation: fadeInBadge 1s ease-out forwards;
-    animation-delay: 1s;
-  }
-
   &__cards {
     margin-top: 3rem;
     width: 100%;
@@ -35,16 +14,5 @@
     flex-wrap: wrap; // Les cartes passent à la ligne si pas assez de place
     justify-content: center; // Centre la dernière ligne si elle a moins de cartes
     gap: 1rem;
-  }
-}
-
-@keyframes fadeInBadge {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  from {
-    opacity: 0;
-    transform: translateY(10px);
   }
 }

@@ -56,21 +56,17 @@
       }
     }
 
-    &--large {
-      @media screen and (min-width: 640px) {
+    @media screen and (min-width: 640px) {
+      &--large {
         grid-column: span 2;
         grid-row: span 3;
       }
-    }
 
-    &--wide {
-      @media screen and (min-width: 640px) {
+      &--wide {
         grid-column: span 2;
       }
-    }
 
-    &--tall {
-      @media screen and (min-width: 640px) {
+      &--tall {
         grid-row: span 3;
       }
     }

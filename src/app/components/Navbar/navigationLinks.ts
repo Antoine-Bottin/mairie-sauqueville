@@ -26,8 +26,11 @@ export const navigationLinks: NavItem[] = [
     label: "Sauqueville",
     href: "/sauqueville",
     subMenu: [
-      { label: "D'avant", href: "/sauqueville/avant" },
-      { label: "En chiffres", href: "/sauqueville/chiffres" },
+      { label: "Sauqueville d'avant", href: "/sauqueville/avant" },
+      { label: "Sauqueville en chiffres", href: "/sauqueville/chiffres" },
+      { label: "Nos artisans", href: "/sauqueville/artisans" },
+      { label: "Nos entreprises", href: "/sauqueville/entreprises" },
+      { label: "Nos talents", href: "/sauqueville/talents" },
     ],
   },
   { label: "Contact", href: "/contact" },

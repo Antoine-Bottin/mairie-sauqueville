@@ -25,7 +25,7 @@ $breakpoint-md: 768px;
       color: var(--primary-color);
       text-decoration: none;
       font-weight: 500;
-      font-size: 1rem;
+      font-size: 1.15rem;
       cursor: pointer;
 
       &:hover {
@@ -33,28 +33,23 @@ $breakpoint-md: 768px;
       }
     }
 
-    // Ton sous-menu avec effet flouté sur la vidéo nature
     .desktop-submenu {
       display: none;
       position: absolute;
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
-
-      // --- LE FIX VISUEL ---
-      // On passe sur un blanc un peu plus opaque (0.7 au lieu de 0.15) pour bloquer le blanc pur du fond de page
       background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(16px); // Un flou un poil plus prononcé
 
-      // Une bordure fine et une vraie ombre portée pour créer du contraste sur le blanc
       border: 1px solid rgba(0, 0, 0, 0.08);
       box-shadow: 0 10px 30px rgba(47, 49, 44, 0.12);
 
       border-radius: 8px;
-      min-width: 240px;
+      min-width: 24rem;
       padding: 0.5rem 0;
       list-style: none;
-      z-index: 150; // On garde la sécurité d'empilement
+      z-index: 150;
 
       li a {
         display: block;
@@ -65,6 +60,7 @@ $breakpoint-md: 768px;
         color: var(--main-font-color, #2f312c);
         text-decoration: none;
         font-weight: 500;
+        font-size: 1rem;
         transition: all 0.2s ease;
 
         &:hover {
