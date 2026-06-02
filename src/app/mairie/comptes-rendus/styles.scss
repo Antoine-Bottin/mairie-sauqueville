@@ -1,0 +1,136 @@
+// --- VARIABLES DE DESIGN REPRISES DE TON LOGO/NAVBAR ---
+$pdf-color: #b30000; // Rouge classique pour les documents PDF
+$shadow-light: 0 4px 12px rgba(47, 49, 44, 0.04);
+$shadow-hover: 0 10px 20px rgba(47, 49, 44, 0.08);
+
+.comptes-rendus-page {
+  width: 100%;
+  max-width: 60rem;
+  margin: 6rem auto 4rem auto;
+  padding: 0 1.5rem;
+  font-family: var(--font-jakarta-sans);
+
+  &__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  &__title {
+    font-family: var(--font-literata-serif);
+    font-size: var(--title-font-size, 2.5rem);
+    color: var(--main-font-color, #2f312c);
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    font-size: 1.1rem;
+    color: rgba(47, 49, 44, 0.75);
+    line-height: 1.6;
+  }
+
+  // --- CONTENEUR DE LA LISTE ---
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; // Espace entre chaque ligne de document
+  }
+
+  // --- LIGNE DE DOCUMENT (CARD) ---
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(47, 49, 44, 0.08);
+    box-shadow: $shadow-light;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+
+    // Passage en ligne horizontale sur tablette et PC
+    @media screen and (min-width: 640px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-hover;
+      border-color: rgba(47, 49, 44, 0.15);
+
+      .bulletins-page__doc-name {
+        color: var(--primary-color, #2f312c);
+      }
+    }
+  }
+
+  // --- METADATA & BLOC TITRE ---
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+  }
+
+  // Petite icône PDF pure CSS
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba($pdf-color, 0.08);
+    color: $pdf-color;
+    border-radius: 0.5rem;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    border: 1px solid rgba($pdf-color, 0.15);
+  }
+
+  &__doc-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--main-font-color, #2f312c);
+    text-transform: capitalize; // Rend les titres propres
+    transition: color 0.2s ease;
+    line-height: 1.4;
+  }
+
+  // --- LE BOUTON DE TÉLÉCHARGEMENT ---
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; // Prend toute la largeur uniquement sur mobile
+    padding: 0.75rem 1.5rem;
+    background-color: var(--neutral-color, #f4f4f3);
+    color: var(--main-font-color, #2f312c);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid rgba(47, 49, 44, 0.04);
+
+    @media screen and (min-width: 640px) {
+      width: auto; // Reprend sa taille normale sur PC
+    }
+
+    &:hover {
+      background-color: var(--primary-color, #2f312c);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(47, 49, 44, 0.15);
+    }
+  }
+}

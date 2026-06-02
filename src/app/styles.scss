@@ -8,11 +8,11 @@
   &__cards {
     margin-top: 3rem;
     width: 100%;
-    max-width: 120rem; // ~1200px (largeur idéale pour la lecture et le confort visuel)
+    max-width: 120rem;
     padding-inline: 2rem;
     display: flex;
-    flex-wrap: wrap; // Les cartes passent à la ligne si pas assez de place
-    justify-content: center; // Centre la dernière ligne si elle a moins de cartes
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
   }
 }

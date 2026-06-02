@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.scss";
 import Navbar from "./components/Navbar/NavBar";
+import Footer from "./components/Footer/Footer";
 
 const PlusJakartaSansFont = Plus_Jakarta_Sans({
   variable: "--font-jakarta-sans",
@@ -55,7 +56,8 @@ export default function RootLayout({
       <Analytics />
       <body className={PlusJakartaSansFont.className}>
         <Navbar />
-        {children}
+        <main> {children}</main>
+        <Footer />
       </body>
     </html>
   );

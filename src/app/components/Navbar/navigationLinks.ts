@@ -11,7 +11,10 @@ export const navigationLinks: NavItem[] = [
     label: "Mairie",
     subMenu: [
       { label: "Le Conseil Municipal", href: "/mairie/conseil" },
-      { label: "Comptes-rendus", href: "/mairie/comptes-rendus" },
+      {
+        label: "Comptes-rendus du conseil municipal",
+        href: "/mairie/comptes-rendus",
+      },
     ],
   },
   {
