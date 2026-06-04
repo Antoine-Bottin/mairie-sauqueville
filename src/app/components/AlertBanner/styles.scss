@@ -1,0 +1,128 @@
+.alerte-bandeau {
+  width: 100%;
+  padding: 0.6rem 1.5rem;
+  font-family: var(--font-jakarta-sans);
+  font-size: 0.95rem;
+  z-index: 1000;
+  overflow: hidden; // Indispensable pour que rien ne dépasse de l'écran
+
+  // L'animation d'apparition globale de ton bandeau au chargement
+  animation: slideDown 0.4s ease-out forwards;
+
+  &__container {
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  // --- BLOCS FIXES (Icône à gauche, Lien à droite) ---
+  &__fixed-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap; // Empêche de revenir à la ligne
+    z-index: 2;
+  }
+
+  &__fixed-right {
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  // --- BLOC DÉFILANT (Au centre) ---
+  &__scroll-area {
+    flex: 1; // Prend tout l'espace restant entre l'icône et le lien
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    // Le dégradé qui fait "fondre" le texte à gauche et à droite !
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 5%,
+      #000 95%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 5%,
+      #000 95%,
+      transparent 100%
+    );
+  }
+
+  &__message {
+    margin: 0;
+    white-space: nowrap; // Force le texte sur une seule ligne
+    padding-left: 100%; // Fait démarrer le texte tout à droite (hors du cadre)
+
+    // 15s : C'est la vitesse. Modifie ce chiffre (plus grand = plus lent)
+    animation: marquee 15s linear infinite;
+
+    // Bonus UX : Met l'animation en pause si on passe la souris dessus pour lire
+    &:hover {
+      animation-play-state: paused;
+      cursor: default;
+    }
+  }
+
+  &__icon {
+    font-size: 1.1rem;
+  }
+
+  &__link {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: inherit;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  // --- LES COULEURS ---
+  &--info {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    border-bottom: 1px solid #bbdefb;
+  }
+  &--warning {
+    background-color: #fff3e0;
+    color: #e65100;
+    border-bottom: 1px solid #ffe0b2;
+  }
+  &--danger {
+    background-color: #ffebee;
+    color: #b71c1c;
+    border-bottom: 1px solid #ffcdd2;
+  }
+}
+
+// --- LES IMAGES CLÉS DE L'ANIMATION ---
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  // On pousse le texte vers la gauche d'exactement la taille qu'il fait
+  100% {
+    transform: translateX(-100%);
+  }
+}

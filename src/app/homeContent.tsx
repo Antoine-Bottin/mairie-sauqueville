@@ -1,4 +1,4 @@
-import { FaCalendarAlt, FaUniversity } from "react-icons/fa";
+import { FaUniversity } from "react-icons/fa";
 import { FaChartSimple, FaComputer } from "react-icons/fa6";
 
 export const smallCardContent = [
@@ -18,12 +18,6 @@ export const smallCardContent = [
       </>
     ),
     color: "green",
-  },
-  {
-    icon: <FaCalendarAlt />,
-    title: "Prochain évenement",
-    description: <>Lorem Ipsum</>,
-    color: "yellow",
   },
   {
     icon: <FaChartSimple />,

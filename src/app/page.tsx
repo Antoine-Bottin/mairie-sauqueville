@@ -6,6 +6,7 @@ import { smallCardContent } from "./homeContent";
 import { EvenementMunicipal, getEvenements } from "@/sanity/lib/queries";
 
 import "./styles.scss";
+import BandeauAlerte from "./components/AlertBanner/AlertBanner";
 
 const formatEventDate = (dateString: string) => {
   const date = new Date(dateString);
@@ -37,8 +38,6 @@ const Page = async () => {
   return (
     <div className="home-page">
       <Hero />
-
-      {/* 1. INFORMATIONS UTILES */}
       <section className="home-section">
         <h2 className="home-section__title">Informations utiles</h2>
         <div className="home-page__cards">
@@ -48,7 +47,6 @@ const Page = async () => {
         </div>
       </section>
 
-      {/* --- SÉPARATEUR --- */}
       <hr className="home-divider" />
 
       {/* 2. ÉVÉNEMENTS À VENIR */}
@@ -93,10 +91,8 @@ const Page = async () => {
         </div>
       </section>
 
-      {/* --- SÉPARATEUR --- */}
       <hr className="home-divider" />
 
-      {/* 3. FOCUS SUR */}
       <section className="home-section">
         <h2 className="home-section__title">Retour sur</h2>
         <div className="home-page__cards">

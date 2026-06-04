@@ -13,8 +13,14 @@ export interface EvenementMunicipal {
   lieu: string;
 }
 
+export interface AlerteMunicipale {
+  _id: string;
+  message: string;
+  niveau: "info" | "warning" | "danger";
+  lien?: string;
+}
+
 export async function getEvenements(): Promise<EvenementMunicipal[]> {
-  // Requête GROQ : on extrait les infos et on transforme le tableau d'images en tableau d'URL propres
   return client.fetch(`
     *[_type == "evenement"] | order(dateDebut asc) {
       _id,
@@ -27,4 +33,17 @@ export async function getEvenements(): Promise<EvenementMunicipal[]> {
       lieu
     }
   `);
+}
+
+export async function getAlerteActive(): Promise<AlerteMunicipale | null> {
+  return client.fetch(
+    `*[_type == "alerte" && isActive == true] | order(_updatedAt desc)[0] {
+      _id,
+      message,
+      niveau,
+      lien
+    }`,
+    {},
+    { cache: "no-store" },
+  );
 }
