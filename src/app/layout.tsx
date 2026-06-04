@@ -9,11 +9,15 @@ import Footer from "./components/Footer/Footer";
 const PlusJakartaSansFont = Plus_Jakarta_Sans({
   variable: "--font-jakarta-sans",
   subsets: ["latin"],
+  display: "swap",
+  style: "normal",
 });
 
 const LiterataFont = Literata({
   variable: "--font-literata-serif",
   subsets: ["latin"],
+  display: "swap",
+  style: "normal",
 });
 
 export const metadata: Metadata = {
@@ -52,9 +56,9 @@ export default function RootLayout({
       lang="fr"
       className={`${PlusJakartaSansFont.variable} ${LiterataFont.variable}`}
     >
-      <SpeedInsights />
-      <Analytics />
       <body className={PlusJakartaSansFont.className}>
+        <SpeedInsights />
+        <Analytics />
         <Navbar />
         <main> {children}</main>
         <Footer />

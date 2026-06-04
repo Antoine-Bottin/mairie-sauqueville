@@ -1,13 +1,26 @@
 // components/Button/Button.tsx
-import { ButtonHTMLAttributes, ReactNode } from "react";
-
+import { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "react";
+import Link from "next/link";
 import "./styles.scss";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type BaseProps = {
   children: ReactNode;
   variant?: "primary" | "secondary" | "tertiary" | "ghost";
   size?: "small" | "medium" | "large";
-}
+  className?: string;
+};
+
+type ButtonAsButton = BaseProps &
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    href?: never;
+  };
+
+type ButtonAsLink = BaseProps &
+  AnchorHTMLAttributes<HTMLAnchorElement> & {
+    href: string;
+  };
+
+type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const Button = ({
   children,
@@ -16,11 +29,22 @@ const Button = ({
   className = "",
   ...props
 }: ButtonProps) => {
-  // On génère dynamiquement les classes en fonction des props
   const buttonClass = `btn btn--${variant} btn--${size} ${className}`.trim();
 
+  if ("href" in props && props.href) {
+    return (
+      <Link className={buttonClass} {...props}>
+        {children}
+      </Link>
+    );
+  }
+
+  // Sinon, on retourne un bouton standard
   return (
-    <button className={buttonClass} {...props}>
+    <button
+      className={buttonClass}
+      {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
+    >
       {children}
     </button>
   );

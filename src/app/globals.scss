@@ -17,6 +17,7 @@
 
   // Fonts
   --title-font-size: #{clamp(2rem, 8vw, 6rem)};
+  --page-title-font-size: #{clamp(1.8rem, 4vw, 2.5rem)};
   --body-font-size: #{clamp(1rem, 2vw, 1.125rem)};
 }
 
@@ -27,7 +28,6 @@
   }
 }
 
-// FIXÉ : On harmonise html et body sur la même unité dynamique
 html {
   height: 100%;
 }
@@ -39,22 +39,20 @@ body {
 }
 
 body {
-  min-height: 100dvh; // FIXÉ : Assure que le body fait TOUJOURS au moins la hauteur de l'écran
+  min-height: 100dvh;
   font-size: 62.5%;
   display: flex;
-  flex-direction: column; // Active le flux vertical pour le footer
+  flex-direction: column;
   color: var(--primary-color);
   background: var(--neutral-color);
 }
 
-// --- LE FIX MAGIQUE POUR LE FOOTER ---
-// On cible le tag principal de tes pages (ou la div qui englobe ton contenu entre la nav et le footer)
 main {
-  flex: 1 0 auto; // Dit au contenu de prendre TOUT l'espace vide disponible et repousser le footer
+  flex: 1 0 auto;
 }
 
 footer {
-  flex-shrink: 0; // Garantit que le footer ne s'écrase jamais si la page est immense
+  flex-shrink: 0;
 }
 
 * {

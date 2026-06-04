@@ -1,5 +1,5 @@
+import Button from "@/app/components/Button/Button";
 import "./styles.scss";
-
 import { list } from "@vercel/blob";
 
 interface DocumentMunicipal {
@@ -14,32 +14,52 @@ const Page = async () => {
     (doc) =>
       doc.pathname !== "conseil-municipal/" && doc.pathname.endsWith(".pdf"),
   );
+
   return (
     <main className="comptes-rendus-page">
-      <h1>Comptes rendus des conseils municipaux</h1>
+      <div className="comptes-rendus-page__header">
+        <h1 className="comptes-rendus-page__title">
+          Comptes rendus des conseils municipaux
+        </h1>
+        <p className="comptes-rendus-page__subtitle">
+          Retrouvez l&apos;historique des décisions et des délibérations de la
+          commune.
+        </p>
+      </div>
 
-      <ul className="comptes-rendus-page__list">
+      <div className="comptes-rendus-page__grid">
         {cleanPdfList.map((doc: DocumentMunicipal) => {
           const cleanName = doc.pathname
-            .replace("comptes-rendus/", "")
+            .replace("conseil-municipal/", "")
             .replace(".pdf", "")
             .replaceAll("-", " ");
 
           return (
-            <li key={doc.url} className="comptes-rendus-page__item">
-              <span className="comptes-rendus-page__doc-name">{cleanName}</span>
-              <a
-                href={doc.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="comptes-rendus-page__link"
-              >
-                Ouvrir le document
-              </a>
-            </li>
+            <article key={doc.url} className="cr-card">
+              <div className="cr-card__preview" aria-hidden="true">
+                <div className="cr-card__document-skeleton">
+                  <div className="cr-card__line cr-card__line--short"></div>
+                  <div className="cr-card__line"></div>
+                  <div className="cr-card__line"></div>
+                  <div className="cr-card__badge">PDF</div>
+                </div>
+              </div>
+
+              <div className="cr-card__content">
+                <h2 className="cr-card__title">{cleanName}</h2>
+
+                <Button
+                  href={doc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ouvrir le documents
+                </Button>
+              </div>
+            </article>
           );
         })}
-      </ul>
+      </div>
     </main>
   );
 };

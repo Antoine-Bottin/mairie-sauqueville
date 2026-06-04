@@ -1,12 +1,11 @@
 // components/Button/button.scss
 
 .btn {
-  // --- 1. Styles de base (communs à tous les boutons) ---
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  border-radius: 6px; // Un arrondi léger et moderne
+  border-radius: 6px;
   border: 2px solid transparent;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -18,46 +17,40 @@
     cursor: not-allowed;
   }
 
-  // --- 2. Les 3 Tailles (Gestion des paddings et font-size) ---
   &--small {
     padding: 0.5rem 1rem;
-    font-size: 0.875rem; // ~14px
+    font-size: 0.875rem;
   }
 
   &--medium {
     padding: 0.75rem 1.5rem;
-    font-size: 1rem; // ~16px
+    font-size: 1rem;
   }
 
   &--large {
     padding: 1rem 2rem;
-    font-size: 1.125rem; // ~18px
+    font-size: 1.125rem;
   }
 
-  // --- 3. Les 4 Variants de Couleurs ---
-
-  // Variant Primary (Ton vert nature officiel)
   &--primary {
     background-color: #2d5a27;
     color: #ffffff;
 
     &:hover:not(:disabled) {
-      background-color: #22441d; // On l'assombrit légèrement au survol
+      background-color: #22441d;
     }
   }
 
-  // Variant Secondary (Couleur Lin / Grège de ton :root)
   &--secondary {
     background-color: #f8f9f1;
     color: #1a1c18;
-    border-color: #e2e4d5; // Une bordure subtile pour détacher le lin
+    border-color: #e2e4d5;
 
     &:hover:not(:disabled) {
       background-color: #ededdf;
     }
   }
 
-  // Variant Tertiary (Ocre / Terre cuite, parfait pour l'action de la Hero)
   &--tertiary {
     background-color: #d4a373;
     color: #ffffff;
@@ -67,14 +60,13 @@
     }
   }
 
-  // Variant Ghost (Transparent, très élégant à côté d'un bouton plein)
   &--ghost {
     background-color: transparent;
-    color: #2d5a27; // Écrit dans ton vert
-    border-color: #2d5a27; // Contour vert
+    color: #2d5a27;
+    border-color: #2d5a27;
 
     &:hover:not(:disabled) {
-      background-color: rgba(45, 90, 39, 0.08); // Léger voile vert au survol
+      background-color: rgba(45, 90, 39, 0.08);
     }
   }
 }
