@@ -1,3 +1,6 @@
+// ==========================================
+// 1. PAGE D'ACCUEIL GLOBALE
+// ==========================================
 .home-page {
   width: 100%;
   display: flex;
@@ -6,13 +9,224 @@
   padding-block-end: 3rem;
 
   &__cards {
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     width: 100%;
     max-width: 120rem;
-    padding-inline: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+  }
+}
+
+// ==========================================
+// 2. HARMONISATION DES TITRES DE SECTIONS
+// ==========================================
+.home-section {
+  width: 100%;
+  max-width: 120rem; // S'aligne parfaitement sur tes __cards
+  padding-inline: 2rem;
+  margin-top: 2.5rem;
+
+  &__title {
+    font-family: var(--font-jakarta-sans);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--main-font-color);
+    margin-bottom: 2.5rem;
+    text-align: left;
+  }
+}
+
+// ==========================================
+// LIGNE DE SÉPARATION ÉLÉGANTE
+// ==========================================
+.home-divider {
+  width: 80%; // Ne prend pas toute la largeur pour un effet plus raffiné
+  max-width: 100rem;
+  height: 1px;
+  border: none;
+
+  // Un dégradé qui part de transparent, devient légèrement gris/vert au centre, et redevient transparent
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--primary-color) 50%,
+    transparent 100%
+  );
+
+  // Gère l'équilibre vertical avec la section suivante
+  margin: 2.5rem auto 0 auto;
+}
+
+// ==========================================
+// 3. LE COMPOSANT CALENDRIER / AGENDA
+// ==========================================
+.home-events {
+  width: 100%;
+
+  // Conteneur en ligne (Row) aligné au début
+  &__grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2rem;
+
+    // --- LES TROIS LIGNES QUI SAUVENT LE MOBILE ---
+    width: auto; // Laisse la grille dépasser de l'écran
+    flex-wrap: nowrap; // Empêche le navigateur de tasser ou wrapper les cartes
+    overflow-x: auto; // Active le scroll horizontal obligatoirement
+
+    // Cache la scrollbar pour garder le design épuré
+    scrollbar-width: none; // Firefox
+    &::-webkit-scrollbar {
+      display: none; // Chrome/Safari
+    }
+
+    // --- SUR DESKTOP : ON REPASSE EN MODE NORMAL ---
+    @media screen and (min-width: 1024px) {
+      flex-wrap: wrap; // On réautorise le wrap si tu as plus de 3 cartes un jour
+      overflow-x: visible; // Plus besoin de scroller sur PC
+    }
+  }
+
+  &__empty {
+    font-family: var(--font-jakarta-sans);
+    font-style: italic;
+    color: rgba(47, 49, 44, 0.5);
+    text-align: left;
+    width: 100%;
+  }
+}
+
+// ==========================================
+// 4. LES CARTES DU CALENDRIER (Look Small-Card)
+// ==========================================
+.event-simple-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(47, 49, 44, 0.03);
+  border: 1px solid rgba(47, 49, 44, 0.08);
+  height: 14rem;
+  text-align: left;
+  overflow: hidden;
+  transition: all 0.25s ease-in-out;
+
+  // ==========================================
+  // 📱 CONFIGURATION PAR DÉFAUT : MOBILE FIRST
+  // ==========================================
+  // On utilise 78vw pour laisser dépasser la carte suivante (Peek Effect)
+  flex: 0 0 72vw;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(47, 49, 44, 0.07);
+  }
+
+  // ==========================================
+  // 💻 MEDIA QUERIES : ÉCRANS PLUS GRANDS
+  // ==========================================
+
+  // À partir des tablettes : taille fixe confortable pour le scroll horizontal
+  @media screen and (min-width: 600px) {
+    flex: 0 0 22rem;
+  }
+
+  // À partir des ordinateurs (Desktop)
+  @media screen and (min-width: 1024px) {
+    // 1. On passe le flex-grow à 0 pour INTERDIRE aux cartes de s'étirer
+    // 2. On passe le flex-basis à un pourcentage fixe strict (3 par ligne max)
+    flex: 0 0 calc(33.333% - 1.34rem);
+
+    // On ajoute un max-width de sécurité
+    max-width: 32rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__badge {
+    align-self: flex-start;
+    padding: 0.3rem 0.75rem;
+    border-radius: 2rem;
+    font-family: var(--font-jakarta-sans);
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__date {
+    font-family: var(--font-jakarta-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(47, 49, 44, 0.6);
+  }
+
+  &__card-title {
+    font-family: var(--font-jakarta-sans);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--main-font-color);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  &__desc {
+    font-family: var(--font-jakarta-sans);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: rgba(47, 49, 44, 0.85);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__lieu {
+    font-family: var(--font-jakarta-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(47, 49, 44, 0.5);
+    margin-top: auto; // Aimante le lieu en bas de la carte
+  }
+
+  // --- THÉMATISATION COULEURS ---
+  &--municipale {
+    border-left: 4px solid var(--primary-color);
+    .event-simple-card__badge {
+      background-color: var(--light-primary-color);
+      color: var(--dark-primary-color);
+    }
+  }
+  &--association {
+    border-left: 4px solid var(--secondary-color);
+    .event-simple-card__badge {
+      background-color: var(--light-secondary-color);
+      color: var(--dark-secondary-color);
+    }
+  }
+  &--culture {
+    border-left: 4px solid #e5a975;
+    .event-simple-card__badge {
+      background-color: var(--light-tertiary-color);
+      color: var(--dark-tertiary-color);
+    }
+  }
+  &--info {
+    border-left: 4px solid #b30000;
+    .event-simple-card__badge {
+      background-color: rgba(179, 0, 0, 0.1);
+      color: #b30000;
+    }
   }
 }
