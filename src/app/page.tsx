@@ -30,7 +30,7 @@ const Page = async () => {
   const evenements = await getEvenements();
   const firstEvents = evenements.slice(0, 3);
 
-  const response = await list({ prefix: "old-sauqueville/" });
+  const response = await list({ prefix: "evenements/fete_des_voisins_2026" });
   const photos = response.blobs.filter((blob) =>
     /\.(webp|jpg|jpeg|png)$/i.test(blob.pathname),
   );
@@ -99,7 +99,7 @@ const Page = async () => {
           <FeatureCard
             title="La Fête des voisins"
             date="29 Juin 2026"
-            description="Une bien belle soirée qui a réuni pas loin de 70 personnes dans la cour de la Mairie cette année."
+            description="Une bien belle soirée qui a réuni pas loin de 70 personnes dans la cour de la Mairie cette année. Sauqueville comme on l'aime, intergénérationel, festif et plein de bonne humeur"
             images={photos.map((photo) => photo.url)}
           />
         </div>
