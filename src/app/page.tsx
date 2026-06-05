@@ -4,9 +4,9 @@ import Hero from "./components/Hero/Hero";
 import SmallCard from "./components/SmallCard/SmallCard";
 import { smallCardContent } from "./homeContent";
 import { EvenementMunicipal, getEvenements } from "@/sanity/lib/queries";
+import CalendarCard from "./components/CalendarCard/CalendarCard";
 
 import "./styles.scss";
-import BandeauAlerte from "./components/AlertBanner/AlertBanner";
 
 const formatEventDate = (dateString: string) => {
   const date = new Date(dateString);
@@ -28,10 +28,13 @@ const formatEventDate = (dateString: string) => {
 
 const Page = async () => {
   const evenements = await getEvenements();
-  const firstEvents = evenements.slice(0, 3);
+  const firstEvents = evenements.slice(0, 4);
 
-  const response = await list({ prefix: "evenements/fete_des_voisins_2026" });
-  const photos = response.blobs.filter((blob) =>
+  const fete_des_voisins_2026 = await list({
+    prefix: "evenements/fete_des_voisins_2026",
+  });
+
+  const photos = fete_des_voisins_2026.blobs.filter((blob) =>
     /\.(webp|jpg|jpeg|png)$/i.test(blob.pathname),
   );
 
@@ -59,32 +62,12 @@ const Page = async () => {
             </p>
           ) : (
             firstEvents.map((event: EvenementMunicipal) => {
-              const dateFormatee = formatEventDate(event.dateDebut);
               return (
-                <article
+                <CalendarCard
                   key={event._id}
-                  className={`event-simple-card event-simple-card--${event.categorie}`}
-                >
-                  <div className="event-simple-card__content">
-                    <span className="event-simple-card__badge">
-                      {event.categorie}
-                    </span>
-                    <span className="event-simple-card__date">
-                      {dateFormatee}
-                    </span>
-                    <h3 className="event-simple-card__card-title">
-                      {event.title}
-                    </h3>
-                    {event.description && (
-                      <p className="event-simple-card__desc">
-                        {event.description}
-                      </p>
-                    )}
-                    <span className="event-simple-card__lieu">
-                      📍 {event.lieu}
-                    </span>
-                  </div>
-                </article>
+                  event={event}
+                  dateFormatee={formatEventDate(event.dateDebut)}
+                />
               );
             })
           )}

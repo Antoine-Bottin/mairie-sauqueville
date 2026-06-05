@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link"; // Import indispensable pour le routage interne
+import Link from "next/link";
 
 import DesktopMenu from "./DesktopMenu/DesktopMenu";
 import MobileMenu from "./MobileMenu/MobileMenu";
@@ -19,9 +19,9 @@ export default function Navbar() {
           <Image
             src="/assets/logo-mairie-black.svg"
             alt="Blason de la commune de Sauqueville"
-            width={50} // Nombre pur en Next.js (pas de string)
+            width={50}
             height={50}
-            priority // Charge le logo immédiatement (LCP optimization)
+            priority
             className="navbar__logo-img"
           />
           <span className="navbar__logo-text">Mairie de Sauqueville</span>

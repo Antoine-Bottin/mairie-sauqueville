@@ -6,6 +6,7 @@ import "./globals.scss";
 import Navbar from "./components/Navbar/NavBar";
 import Footer from "./components/Footer/Footer";
 import AlertBanner from "./components/AlertBanner/AlertBanner";
+import NavbarWrapper from "./components/NavbarWrapper/NavbarWrapper";
 
 const PlusJakartaSansFont = Plus_Jakarta_Sans({
   variable: "--font-jakarta-sans",
@@ -61,7 +62,7 @@ export default function RootLayout({
         <SpeedInsights />
         <Analytics />
         <AlertBanner />
-        <Navbar />
+        <NavbarWrapper />
         <main> {children}</main>
         <Footer />
       </body>

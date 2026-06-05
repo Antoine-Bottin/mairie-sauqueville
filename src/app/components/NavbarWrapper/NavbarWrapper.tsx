@@ -1,0 +1,14 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import Navbar from "../Navbar/NavBar";
+
+export default function NavbarWrapper() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/studio")) {
+    return null;
+  }
+
+  return <Navbar />;
+}
