@@ -1,13 +1,14 @@
 import { EvenementMunicipal } from "@/sanity/lib/queries";
 
 import "./styles.scss";
+import { formatEventDate } from "@/app/utils";
 
 interface CalendarCardProps {
   event: EvenementMunicipal;
-  dateFormatee: string;
+  date: string;
 }
 
-const CalendarCard = ({ event, dateFormatee }: CalendarCardProps) => {
+const CalendarCard = ({ event, date }: CalendarCardProps) => {
   return (
     <article
       className={`event-simple-card event-simple-card--${event.categorie}`}
@@ -15,7 +16,9 @@ const CalendarCard = ({ event, dateFormatee }: CalendarCardProps) => {
       <div className="event-simple-card__content">
         <div className="event-simple-card__header">
           <span className="event-simple-card__badge">{event.categorie}</span>
-          <span className="event-simple-card__date">{dateFormatee}</span>
+          <span className="event-simple-card__date">
+            {formatEventDate(date)}
+          </span>
         </div>
 
         <h3 className="event-simple-card__card-title">{event.title}</h3>

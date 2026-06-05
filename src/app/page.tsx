@@ -2,29 +2,11 @@ import { list } from "@vercel/blob";
 import FeatureCard from "./components/FeatureCard/FeatureCard";
 import Hero from "./components/Hero/Hero";
 import SmallCard from "./components/SmallCard/SmallCard";
-import { smallCardContent } from "./homeContent";
+import { smallCardContent } from "./data";
 import { EvenementMunicipal, getEvenements } from "@/sanity/lib/queries";
 import CalendarCard from "./components/CalendarCard/CalendarCard";
 
 import "./styles.scss";
-
-const formatEventDate = (dateString: string) => {
-  const date = new Date(dateString);
-
-  return (
-    date.toLocaleDateString("fr-FR", {
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }) +
-    " à " +
-    date.toLocaleTimeString("fr-FR", {
-      hour: "2-digit",
-      minute: "2-digit",
-    })
-  );
-};
 
 const Page = async () => {
   const evenements = await getEvenements();
@@ -66,7 +48,7 @@ const Page = async () => {
                 <CalendarCard
                   key={event._id}
                   event={event}
-                  dateFormatee={formatEventDate(event.dateDebut)}
+                  date={event.dateDebut}
                 />
               );
             })

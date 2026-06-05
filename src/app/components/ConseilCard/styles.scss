@@ -1,0 +1,40 @@
+.conseil-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.conseil-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  &__photo-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5; // Format portrait élégant
+  }
+
+  &__info {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  &__nom {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  &__poste {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+}
