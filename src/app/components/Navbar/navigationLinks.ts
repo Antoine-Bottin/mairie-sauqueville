@@ -15,6 +15,14 @@ export const navigationLinks: NavItem[] = [
         label: "Comptes-rendus du conseil municipal",
         href: "/mairie/comptes-rendus",
       },
+      {
+        label: "Documents d'urbanisme",
+        href: "/mairie/urbanisme",
+      },
+      {
+        label: "Autres documents",
+        href: "/mairie/autres-documents",
+      },
     ],
   },
   {

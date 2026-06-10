@@ -8,7 +8,9 @@ interface DocumentMunicipal {
 }
 
 const Page = async () => {
-  const { blobs } = await list({ prefix: "conseil-municipal/" });
+  const { blobs } = await list({
+    prefix: "conseil-municipal/",
+  });
 
   const cleanPdfList = blobs.filter(
     (doc) =>

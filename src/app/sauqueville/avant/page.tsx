@@ -6,7 +6,10 @@ import PhotoCard from "@/app/components/PhotoCard/PhotoCard";
 export const dynamic = "force-dynamic";
 
 const Page = async () => {
-  const response = await list({ prefix: "old-sauqueville/" });
+  const response = await list({
+    prefix: "old-sauqueville/",
+  });
+
   const photos = response.blobs.filter((blob) =>
     /\.(webp|jpg|jpeg|png)$/i.test(blob.pathname),
   );
