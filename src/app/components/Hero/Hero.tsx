@@ -46,7 +46,7 @@ export default function Hero() {
           <Button size="medium" variant="primary">
             Actualités
           </Button>
-          <Button size="medium" variant="secondary">
+          <Button size="medium" variant="secondary" href="/contact">
             Nous contacter
           </Button>
         </div>

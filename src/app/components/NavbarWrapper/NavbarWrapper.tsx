@@ -6,7 +6,7 @@ import Navbar from "../Navbar/NavBar";
 export default function NavbarWrapper() {
   const pathname = usePathname();
 
-  if (pathname.startsWith("/studio")) {
+  if (pathname.startsWith("/admin")) {
     return null;
   }
 

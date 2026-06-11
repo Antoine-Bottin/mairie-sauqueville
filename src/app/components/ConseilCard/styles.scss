@@ -37,4 +37,18 @@
     color: #666;
     margin-top: 0.5rem;
   }
+
+  &__metier {
+    font-size: 0.85rem;
+    color: var(--main-font-color);
+    margin-top: 0.5rem;
+    font-style: italic; // Le côté italique donne un aspect "détail" sympa
+  }
+
+  &__label {
+    font-weight: 600;
+    color: var(
+      --primary-color
+    ); // Utilise ton vert mairie pour le label "Métier"
+  }
 }

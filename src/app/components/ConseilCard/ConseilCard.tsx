@@ -1,15 +1,14 @@
 import { Elu } from "@/app/data";
 import Image from "next/image";
 
-import "./styles.scss";
 import { getRandomColor } from "@/app/utils";
+import "./styles.scss";
 
 interface ConseilCardProps {
   elu: Elu;
 }
 
 const ConseilCard = ({ elu }: ConseilCardProps) => {
-  // Si photoUrl est vide ou non défini, on utilise une image générique
   const imageSrc =
     elu.photoUrl ||
     "https://ui-avatars.com/api/?name=" +
@@ -28,8 +27,15 @@ const ConseilCard = ({ elu }: ConseilCardProps) => {
         />
       </div>
       <div className="conseil-card__info">
-        <h3>{elu.nom}</h3>
-        <p>{elu.poste}</p>
+        <h3 className="conseil-card__nom">{elu.nom}</h3>
+        <p className="conseil-card__poste">{elu.poste}</p>
+
+        {elu.metier && (
+          <p className="conseil-card__metier">
+            <span className="conseil-card__label">Métier : </span>
+            {elu.metier}
+          </p>
+        )}
       </div>
     </article>
   );

@@ -22,16 +22,16 @@ export interface AlerteMunicipale {
 
 export async function getEvenements(): Promise<EvenementMunicipal[]> {
   return client.fetch(`
-    *[_type == "evenement"] | order(dateDebut asc) {
-      _id,
-      title,
-      dateDebut,
-      dateFin,
-      categorie,
-      description,
-      "images": images[].asset->url,
-      lieu
-    }
+  *[_type == "evenement" && dateTime(dateDebut) >= dateTime(now()) - 60*60*24] | order(dateDebut asc) {
+    _id,
+    title,
+    dateDebut,
+    dateFin,
+    categorie,
+    description,
+    "images": images[].asset->url,
+    lieu
+}
   `);
 }
 

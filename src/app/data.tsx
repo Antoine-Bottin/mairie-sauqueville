@@ -53,7 +53,8 @@ export interface Elu {
   id: number;
   nom: string;
   poste: string;
-  photoUrl: string; // Tu peux stocker les photos dans ton dossier /public
+  metier?: string;
+  photoUrl: string;
 }
 
 export const CONSEIL_MUNICIPAL: Elu[] = [
@@ -61,66 +62,77 @@ export const CONSEIL_MUNICIPAL: Elu[] = [
     id: 1,
     nom: "Denis Grenon",
     poste: "Maire",
+    metier: "Electricien",
     photoUrl: "",
   },
   {
     id: 2,
     nom: "Nicolas Lesage",
-    poste: "1ère Adjoint",
+    poste: "1er Adjoint",
+    metier: "Agent de maitrise de la fonction territoriale",
     photoUrl: "",
   },
   {
     id: 3,
     nom: "Sandrine Lefebre",
     poste: "2nde Adjointe",
+    metier: "Agent territorial en école maternelle",
     photoUrl: "",
   },
   {
     id: 4,
-    nom: "Marie Martin",
-    poste: "1ère Adjointe",
+    nom: "Michel Lapotre",
+    poste: "3ème adjoint",
+    metier: "Retraité des PTT",
     photoUrl: "",
   },
   {
     id: 5,
-    nom: "Marie Martin",
-    poste: "Conseiller Municipale",
+    nom: "Claire Delafosse",
+    poste: "Conseillère municipale",
+    metier: "Animatrice Qualité Sécurité Environnement",
     photoUrl: "",
   },
   {
     id: 6,
-    nom: "Marie Martin",
-    poste: "Conseiller Municipale",
+    nom: "Alicia Renault",
+    poste: "Conseillère municipale",
+    metier: "Employée commerciale",
     photoUrl: "",
   },
   {
     id: 7,
-    nom: "Marie Martin",
-    poste: "Conseiller Municipale",
+    nom: "Aurélie Stalin",
+    poste: "Conseillère municipale",
+    metier: "Auxiliaire de vie à domicile",
     photoUrl: "",
   },
   {
     id: 8,
-    nom: "Marie Martin",
-    poste: "Conseiller Municipale",
+    nom: "Sandra Janvoine-Corruble",
+    poste: "Conseillère municipale",
+    metier: "Architecte DPLG",
     photoUrl: "",
   },
   {
     id: 9,
-    nom: "Marie Martin",
-    poste: "Conseiller Municipale",
+    nom: "Steven Fleury",
+    poste: "Conseiller municipal",
+    metier: "Profession intermédiaire de la santé et du travail social",
     photoUrl: "",
   },
   {
     id: 10,
-    nom: "Marie Martin",
-    poste: "Conseiller Municipale",
+    nom: "Arnaud Voisin",
+    poste: "Conseiller municipal",
+    metier: "Technicien industriel",
     photoUrl: "",
   },
   {
     id: 11,
-    nom: "Marie Martin",
-    poste: "Conseiller Municipale",
+    nom: "Antoine Bottin",
+    poste: "Conseiller municipal",
+    metier: "Product Builder / Automatisation IA / Developpeur Web",
     photoUrl: "",
   },
 ];
