@@ -82,7 +82,7 @@ export const CONSEIL_MUNICIPAL: Elu[] = [
   {
     id: 4,
     nom: "Michel Lapotre",
-    poste: "3ème adjoint",
+    poste: "3ème Adjoint",
     metier: "Retraité des PTT",
     photoUrl: "",
   },

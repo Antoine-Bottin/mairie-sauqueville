@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans, Literata } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.scss";
-import Navbar from "./components/Navbar/NavBar";
 import Footer from "./components/Footer/Footer";
 import AlertBanner from "./components/AlertBanner/AlertBanner";
 import NavbarWrapper from "./components/NavbarWrapper/NavbarWrapper";

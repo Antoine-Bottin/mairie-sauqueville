@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
-        {/* Bloc 1 : Identité de la commune */}
         <div className="footer__block footer__block--identity">
           <h3 className="footer__commune-name">Mairie de Sauqueville</h3>
           <p className="footer__address">
@@ -20,7 +19,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Bloc 2 : Horaires d'ouverture */}
         <div className="footer__block">
           <h4 className="footer__block-title">Horaires du secrétariat</h4>
           <ul className="footer__hours-list">
@@ -29,7 +27,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Bloc 3 : Liens utiles & Navigation */}
         <div className="footer__block">
           <h4 className="footer__block-title">Services en ligne</h4>
           <ul className="footer__links-list">
@@ -44,20 +41,16 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Barre tout en bas : Obligations Légales et Copyright */}
       <div className="footer__bottom">
         <div className="footer__bottom-container">
           <p className="footer__copyright">
             &copy; 2026 Mairie de Sauqueville. Tous droits réservés.
           </p>
 
-          {/* LIENS LÉGAUX OBLIGATOIRES */}
           <div className="footer__legal-links">
             <Link href="/mentions-legales">Mentions légales</Link>
-            <Link href="/politique-de-confidentialite">
-              Confidentialité (RGPD)
-            </Link>
-            <Link href="/accessibilite">Accessibilité : non conforme</Link>
+            <Link href="/confidentialite">Confidentialité (RGPD)</Link>
+            <Link href="/accessibilite">Accessibilité</Link>
             <Link href="/plan-du-site">Plan du site</Link>
           </div>
         </div>
