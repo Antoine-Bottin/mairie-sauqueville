@@ -5,12 +5,15 @@ import SmallCard from "./components/SmallCard/SmallCard";
 import { smallCardContent } from "./data";
 import { EvenementMunicipal, getEvenements } from "@/sanity/lib/queries";
 import CalendarCard from "./components/CalendarCard/CalendarCard";
+import CollecteCard from "./components/CollectCard/CollectCard";
 
 import "./styles.scss";
 
 const Page = async () => {
   const evenements = await getEvenements();
   const firstEvents = evenements.slice(0, 4);
+
+  const isOnlyOne = firstEvents.length === 1;
 
   const fete_des_voisins_2026 = await list({
     prefix: "evenements/fete_des_voisins_2026",
@@ -26,6 +29,7 @@ const Page = async () => {
       <section className="home-section">
         <h2 className="home-section__title">Informations utiles</h2>
         <div className="home-page__cards">
+          <CollecteCard />
           {smallCardContent.map((card, index) => (
             <SmallCard key={index} {...card} />
           ))}
@@ -34,9 +38,8 @@ const Page = async () => {
 
       <hr className="home-divider" />
 
-      {/* 2. ÉVÉNEMENTS À VENIR */}
       <section className="home-section">
-        <h2 className="home-section__title">Événements à venir</h2>
+        <h2 className="home-section__title">Évènements à venir</h2>
         <div className="home-events__grid">
           {firstEvents.length === 0 ? (
             <p className="home-events__empty">
@@ -46,6 +49,7 @@ const Page = async () => {
             firstEvents.map((event: EvenementMunicipal) => {
               return (
                 <CalendarCard
+                  isSingle={isOnlyOne}
                   key={event._id}
                   event={event}
                   date={event.dateDebut}

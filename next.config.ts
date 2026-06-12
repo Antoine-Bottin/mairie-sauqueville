@@ -1,4 +1,6 @@
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
@@ -9,8 +11,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "ui-avatars.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
     ],
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

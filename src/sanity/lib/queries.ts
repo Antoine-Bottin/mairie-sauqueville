@@ -9,7 +9,7 @@ export interface EvenementMunicipal {
   dateFin?: string;
   categorie: "municipale" | "association" | "culture" | "info";
   description?: string;
-  images?: string[];
+  image: string;
   lieu: string;
 }
 
@@ -29,7 +29,7 @@ export async function getEvenements(): Promise<EvenementMunicipal[]> {
     dateFin,
     categorie,
     description,
-    "images": images[].asset->url,
+    "image": image.asset->url,
     lieu
 }
   `);

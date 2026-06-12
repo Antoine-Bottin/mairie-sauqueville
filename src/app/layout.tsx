@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Literata } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import "./globals.scss";
 import Footer from "./components/Footer/Footer";
 import AlertBanner from "./components/AlertBanner/AlertBanner";
 import NavbarWrapper from "./components/NavbarWrapper/NavbarWrapper";
+
+import "./globals.scss";
 
 const PlusJakartaSansFont = Plus_Jakarta_Sans({
   variable: "--font-jakarta-sans",
@@ -58,7 +58,6 @@ export default function RootLayout({
       className={`${PlusJakartaSansFont.variable} ${LiterataFont.variable}`}
     >
       <body className={PlusJakartaSansFont.className}>
-        <SpeedInsights />
         <Analytics />
         <AlertBanner />
         <NavbarWrapper />

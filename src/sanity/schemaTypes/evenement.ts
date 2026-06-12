@@ -65,12 +65,12 @@ export const evenement = defineType({
       description: "Apparaîtra sur la carte de l'événement.",
     }),
     defineField({
-      name: "images",
-      title: "Galerie Photos (Optionnel)",
-      type: "array",
-      of: [{ type: "image", options: { hotspot: true } }],
-      description:
-        "Si tu ajoutes plusieurs photos, on pourra utiliser ta FeatureCard avec carrousel !",
+      name: "image",
+      title: "Image de couverture (optionnel)",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
     }),
     defineField({
       name: "lieu",
