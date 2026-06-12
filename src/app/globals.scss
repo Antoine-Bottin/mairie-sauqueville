@@ -1,19 +1,40 @@
 :root {
   // Colors
-  --neutral-color: #f8f9f1;
-  --primary-color: #2d5a27;
-  --light-primary-color: #bcf0ae;
-  --dark-primary-color: #002201;
+  // --neutral-color: #f8f9f1;
+  // --primary-color: #2d5a27;
+  // --light-primary-color: #bcf0ae;
+  // --dark-primary-color: #002201;
 
-  --secondary-color: #8ecae6;
-  --light-secondary-color: #bde9ff;
-  --dark-secondary-color: #001f2a;
+  // --secondary-color: #8ecae6;
+  // --light-secondary-color: #bde9ff;
+  // --dark-secondary-color: #001f2a;
 
-  --tertiary-color: #ffdcbd;
-  --light-tertiary-color: #ffdcbd;
-  --dark-tertiary-color: #2c1600;
+  // --tertiary-color: #ffdcbd;
+  // --light-tertiary-color: #ffdcbd;
+  // --dark-tertiary-color: #2c1600;
 
-  --main-font-color: #2f312c;
+  // --main-font-color: #2f312c;
+
+  /* Fond : Un crème très léger, moins "jaune" que le f8f9f1 */
+  --neutral-color: #fcfcf9;
+
+  /* Primaire : Un vert forêt profond et riche (plus mature que le 2d5a27) */
+  --primary-color: #1b4332;
+  --light-primary-color: #d8f3dc; /* Un vert menthe très doux pour les badges */
+  --dark-primary-color: #081c15; /* Presque noir, excellent pour les titres */
+
+  /* Secondaire : Un bleu "ciel d'orage" (plus élégant que le bleu layette) */
+  --secondary-color: #4a7c9d;
+  --light-secondary-color: #e0eaf1;
+  --dark-secondary-color: #1a2e3a;
+
+  /* Tertiaire : Un ocre terreux (plus naturel que le orange pêche) */
+  --tertiary-color: #d4a373;
+  --light-tertiary-color: #faedcd;
+  --dark-tertiary-color: #5a3e2b;
+
+  /* Texte : Un gris charbon très foncé pour éviter le contraste agressif du noir pur */
+  --main-font-color: #1a1a1a;
 
   // Fonts
   --title-font-size: #{clamp(3rem, 8vw, 6rem)};

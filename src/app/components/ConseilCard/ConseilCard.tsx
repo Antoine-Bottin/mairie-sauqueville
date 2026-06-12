@@ -23,6 +23,7 @@ const ConseilCard = ({ elu }: ConseilCardProps) => {
           alt={elu.nom}
           fill
           style={{ objectFit: "cover" }}
+          priority
           sizes="300px"
         />
       </div>

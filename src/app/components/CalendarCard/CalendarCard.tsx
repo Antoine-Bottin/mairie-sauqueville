@@ -23,6 +23,7 @@ const CalendarCard = ({ event, date, isSingle }: CalendarCardProps) => {
             src={event.image}
             alt={`Illustration pour ${event.title}`}
             fill
+            priority
             className="event-simple-card__image"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
