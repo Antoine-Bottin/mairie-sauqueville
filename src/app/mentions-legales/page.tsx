@@ -22,7 +22,7 @@ const Page = () => {
             Maire de Sauqueville
           </li>
           <li>
-            <strong>SIRET :</strong> [Numéro SIRET à compléter]
+            <strong>SIRET :</strong> 21760667200012
           </li>
           <li>
             <strong>Téléphone :</strong> 02 35 85 43 60
@@ -56,20 +56,19 @@ const Page = () => {
           exclusivement pour répondre à vos demandes. Aucune donnée personnelle
           n&apos;est cédée à des tiers. Vous disposez d&apos;un droit
           d&apos;accès, de rectification et de suppression des données vous
-          concernant en nous contactant à<strong>contact@sauqueville.fr</strong>
-          .
+          concernant en nous contactant à{" "}
+          <strong>contact@sauqueville.fr</strong>.
         </p>
       </section>
 
       <section className="mentions__section">
         <h2 className="mentions__subtitle">5. Cookies</h2>
         <p>
-          &quot;Le site utilise uniquement des cookies techniques nécessaires à
-          son bon fonctionnement ainsi qu&apos;un outil de mesure
-          d&apos;audience (Vercel Analytics) configuré pour respecter la vie
-          privée des utilisateurs conformément aux recommandations de la CNIL.
-          Aucune donnée personnelle n&apos;est utilisée à des fins
-          publicitaires.
+          Le site utilise uniquement des cookies techniques nécessaires à son
+          bon fonctionnement ainsi qu&apos;un outil de mesure d&apos;audience
+          (Vercel Analytics) configuré pour respecter la vie privée des
+          utilisateurs conformément aux recommandations de la CNIL. Aucune
+          donnée personnelle n&apos;est utilisée à des fins publicitaires.
         </p>
       </section>
       <section className="mentions__section">
@@ -77,7 +76,7 @@ const Page = () => {
         <p>
           Ce site est une réalisation de <strong>BOTTIN Antoine</strong>. Pour
           toute demande de développement web ou d&apos;automatisation, retrouvez
-          mes services sur
+          mes services sur{" "}
           <a
             href="https://www.portfolio.abottin.dev/"
             target="_blank"
