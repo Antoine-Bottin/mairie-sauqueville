@@ -1,6 +1,7 @@
-import "./styles.scss";
 import { list } from "@vercel/blob";
 import PdfCard from "@/app/components/PdfCard/PdfCard";
+
+import "./styles.scss";
 
 interface DocumentMunicipal {
   url: string;
@@ -9,34 +10,31 @@ interface DocumentMunicipal {
 
 const Page = async () => {
   const { blobs } = await list({
-    prefix: "conseil-municipal/",
+    prefix: "autres-documents/",
   });
 
   const cleanPdfList = blobs.filter(
     (doc) =>
-      doc.pathname !== "conseil-municipal/" && doc.pathname.endsWith(".pdf"),
+      doc.pathname !== "autres-documents/" && doc.pathname.endsWith(".pdf"),
   );
 
   return (
-    <main className="comptes-rendus-page">
-      <div className="comptes-rendus-page__header">
-        <h1 className="comptes-rendus-page__title">
-          Comptes rendus des conseils municipaux
-        </h1>
-        <p className="comptes-rendus-page__subtitle">
-          Retrouvez l&apos;historique des décisions et des délibérations de la
-          commune.
+    <main className="autres-documents-page">
+      <div className="autres-documents-page__header">
+        <h1 className="autres-documents-page__title">Autres documents</h1>
+        <p className="autres-documents-page__subtitle">
+          Retrouvez ici des documents utiles.
         </p>
       </div>
 
-      <div className="comptes-rendus-page__grid">
+      <div className="autres-documents-page__grid">
         {cleanPdfList.map((doc: DocumentMunicipal) => {
           return (
             <PdfCard
               key={doc.url}
               url={doc.url}
               pathname={doc.pathname}
-              blobSlug="conseil-municipal/"
+              blobSlug="autres-documents/"
             />
           );
         })}

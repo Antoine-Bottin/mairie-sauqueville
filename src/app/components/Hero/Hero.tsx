@@ -21,7 +21,7 @@ export default function Hero() {
         loop
         muted
         playsInline
-        preload="auto"
+        preload="none"
         ref={videoRef}
       >
         <source
