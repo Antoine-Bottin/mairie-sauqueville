@@ -25,11 +25,11 @@ export default function Hero() {
         ref={videoRef}
       >
         <source
-          src="https://u4qk5gakwyzi6aiz.public.blob.vercel-storage.com/site-assets/Hero%20Section%20Video_reworked%20_trimmed.webm"
+          src="https://u4qk5gakwyzi6aiz.public.blob.vercel-storage.com/site-assets/Hero%20Section%20Video%20Reworked%20%20Trimmed.webm"
           type="video/webm"
         />
         <source
-          src="https://u4qk5gakwyzi6aiz.public.blob.vercel-storage.com/site-assets/Hero%20Section%20Video_reworked%20_trimmed.mp4"
+          src="https://u4qk5gakwyzi6aiz.public.blob.vercel-storage.com/site-assets/Hero%20Section%20Video%20Reworked%20%20Trimmed.mp4"
           type="video/mp4"
         />
         Votre navigateur ne supporte pas la lecture de vidéos.
