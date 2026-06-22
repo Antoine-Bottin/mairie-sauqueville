@@ -41,7 +41,7 @@
   }
 
   &__title {
-    font-size: var(--title-font-size);
+    font-size: #{clamp(2.5rem, 7dvh, 6rem)};
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 1.5rem;

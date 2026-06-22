@@ -1,12 +1,9 @@
-// desktop-menu.scss
 $breakpoint-md: 768px;
 
-// PAR DÉFAUT (Mobile) : Le menu desktop est totalement désactivé
 .desktop-menu-list {
   display: none;
 }
 
-// SUR GRAND ÉCRAN : On l'active et on gère le style horizontal + dropdown
 @media (min-width: $breakpoint-md) {
   .desktop-menu-list {
     display: flex;
@@ -40,10 +37,10 @@ $breakpoint-md: 768px;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(16px); // Un flou un poil plus prononcé
+      backdrop-filter: blur(16px);
 
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      box-shadow: 0 10px 30px rgba(47, 49, 44, 0.12);
+      border: 1px solid rgba(var(--main-font-color-rgb), 0.08);
+      box-shadow: 0 10px 30px rgba(var(--main-font-color-rgb), 0.12);
 
       border-radius: 8px;
       min-width: 24rem;
@@ -54,24 +51,19 @@ $breakpoint-md: 768px;
       li a {
         display: block;
         padding: 0.75rem 1.2rem;
-
-        // --- LE FIX TEXTE ---
-        // On passe le texte dans la couleur principale de ton site (sombre) pour qu'il tranche
-        color: var(--main-font-color, #2f312c);
+        color: var(--main-font-color);
         text-decoration: none;
         font-weight: 500;
         font-size: 1rem;
         transition: all 0.2s ease;
 
         &:hover {
-          // Au survol d'un lien, le fond s'assombrit légèrement
-          background: rgba(0, 0, 0, 0.05);
-          color: var(--main-font-color, #2f312c);
+          background: rgba(var(--main-font-color-rgb), 0.05);
+          color: var(--main-font-color);
         }
       }
     }
 
-    // Affichage au survol
     &:hover {
       .desktop-submenu {
         display: block;

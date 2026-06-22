@@ -13,13 +13,13 @@
 
   &__title {
     font-size: var(--page-title-font-size);
-    color: var(--main-font-color, #2f312c);
+    color: var(--main-font-color);
     margin-bottom: 0.5rem;
   }
 
   &__subtitle {
     font-size: 1rem;
-    color: rgba(47, 49, 44, 0.7);
+    color: rgba(var(--main-font-color-rgb), 0.7);
   }
 
   &__grid {

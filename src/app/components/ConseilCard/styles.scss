@@ -6,10 +6,10 @@
 }
 
 .conseil-card {
-  background: white;
+  background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgba(var(--main-font-color-rgb), 0.05);
   transition: transform 0.3s ease;
 
   &:hover {
@@ -19,7 +19,7 @@
   &__photo-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 4/5; // Format portrait élégant
+    aspect-ratio: 4/5;
   }
 
   &__info {
@@ -34,7 +34,7 @@
 
   &__poste {
     font-size: 0.9rem;
-    color: #666;
+    color: rgba(var(--main-font-color-rgb), 0.6);
     margin-top: 0.5rem;
   }
 
@@ -42,13 +42,11 @@
     font-size: 0.85rem;
     color: var(--main-font-color);
     margin-top: 0.5rem;
-    font-style: italic; // Le côté italique donne un aspect "détail" sympa
+    font-style: italic;
   }
 
   &__label {
     font-weight: 600;
-    color: var(
-      --primary-color
-    ); // Utilise ton vert mairie pour le label "Métier"
+    color: var(--primary-color);
   }
 }

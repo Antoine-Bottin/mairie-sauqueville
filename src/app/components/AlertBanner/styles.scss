@@ -4,9 +4,8 @@
   font-family: var(--font-jakarta-sans);
   font-size: 0.95rem;
   z-index: 1000;
-  overflow: hidden; // Indispensable pour que rien ne dépasse de l'écran
+  overflow: hidden;
 
-  // L'animation d'apparition globale de ton bandeau au chargement
   animation: slideDown 0.4s ease-out forwards;
 
   &__container {
@@ -17,12 +16,11 @@
     gap: 1rem;
   }
 
-  // --- BLOCS FIXES (Icône à gauche, Lien à droite) ---
   &__fixed-left {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    white-space: nowrap; // Empêche de revenir à la ligne
+    white-space: nowrap;
     z-index: 2;
   }
 
@@ -31,9 +29,8 @@
     z-index: 2;
   }
 
-  // --- BLOC DÉFILANT (Au centre) ---
   &__scroll-area {
-    flex: 1; // Prend tout l'espace restant entre l'icône et le lien
+    flex: 1;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -58,13 +55,11 @@
 
   &__message {
     margin: 0;
-    white-space: nowrap; // Force le texte sur une seule ligne
-    padding-left: 100%; // Fait démarrer le texte tout à droite (hors du cadre)
+    white-space: nowrap;
+    padding-left: 100%; // Démarre le texte hors du cadre, à droite
 
-    // 15s : C'est la vitesse. Modifie ce chiffre (plus grand = plus lent)
-    animation: marquee 15s linear infinite;
+    animation: marquee 15s linear infinite; // Modifier la durée pour ajuster la vitesse
 
-    // Bonus UX : Met l'animation en pause si on passe la souris dessus pour lire
     &:hover {
       animation-play-state: paused;
       cursor: default;
@@ -87,7 +82,6 @@
     }
   }
 
-  // --- LES COULEURS ---
   &--info {
     background-color: #e3f2fd;
     color: #0d47a1;
@@ -105,7 +99,6 @@
   }
 }
 
-// --- LES IMAGES CLÉS DE L'ANIMATION ---
 @keyframes slideDown {
   from {
     transform: translateY(-100%);
@@ -121,7 +114,6 @@
   0% {
     transform: translateX(0);
   }
-  // On pousse le texte vers la gauche d'exactement la taille qu'il fait
   100% {
     transform: translateX(-100%);
   }

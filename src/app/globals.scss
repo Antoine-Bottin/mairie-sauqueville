@@ -1,20 +1,4 @@
 :root {
-  // Colors
-  // --neutral-color: #f8f9f1;
-  // --primary-color: #2d5a27;
-  // --light-primary-color: #bcf0ae;
-  // --dark-primary-color: #002201;
-
-  // --secondary-color: #8ecae6;
-  // --light-secondary-color: #bde9ff;
-  // --dark-secondary-color: #001f2a;
-
-  // --tertiary-color: #ffdcbd;
-  // --light-tertiary-color: #ffdcbd;
-  // --dark-tertiary-color: #2c1600;
-
-  // --main-font-color: #2f312c;
-
   /* Fond : Un crème très léger, moins "jaune" que le f8f9f1 */
   --neutral-color: #fcfcf9;
 
@@ -35,6 +19,16 @@
 
   /* Texte : Un gris charbon très foncé pour éviter le contraste agressif du noir pur */
   --main-font-color: #1a1a1a;
+
+  /* Urgent / Infos pratiques : repris à l'identique sur les cartes événements et documents */
+  --danger-color: #b30000;
+
+  // Canaux RGB séparés pour permettre des rgba() à opacité variable
+  --main-font-color-rgb: 26, 26, 26;
+  --primary-color-rgb: 27, 67, 50;
+  --dark-primary-color-rgb: 8, 28, 21;
+  --neutral-color-rgb: 252, 252, 249;
+  --danger-color-rgb: 179, 0, 0;
 
   // Fonts
   --title-font-size: #{clamp(3rem, 8vw, 6rem)};

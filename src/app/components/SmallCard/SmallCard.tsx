@@ -1,4 +1,3 @@
-// components/SmallCard/SmallCard.tsx
 import { ReactNode } from "react";
 import "./styles.scss";
 

@@ -1,7 +1,5 @@
-// mobile-menu.scss
 $breakpoint-md: 768px;
 
-// PAR DÉFAUT (Mobile) : Le bouton et l'overlay sont actifs
 .navbar-mobile {
   display: block;
 
@@ -21,7 +19,7 @@ $breakpoint-md: 768px;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(10, 25, 15, 0.95);
+    background: rgba(var(--dark-primary-color-rgb), 0.95);
     backdrop-filter: blur(10px);
     opacity: 0;
     pointer-events: none;
@@ -36,7 +34,7 @@ $breakpoint-md: 768px;
     list-style: none;
     padding: 5rem 2rem;
     width: 100%;
-    max-width: 400px; // Évite que le menu soit trop large sur tablette
+    max-width: 400px;
     margin: 0 auto;
   }
 
@@ -64,7 +62,7 @@ $breakpoint-md: 768px;
     cursor: pointer;
 
     &.submenu-active {
-      color: #a7f3d0; // Vert menthe quand le sous-menu est déplié
+      color: var(--light-primary-color);
     }
 
     .chevron {
@@ -73,14 +71,13 @@ $breakpoint-md: 768px;
     }
   }
 
-  // --- ANIMATION DE L'ACCORDÉON ---
   .mobile-submenu {
     list-style: none;
-    padding-left: 1rem; // Décale les sous-menus pour la hiérarchie visuelle
+    padding-left: 1rem;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 
-    // Astuce pour l'animation fluide de repli/dépli
+    // max-height (et non height: auto, non transitionnable) pour animer le repli/dépli
     max-height: 0;
     overflow: hidden;
     transition:
@@ -89,9 +86,8 @@ $breakpoint-md: 768px;
     padding-top: 0;
     padding-bottom: 0;
 
-    // Quand le sous-menu est actif
     &.is-expanded {
-      max-height: 300px; // Une hauteur max supérieure à ton contenu réel
+      max-height: 300px; // Marge au-dessus de la hauteur réelle du contenu
       padding-top: 0.5rem;
       padding-bottom: 1rem;
     }
@@ -109,10 +105,8 @@ $breakpoint-md: 768px;
       }
     }
   }
-  // Logique d'accordéon pour les sous-menus mobiles
 }
 
-// SUR GRAND ÉCRAN : On fait disparaître tout le bloc mobile (le burger et l'overlay)
 @media (min-width: $breakpoint-md) {
   .navbar-mobile {
     display: none;

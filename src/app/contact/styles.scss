@@ -1,9 +1,8 @@
-// Block: .contact-grid
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem; // Espacement plus aéré
+  gap: 2.5rem;
   padding: 2.5rem;
-  max-width: 1300px; // Légèrement plus large pour 3 cartes
+  max-width: 1300px;
   margin: 0 auto;
 }

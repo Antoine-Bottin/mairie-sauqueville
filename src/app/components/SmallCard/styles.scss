@@ -1,37 +1,34 @@
 .small-card {
   display: flex;
-  flex-direction: row; // Disposition horizontale
-  align-items: flex-start; // Aligne l'icône et le texte par le haut
-  gap: 2rem; // Espace entre l'icône et le texte
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
 
-  height: 14rem; // On peut réduire la hauteur car le texte s'étale mieux en largeur !
+  height: 14rem;
   padding: 2rem;
   border-radius: 1.25rem;
   background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(47, 49, 44, 0.03);
-  border: 1px solid rgba(47, 49, 44, 0.08);
+  box-shadow: 0 4px 12px rgba(var(--main-font-color-rgb), 0.03);
+  border: 1px solid rgba(var(--main-font-color-rgb), 0.08);
   width: 100%;
   text-align: left;
 
   transition: all 0.25s ease-in-out;
 
   @media screen and (min-width: 768px) {
-    flex: 1 1 26rem; // Légèrement plus large pour donner de l'air au texte
+    flex: 1 1 26rem;
     max-width: 32rem;
   }
 
-  // --- TON EFFET DE MOUVEMENT PRÉFÉRÉ ---
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(47, 49, 44, 0.07);
+    box-shadow: 0 12px 24px rgba(var(--main-font-color-rgb), 0.07);
   }
-
-  // --- STRUCTURE DES COLONNES ---
 
   &__left {
     display: flex;
     justify-content: center;
-    flex-shrink: 0; // Empêche l'icône de se déformer ou de rétrécir
+    flex-shrink: 0;
   }
 
   &__right {
@@ -67,7 +64,7 @@
     font-family: var(--font-jakarta-sans);
     font-size: 0.95rem;
     line-height: 1.5;
-    color: rgba(47, 49, 44, 0.85);
+    color: rgba(var(--main-font-color-rgb), 0.85);
     margin: 0;
 
     ul {
@@ -104,9 +101,9 @@
   }
 
   &--yellow {
-    border-left: 4px solid #e5a975;
+    border-left: 4px solid var(--tertiary-color);
     &:hover {
-      border-color: #e5a975;
+      border-color: var(--tertiary-color);
     }
     .small-card__icon-wrapper {
       background-color: var(--light-tertiary-color);

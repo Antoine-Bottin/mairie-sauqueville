@@ -1,11 +1,10 @@
 .event-simple-card {
-  // 1. Nettoyage des doublons
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
   border-radius: 1.25rem;
-  box-shadow: 0 4px 12px rgba(47, 49, 44, 0.03);
-  border: 1px solid rgba(47, 49, 44, 0.08);
+  box-shadow: 0 4px 12px rgba(var(--main-font-color-rgb), 0.03);
+  border: 1px solid rgba(var(--main-font-color-rgb), 0.08);
   text-align: left;
   overflow: hidden;
   transition: all 0.25s ease-in-out;
@@ -28,15 +27,14 @@
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(47, 49, 44, 0.07);
+    box-shadow: 0 12px 24px rgba(var(--main-font-color-rgb), 0.07);
   }
 
-  // --- LE CONTENEUR IMAGE ---
   &__image-wrapper {
     position: relative;
     width: 100%;
-    min-height: 200px; // min-height empêche l'écrasement
-    flex-shrink: 0; // ORDRE À FLEXBOX : "Ne compresse jamais cette div"
+    min-height: 200px;
+    flex-shrink: 0;
   }
 
   &__image {
@@ -44,23 +42,20 @@
     object-position: center;
   }
 
-  // --- LE CONTENEUR TEXTE ---
+  // Padding sur __content (pas sur la carte) pour que l'image touche les bords
   &__content {
-    // 3. Le padding vient ICI !
-    // Ainsi l'image touche bien les bords en haut, et le texte respire en bas.
     padding: 1.3rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     width: 100%;
-    flex: 1; // Pousse le contenu pour remplir la carte
+    flex: 1;
 
     @media screen and (min-width: 600px) {
       padding: 2rem;
     }
   }
 
-  // --- LE RESTE DE TON CODE (Inchangé car il était parfait) ---
   &__header {
     display: flex;
     align-items: center;
@@ -83,7 +78,7 @@
     font-family: var(--font-jakarta-sans);
     font-size: 0.85rem;
     font-weight: 600;
-    color: rgba(47, 49, 44, 0.6);
+    color: rgba(var(--main-font-color-rgb), 0.6);
   }
 
   &__card-title {
@@ -99,7 +94,7 @@
     font-family: var(--font-jakarta-sans);
     font-size: 0.95rem;
     line-height: 1.4;
-    color: rgba(47, 49, 44, 0.85);
+    color: rgba(var(--main-font-color-rgb), 0.85);
     margin: 0;
     display: -webkit-box;
     line-clamp: 2;
@@ -112,7 +107,7 @@
     font-family: var(--font-jakarta-sans);
     font-size: 0.85rem;
     font-weight: 600;
-    color: rgba(47, 49, 44, 0.5);
+    color: rgba(var(--main-font-color-rgb), 0.5);
     margin-top: auto;
   }
 
@@ -133,7 +128,7 @@
   }
 
   &--culture {
-    border-left: 4px solid #e5a975;
+    border-left: 4px solid var(--tertiary-color);
     .event-simple-card__badge {
       background-color: var(--light-tertiary-color);
       color: var(--dark-tertiary-color);
@@ -141,10 +136,10 @@
   }
 
   &--info {
-    border-left: 4px solid #b30000;
+    border-left: 4px solid var(--danger-color);
     .event-simple-card__badge {
-      background-color: rgba(179, 0, 0, 0.1);
-      color: #b30000;
+      background-color: rgba(var(--danger-color-rgb), 0.1);
+      color: var(--danger-color);
     }
   }
 }

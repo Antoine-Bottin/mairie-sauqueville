@@ -1,4 +1,3 @@
-// app/sauqueville/avant/page.tsx
 import { list } from "@vercel/blob";
 import "./styles.scss";
 import PhotoCard from "@/app/components/PhotoCard/PhotoCard";

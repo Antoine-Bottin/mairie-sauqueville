@@ -6,14 +6,14 @@
   padding: 2rem;
   border-radius: 1.25rem;
   background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(47, 49, 44, 0.03);
-  border: 1px solid rgba(47, 49, 44, 0.08);
+  box-shadow: 0 4px 12px rgba(var(--main-font-color-rgb), 0.03);
+  border: 1px solid rgba(var(--main-font-color-rgb), 0.08);
   width: 100%;
   transition: all 0.25s ease-in-out;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(47, 49, 44, 0.07);
+    box-shadow: 0 12px 24px rgba(var(--main-font-color-rgb), 0.07);
   }
 
   @media screen and (min-width: 1024px) {
@@ -35,8 +35,8 @@
 
   &__date {
     align-self: flex-start;
-    background-color: var(--light-primary-color, rgba(45, 90, 39, 0.1));
-    color: var(--primary-color, #2d5a27);
+    background-color: var(--light-primary-color);
+    color: var(--primary-color);
     padding: 0.4rem 0.85rem;
     border-radius: 2rem;
     font-family: var(--font-jakarta-sans);
@@ -60,7 +60,7 @@
     font-family: var(--font-jakarta-sans);
     font-size: 1rem;
     line-height: 1.6;
-    color: rgba(47, 49, 44, 0.85);
+    color: rgba(var(--main-font-color-rgb), 0.85);
     margin: 0;
   }
 
@@ -124,7 +124,7 @@
     height: 2.5rem;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(47, 49, 44, 0.1);
+    border: 1px solid rgba(var(--main-font-color-rgb), 0.1);
     color: var(--main-font-color);
     display: flex;
     align-items: center;

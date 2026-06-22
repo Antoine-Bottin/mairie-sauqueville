@@ -1,6 +1,5 @@
 "use client";
 
-// MobileMenu.tsx
 import { useState } from "react";
 import { NavItem } from "../navigationLinks";
 

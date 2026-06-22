@@ -1,4 +1,3 @@
-// components/Button/Button.tsx
 import { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "react";
 import Link from "next/link";
 import "./styles.scss";
@@ -39,7 +38,6 @@ const Button = ({
     );
   }
 
-  // Sinon, on retourne un bouton standard
   return (
     <button
       className={buttonClass}
