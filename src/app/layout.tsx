@@ -25,7 +25,6 @@ export const metadata: Metadata = {
   title: "Mairie de Sauqueville",
   description: "Site internet de la mairie de Sauqueville",
   creator: "Antoine Bottin",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
   keywords: [
     "Mairie",
     "Sauqueville",
@@ -41,7 +40,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mairie de Sauqueville ",
     description: `Site internet de la mairie de Sauqueville`,
-    images: [{ url: "/assets/logo-mairie-black.svg" }],
+    images: [
+      {
+        url: "/assets/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Blason de la commune de Sauqueville",
+      },
+    ],
     type: "website",
     url: "https://www.sauqueville.fr",
   },
