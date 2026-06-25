@@ -1,0 +1,135 @@
+.alerte-bandeau {
+  width: 100%;
+  padding: 0.6rem 1.5rem;
+  font-family: var(--font-jakarta-sans);
+  font-size: 0.95rem;
+  z-index: 1000;
+  overflow: hidden;
+
+  animation: slideDown 0.4s ease-out forwards;
+
+  &__container {
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__fixed-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  &__fixed-right {
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  &__scroll-area {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    // Le dégradé qui fait "fondre" le texte à gauche et à droite !
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 5%,
+      #000 95%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 5%,
+      #000 95%,
+      transparent 100%
+    );
+
+    // Le coupe-circuit global figerait le texte hors-champ (fin du marquee) :
+    // on désactive aussi le masque pour garder le message entièrement lisible
+    @media (prefers-reduced-motion: reduce) {
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  }
+
+  &__message {
+    margin: 0;
+    white-space: nowrap;
+    padding-left: 100%; // Démarre le texte hors du cadre, à droite
+
+    animation: marquee 15s linear infinite; // Modifier la durée pour ajuster la vitesse
+
+    &:hover {
+      animation-play-state: paused;
+      cursor: default;
+    }
+
+    // Sans cette règle, le coupe-circuit global ferait sauter le texte
+    // jusqu'à l'état final de l'animation (translateX(-100%) = hors écran)
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      padding-left: 0;
+      white-space: normal;
+    }
+  }
+
+  &__icon {
+    font-size: 1.1rem;
+  }
+
+  &__link {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: inherit;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &--info {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    border-bottom: 1px solid #bbdefb;
+  }
+  &--warning {
+    background-color: #fff3e0;
+    color: #e65100;
+    border-bottom: 1px solid #ffe0b2;
+  }
+  &--danger {
+    background-color: #ffebee;
+    color: #b71c1c;
+    border-bottom: 1px solid #ffcdd2;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

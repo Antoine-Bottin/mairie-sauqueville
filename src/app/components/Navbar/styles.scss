@@ -1,0 +1,43 @@
+.navbar {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(var(--main-font-color-rgb), 0.08);
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    max-width: 120rem;
+    margin: 0 auto;
+  }
+
+  &__logo-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--main-font-color);
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  &__logo-img {
+    object-fit: contain;
+  }
+
+  &__logo-text {
+    font-family: var(--font-jakarta-sans);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,119 @@
+.gallery-page {
+  width: 100%;
+  max-width: 120rem;
+  margin: 6rem auto 4rem auto;
+  padding: 0 1.5rem;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  &__title {
+    font-family: var(--font-jakarta-sans);
+    font-size: var(--page-title-font-size);
+    color: var(--main-font-color);
+    margin-bottom: 1rem;
+  }
+
+  &__empty {
+    text-align: center;
+    font-family: var(--font-jakarta-sans);
+    color: rgba(var(--main-font-color-rgb), 0.5);
+    margin-top: 4rem;
+  }
+
+  &__masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-auto-rows: 12rem;
+    gap: 1.5rem;
+    grid-auto-flow: dense;
+  }
+
+  &__card {
+    // __card est un <button> : on neutralise l'apparence native
+    width: 100%;
+    padding: 0;
+    font: inherit;
+    text-align: inherit;
+    appearance: none;
+
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(var(--main-font-color-rgb), 0.03);
+    border: 1px solid rgba(var(--main-font-color-rgb), 0.06);
+    transition:
+      transform 0.25s ease-in-out,
+      box-shadow 0.25s ease-in-out;
+    cursor: pointer;
+
+    grid-row: span 2;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(var(--main-font-color-rgb), 0.08);
+
+      .gallery-page__img {
+        transform: scale(1.02);
+      }
+    }
+
+    @media screen and (min-width: 640px) {
+      &--large {
+        grid-column: span 2;
+        grid-row: span 3;
+      }
+
+      &--wide {
+        grid-column: span 2;
+      }
+
+      &--tall {
+        grid-row: span 3;
+      }
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+    background-color: var(--neutral-color);
+  }
+
+  &__img {
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &__meta {
+    padding: 1rem 1.25rem;
+    background-color: #ffffff;
+    border-top: 1px solid rgba(var(--main-font-color-rgb), 0.04);
+    flex-shrink: 0;
+  }
+
+  &__caption {
+    font-family: var(--font-jakarta-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--main-font-color);
+    text-transform: capitalize;
+  }
+}
+
+@keyframes fadeInPhoto {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,52 @@
+.conseil-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.conseil-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(var(--main-font-color-rgb), 0.05);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  &__photo-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+  }
+
+  &__info {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  &__nom {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  &__poste {
+    font-size: 0.9rem;
+    color: rgba(var(--main-font-color-rgb), 0.6);
+    margin-top: 0.5rem;
+  }
+
+  &__metier {
+    font-size: 0.85rem;
+    color: var(--main-font-color);
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+
+  &__label {
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+}

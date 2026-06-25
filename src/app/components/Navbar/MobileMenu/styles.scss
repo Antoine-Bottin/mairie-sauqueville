@@ -1,0 +1,114 @@
+$breakpoint-md: 768px;
+
+.navbar-mobile {
+  display: block;
+
+  .burger-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+  }
+
+  .mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(var(--dark-primary-color-rgb), 0.95);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+
+    &.is-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+  .mobile-menu-list {
+    list-style: none;
+    padding: 5rem 2rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .mobile-menu-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .mobile-menu-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.2rem 0;
+    color: white;
+    font-size: 1.3rem;
+    text-decoration: none;
+    text-align: left;
+    font-weight: 500;
+    cursor: pointer;
+
+    &.submenu-active {
+      color: var(--light-primary-color);
+    }
+
+    .chevron {
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+  }
+
+  .mobile-submenu {
+    list-style: none;
+    padding-left: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    // max-height (et non height: auto, non transitionnable) pour animer le repli/dépli
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease-in-out,
+      padding 0.3s ease-in-out;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &.is-expanded {
+      max-height: 300px; // Marge au-dessus de la hauteur réelle du contenu
+      padding-top: 0.5rem;
+      padding-bottom: 1rem;
+    }
+
+    li a {
+      display: block;
+      padding: 0.75rem 0;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 1.1rem;
+
+      &:hover,
+      &:active {
+        color: white;
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .navbar-mobile {
+    display: none;
+  }
+}

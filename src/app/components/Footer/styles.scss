@@ -1,0 +1,127 @@
+.footer {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--neutral-color);
+  padding-top: 4rem;
+  font-family: var(--font-jakarta-sans);
+
+  &__container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media screen and (min-width: 768px) {
+      flex: 1;
+    }
+
+    &--identity {
+      @media screen and (min-width: 768px) {
+        flex: 1.5;
+      }
+    }
+  }
+
+  &__commune-name {
+    font-family: var(--font-literata-serif);
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
+  &__block-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(var(--neutral-color-rgb), 0.6);
+  }
+
+  &__address,
+  &__contact-info,
+  &__hours-list {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(var(--neutral-color-rgb), 0.85);
+    margin: 0;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    li a {
+      color: rgba(var(--neutral-color-rgb), 0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(var(--neutral-color-rgb), 0.1);
+    padding: 1.5rem 0;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+
+  &__bottom-container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: rgba(var(--neutral-color-rgb), 0.6);
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__copyright {
+    margin: 0;
+  }
+
+  &__legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+
+    a {
+      color: rgba(var(--neutral-color-rgb), 0.6);
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}

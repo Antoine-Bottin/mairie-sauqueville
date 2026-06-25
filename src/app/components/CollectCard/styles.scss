@@ -1,0 +1,19 @@
+.bac {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  &--gris {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+  }
+
+  &--jaune {
+    background-color: #fef08a;
+    color: #854d0e;
+    border: 1px solid #fde047;
+  }
+}

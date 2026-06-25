@@ -1,0 +1,71 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &--small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  &--medium {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  &--large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+
+  &--primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      filter: brightness(0.88);
+    }
+  }
+
+  &--secondary {
+    background-color: var(--neutral-color);
+    color: var(--main-font-color);
+    border-color: rgba(var(--main-font-color-rgb), 0.12);
+
+    &:hover:not(:disabled) {
+      filter: brightness(0.97);
+    }
+  }
+
+  &--tertiary {
+    background-color: var(--tertiary-color);
+    // Texte blanc sur cet ocre clair ≈ 2,3:1 (échec WCAG AA) ; le texte sombre monte à ≈ 7,7:1
+    color: var(--main-font-color);
+
+    &:hover:not(:disabled) {
+      filter: brightness(0.9);
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+
+    &:hover:not(:disabled) {
+      background-color: rgba(var(--primary-color-rgb), 0.08);
+    }
+  }
+}
