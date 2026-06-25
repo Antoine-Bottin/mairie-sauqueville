@@ -33,10 +33,11 @@ export default function PhotoCard({
 
   return (
     <>
-      <div
+      <button
+        type="button"
         className={wrapperClass}
         onClick={openModal}
-        style={{ cursor: "pointer" }}
+        aria-label={`Agrandir la photo : ${cleanTitle}`}
       >
         {customWrapperClass ? (
           <Image
@@ -65,7 +66,7 @@ export default function PhotoCard({
             <span className="gallery-page__caption">{cleanTitle}</span>
           </div>
         )}
-      </div>
+      </button>
 
       <dialog
         ref={dialogRef}

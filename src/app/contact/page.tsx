@@ -7,27 +7,36 @@ import "./styles.scss";
 
 const Page = () => {
   return (
-    <section className="contact-grid">
-      <ContactCard
-        href="mailto:contact@sauqueville.fr"
-        title="Par E-mail"
-        content="contact@sauqueville.fr"
-        icon={<MdAlternateEmail />}
-      />
+    <div className="contact-page">
+      <div className="contact-page__header">
+        <h1 className="contact-page__title">Contactez-nous</h1>
+        <p className="contact-page__subtitle">
+          Plusieurs moyens pour joindre la Mairie de Sauqueville.
+        </p>
+      </div>
 
-      <ContactCard
-        href="tel:+332XXXXXXXX"
-        title="Par Téléphone"
-        content="02 35 85 43 60"
-        icon={<FaPhone />}
-      />
+      <section className="contact-grid">
+        <ContactCard
+          href="mailto:contact@sauqueville.fr"
+          title="Par E-mail"
+          content="contact@sauqueville.fr"
+          icon={<MdAlternateEmail />}
+        />
 
-      <ContactCard
-        title="Accueil physique"
-        content="267, rue de la Mairie 76550 Sauqueville, aux heures d'ouverture de la Mairie"
-        icon={<FaMapMarkerAlt />}
-      />
-    </section>
+        <ContactCard
+          href="tel:+332XXXXXXXX"
+          title="Par Téléphone"
+          content="02 35 85 43 60"
+          icon={<FaPhone />}
+        />
+
+        <ContactCard
+          title="Accueil physique"
+          content="267, rue de la Mairie 76550 Sauqueville, aux heures d'ouverture de la Mairie"
+          icon={<FaMapMarkerAlt />}
+        />
+      </section>
+    </div>
   );
 };
 

@@ -19,7 +19,7 @@ const Page = async () => {
   );
 
   return (
-    <main className="autres-documents-page">
+    <div className="autres-documents-page">
       <div className="autres-documents-page__header">
         <h1 className="autres-documents-page__title">Autres documents</h1>
         <p className="autres-documents-page__subtitle">
@@ -39,7 +39,7 @@ const Page = async () => {
           );
         })}
       </div>
-    </main>
+    </div>
   );
 };
 

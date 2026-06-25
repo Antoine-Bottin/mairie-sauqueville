@@ -34,16 +34,21 @@ export default function MobileMenu({ links }: MobileMenuProps) {
         className={`burger-btn ${isOpen ? "is-active" : ""}`}
         onClick={() => (isOpen ? closeAll() : setIsOpen(true))}
         aria-label="Menu de navigation"
+        aria-expanded={isOpen}
       >
         {isOpen ? "✕" : "☰"}
       </button>
 
       {/* Overlay plein écran */}
-      <div className={`mobile-overlay ${isOpen ? "is-open" : ""}`}>
+      <div
+        className={`mobile-overlay ${isOpen ? "is-open" : ""}`}
+        inert={!isOpen}
+      >
         <ul className="mobile-menu-list">
           {links.map((link, index) => {
             const hasSubMenu = !!link.subMenu;
             const isSubMenuOpen = activeSubMenu === index;
+            const submenuId = `mobile-submenu-${index}`;
 
             return (
               <li key={index} className="mobile-menu-item">
@@ -53,15 +58,18 @@ export default function MobileMenu({ links }: MobileMenuProps) {
                     <button
                       className={`mobile-menu-link has-submenu ${isSubMenuOpen ? "submenu-active" : ""}`}
                       onClick={() => toggleSubMenu(index)}
+                      aria-expanded={isSubMenuOpen}
+                      aria-controls={submenuId}
                     >
                       {link.label}
-                      <span className="chevron">
+                      <span className="chevron" aria-hidden="true">
                         {isSubMenuOpen ? "▴" : "▾"}
                       </span>
                     </button>
 
                     {/* Liste imbriquée du sous-menu */}
                     <ul
+                      id={submenuId}
                       className={`mobile-submenu ${isSubMenuOpen ? "is-expanded" : ""}`}
                     >
                       {link.subMenu!.map((subItem, subIndex) => (

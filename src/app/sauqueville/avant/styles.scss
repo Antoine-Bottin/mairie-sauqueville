@@ -32,6 +32,13 @@
   }
 
   &__card {
+    // __card est un <button> : on neutralise l'apparence native
+    width: 100%;
+    padding: 0;
+    font: inherit;
+    text-align: inherit;
+    appearance: none;
+
     display: flex;
     flex-direction: column;
     background-color: #ffffff;

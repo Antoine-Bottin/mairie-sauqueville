@@ -14,7 +14,7 @@ const Page = async () => {
   );
 
   return (
-    <main className="gallery-page">
+    <div className="gallery-page">
       <header className="gallery-page__header">
         <h1 className="gallery-page__title">Sauqueville avant</h1>
       </header>
@@ -45,7 +45,7 @@ const Page = async () => {
           })}
         </div>
       )}
-    </main>
+    </div>
   );
 };
 export default Page;

@@ -30,7 +30,8 @@ const PdfCard = (doc: DocumentMunicipal) => {
         <h2 className="cr-card__title">{cleanName}</h2>
 
         <Button href={doc.url} target="_blank" rel="noopener noreferrer">
-          Ouvrir le documents
+          Ouvrir le document
+          <span className="sr-only"> (ouverture dans un nouvel onglet)</span>
         </Button>
       </div>
     </article>

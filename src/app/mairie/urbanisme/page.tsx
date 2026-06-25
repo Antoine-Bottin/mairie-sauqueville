@@ -18,7 +18,7 @@ const Page = async () => {
   );
 
   return (
-    <main className="urbanisme-page">
+    <div className="urbanisme-page">
       <div className="urbanisme-page__header">
         <h1 className="urbanisme-page__title">Documents d&apos;urbanisme</h1>
         <p className="urbanisme-page__subtitle">
@@ -38,7 +38,7 @@ const Page = async () => {
           );
         })}
       </div>
-    </main>
+    </div>
   );
 };
 

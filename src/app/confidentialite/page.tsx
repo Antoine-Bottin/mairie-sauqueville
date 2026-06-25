@@ -2,7 +2,7 @@ import "./styles.scss";
 
 const Page = () => {
   return (
-    <main className="politique">
+    <div className="politique">
       <header className="politique__header">
         <h1>Politique de confidentialité</h1>
       </header>
@@ -54,7 +54,7 @@ const Page = () => {
           garantir la sécurité et la confidentialité de vos échanges.
         </p>
       </section>
-    </main>
+    </div>
   );
 };
 

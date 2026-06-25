@@ -51,6 +51,13 @@
       #000 95%,
       transparent 100%
     );
+
+    // Le coupe-circuit global figerait le texte hors-champ (fin du marquee) :
+    // on désactive aussi le masque pour garder le message entièrement lisible
+    @media (prefers-reduced-motion: reduce) {
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
   }
 
   &__message {
@@ -63,6 +70,14 @@
     &:hover {
       animation-play-state: paused;
       cursor: default;
+    }
+
+    // Sans cette règle, le coupe-circuit global ferait sauter le texte
+    // jusqu'à l'état final de l'animation (translateX(-100%) = hors écran)
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      padding-left: 0;
+      white-space: normal;
     }
   }
 
