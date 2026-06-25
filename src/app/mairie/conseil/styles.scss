@@ -1,0 +1,22 @@
+.conseil-page {
+  width: 100%;
+  max-width: 75rem;
+  margin: 6rem auto 4rem auto;
+  padding: 0 1.5rem;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  &__title {
+    font-size: var(--page-title-font-size);
+    color: var(--main-font-color);
+    margin-bottom: 0.5rem;
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    color: rgba(var(--main-font-color-rgb), 0.7);
+  }
+}

@@ -2,7 +2,7 @@ import "./styles.scss";
 
 const Page = () => {
   return (
-    <main className="mentions">
+    <div className="mentions">
       <header className="mentions__header">
         <h1>Mentions Légales</h1>
       </header>
@@ -83,11 +83,12 @@ const Page = () => {
             rel="noopener noreferrer"
           >
             mon portfolio en ligne
+            <span className="sr-only"> (nouvel onglet)</span>
           </a>
           .
         </p>
       </section>
-    </main>
+    </div>
   );
 };
 

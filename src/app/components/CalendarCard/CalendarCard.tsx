@@ -42,7 +42,11 @@ const CalendarCard = ({ event, date, isSingle }: CalendarCardProps) => {
         {event.description && (
           <p className="event-simple-card__desc">{event.description}</p>
         )}
-        <span className="event-simple-card__lieu">📍 {event.lieu}</span>
+        <span className="event-simple-card__lieu">
+          <span aria-hidden="true">📍</span>{" "}
+          <span className="sr-only">Lieu : </span>
+          {event.lieu}
+        </span>
       </div>
     </article>
   );

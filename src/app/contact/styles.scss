@@ -1,3 +1,19 @@
+.contact-page__header {
+  text-align: center;
+  margin: 6rem 1.5rem 0;
+}
+
+.contact-page__title {
+  font-size: var(--page-title-font-size);
+  color: var(--main-font-color);
+  margin-bottom: 0.5rem;
+}
+
+.contact-page__subtitle {
+  font-size: 1rem;
+  color: rgba(var(--main-font-color-rgb), 0.7);
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

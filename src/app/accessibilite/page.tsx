@@ -2,7 +2,7 @@ import "./styles.scss";
 
 const Page = () => {
   return (
-    <main className="accessibilite">
+    <div className="accessibilite">
       <header className="accessibilite__header">
         <h1>Accessibilité du site</h1>
       </header>
@@ -51,7 +51,7 @@ const Page = () => {
           E-mail : <strong>contact@sauqueville.fr</strong>
         </p>
       </section>
-    </main>
+    </div>
   );
 };
 export default Page;

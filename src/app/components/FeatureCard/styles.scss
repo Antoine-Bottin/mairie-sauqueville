@@ -92,6 +92,14 @@
   }
 
   &__image-wrapper {
+    // __image-wrapper est un <button> ici : on neutralise l'apparence native
+    padding: 0;
+    border: none;
+    font: inherit;
+    text-align: inherit;
+    appearance: none;
+    cursor: pointer;
+
     position: relative;
     flex: 0 0 85%;
     height: 250px;

@@ -8,7 +8,17 @@ export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
+    if (!videoRef.current) return;
+
+    // Une media query CSS ne peut pas arrêter un <video autoPlay> :
+    // on respecte la préférence "Réduire les animations" en JS
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (prefersReducedMotion) {
+      videoRef.current.pause();
+    } else {
       videoRef.current.playbackRate = 0.6;
     }
   }, []);
@@ -43,7 +53,12 @@ export default function Hero() {
           Découvrez l&apos;actualité et les services de votre commune
         </p>
         <div className="hero__actions">
-          <Button size="medium" variant="primary">
+          <Button
+            size="medium"
+            variant="primary"
+            disabled
+            title="Bientôt disponible"
+          >
             Actualités
           </Button>
           <Button size="medium" variant="secondary" href="/contact">

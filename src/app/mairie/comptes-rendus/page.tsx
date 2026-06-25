@@ -18,7 +18,7 @@ const Page = async () => {
   );
 
   return (
-    <main className="comptes-rendus-page">
+    <div className="comptes-rendus-page">
       <div className="comptes-rendus-page__header">
         <h1 className="comptes-rendus-page__title">
           Comptes rendus des conseils municipaux
@@ -41,7 +41,7 @@ const Page = async () => {
           );
         })}
       </div>
-    </main>
+    </div>
   );
 };
 
