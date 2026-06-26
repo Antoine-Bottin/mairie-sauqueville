@@ -97,8 +97,8 @@
     color: rgba(var(--main-font-color-rgb), 0.85);
     margin: 0;
     display: -webkit-box;
-    line-clamp: 2;
-    -webkit-line-clamp: 2;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }

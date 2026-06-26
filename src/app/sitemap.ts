@@ -29,19 +29,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/mairie/comptes-rendus`,
+      url: `${baseUrl}/documents/comptes-rendus`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/mairie/urbanisme`,
+      url: `${baseUrl}/documents/urbanisme`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/mairie/autres-documents`,
+      url: `${baseUrl}/documents/sivos`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/documents/autres-documents`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,
