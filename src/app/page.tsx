@@ -1,9 +1,14 @@
-import { list } from "@vercel/blob";
 import FeatureCard from "./components/FeatureCard/FeatureCard";
 import Hero from "./components/Hero/Hero";
 import SmallCard from "./components/SmallCard/SmallCard";
 import { smallCardContent } from "./data";
-import { EvenementMunicipal, getEvenements } from "@/sanity/lib/queries";
+import {
+  EvenementMunicipal,
+  getEvenements,
+  getRetoursSur,
+  RetourSur,
+} from "@/sanity/lib/queries";
+import { formatSimpleDate } from "./utils";
 import CalendarCard from "./components/CalendarCard/CalendarCard";
 import CollecteCard from "./components/CollectCard/CollectCard";
 
@@ -15,13 +20,7 @@ const Page = async () => {
 
   const isOnlyOne = firstEvents.length === 1;
 
-  const fete_des_voisins_2026 = await list({
-    prefix: "evenements/fete_des_voisins_2026",
-  });
-
-  const photos = fete_des_voisins_2026.blobs.filter((blob) =>
-    /\.(webp|jpg|jpeg|png)$/i.test(blob.pathname),
-  );
+  const retoursSur = await getRetoursSur();
 
   return (
     <div className="home-page">
@@ -64,13 +63,22 @@ const Page = async () => {
 
       <section className="home-section">
         <h2 className="home-section__title">Retour sur</h2>
-        <div className="home-page__cards">
-          <FeatureCard
-            title="La Fête des voisins"
-            date="29 Juin 2026"
-            description="Une bien belle soirée qui a réuni pas loin de 70 personnes dans la cour de la Mairie cette année. Sauqueville comme on l'aime, intergénérationel, festif et plein de bonne humeur"
-            images={photos.map((photo) => photo.url)}
-          />
+        <div className="home-page__retours">
+          {retoursSur.length === 0 ? (
+            <p className="home-events__empty">
+              Aucun retour sur les événements passés pour le moment.
+            </p>
+          ) : (
+            retoursSur.map((retour: RetourSur) => (
+              <FeatureCard
+                key={retour._id}
+                title={retour.title}
+                date={formatSimpleDate(retour.dateDebut)}
+                description={retour.description || ""}
+                images={retour.images}
+              />
+            ))
+          )}
         </div>
       </section>
     </div>

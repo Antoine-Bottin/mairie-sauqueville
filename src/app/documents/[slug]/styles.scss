@@ -1,4 +1,4 @@
-.comptes-rendus-page {
+.documents-page {
   width: 100%;
   max-width: 75rem;
   margin: 6rem auto 4rem auto;
@@ -26,5 +26,13 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
+  }
+
+  &__empty {
+    font-family: var(--font-jakarta-sans);
+    font-style: italic;
+    color: rgba(var(--main-font-color-rgb), 0.5);
+    text-align: center;
+    grid-column: 1 / -1;
   }
 }

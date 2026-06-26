@@ -13,6 +13,14 @@ export interface EvenementMunicipal {
   lieu: string;
 }
 
+export interface RetourSur {
+  _id: string;
+  title: string;
+  dateDebut: string;
+  description?: string;
+  images: string[];
+}
+
 export interface AlerteMunicipale {
   _id: string;
   message: string;
@@ -31,6 +39,18 @@ export async function getEvenements(): Promise<EvenementMunicipal[]> {
     description,
     "image": image.asset->url,
     lieu
+}
+  `);
+}
+
+export async function getRetoursSur(): Promise<RetourSur[]> {
+  return client.fetch(`
+  *[_type == "evenement" && dateTime(dateDebut) < dateTime(now()) && defined(galerie)] | order(dateDebut desc) [0...4] {
+    _id,
+    title,
+    dateDebut,
+    description,
+    "images": galerie[].asset->url
 }
   `);
 }

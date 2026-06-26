@@ -78,6 +78,14 @@ export const evenement = defineType({
       type: "string",
       initialValue: "Sauqueville",
     }),
+    defineField({
+      name: "galerie",
+      title: "Galerie photo (Retour sur l'événement)",
+      description:
+        'Ajoutez des photos une fois l\'événement passé pour qu\'il apparaisse dans la section "Retour sur" de la page d\'accueil.',
+      type: "array",
+      of: [{ type: "image", options: { hotspot: true } }],
+    }),
   ],
   preview: {
     select: {
