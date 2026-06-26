@@ -16,6 +16,13 @@ export const formatEventDate = (dateString: string) => {
   );
 };
 
+export const formatSimpleDate = (dateString: string) =>
+  new Date(dateString).toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
 export const getRandomColor = () =>
   Math.floor(Math.random() * 16777215)
     .toString(16)

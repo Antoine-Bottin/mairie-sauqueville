@@ -10,27 +10,34 @@ export const navigationLinks: NavItem[] = [
     label: "Mairie",
     subMenu: [
       { label: "Le Conseil Municipal", href: "/mairie/conseil" },
+      { label: "Présentation de la commune", href: "/mairie/commune" },
+    ],
+  },
+  {
+    label: "Documents",
+    subMenu: [
       {
         label: "Comptes-rendus du conseil municipal",
-        href: "/mairie/comptes-rendus",
+        href: "/documents/comptes-rendus",
       },
       {
         label: "Documents d'urbanisme",
-        href: "/mairie/urbanisme",
+        href: "/documents/urbanisme",
+      },
+      {
+        label: "Documents du SIVOS",
+        href: "/documents/sivos",
       },
       {
         label: "Autres documents",
-        href: "/mairie/autres-documents",
+        href: "/documents/autres-documents",
       },
     ],
   },
   {
     label: "Vie locale",
     href: "/vie-locale",
-    subMenu: [
-      { label: "Associations", href: "/vie-locale/associations" },
-      { label: "Evenements", href: "/vie-locale/evenements" },
-    ],
+    subMenu: [{ label: "ASLS", href: "/vie-locale/asls" }],
   },
   {
     label: "Sauqueville",
