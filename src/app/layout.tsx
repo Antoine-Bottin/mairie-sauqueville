@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Literata } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import Footer from "./components/Footer/Footer";
+import FooterWrapper from "./components/FooterWrapper/FooterWrapper";
+import AlertBannerWrapper from "./components/AlertBannerWrapper/AlertBannerWrapper";
 import AlertBanner from "./components/AlertBanner/AlertBanner";
 import NavbarWrapper from "./components/NavbarWrapper/NavbarWrapper";
 
@@ -65,10 +66,12 @@ export default function RootLayout({
     >
       <body className={PlusJakartaSansFont.className}>
         <Analytics />
-        <AlertBanner />
+        <AlertBannerWrapper>
+          <AlertBanner />
+        </AlertBannerWrapper>
         <NavbarWrapper />
         <main> {children}</main>
-        <Footer />
+        <FooterWrapper />
       </body>
     </html>
   );
