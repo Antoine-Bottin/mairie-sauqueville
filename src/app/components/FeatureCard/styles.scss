@@ -89,6 +89,14 @@
     }
     -ms-overflow-style: none;
     scrollbar-width: none;
+
+    &--single {
+      justify-content: center;
+
+      .feature-card__image-wrapper {
+        flex: 0 0 100%;
+      }
+    }
   }
 
   &__image-wrapper {
