@@ -37,7 +37,10 @@ const FeatureCard = ({
       </div>
 
       <div className="feature-card__gallery-wrapper">
-        <div className="feature-card__gallery" ref={carouselRef}>
+        <div
+          className={`feature-card__gallery${images.length === 1 ? " feature-card__gallery--single" : ""}`}
+          ref={carouselRef}
+        >
           {images.map((src, index) => (
             <PhotoCard
               key={index}
