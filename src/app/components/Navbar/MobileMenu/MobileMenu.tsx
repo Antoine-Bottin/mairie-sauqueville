@@ -9,7 +9,7 @@ interface MobileMenuProps {
   links: NavItem[];
 }
 
-export default function MobileMenu({ links }: MobileMenuProps) {
+const MobileMenu = ({ links }: MobileMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   // Stocke l'index du sous-menu ouvert, ou null si tout est fermé
   const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
@@ -98,4 +98,6 @@ export default function MobileMenu({ links }: MobileMenuProps) {
       </div>
     </div>
   );
-}
+};
+
+export default MobileMenu;

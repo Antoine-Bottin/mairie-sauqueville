@@ -1,0 +1,116 @@
+.chiffres-page {
+  width: 100%;
+  max-width: 90rem;
+  margin: 6rem auto 4rem auto;
+  padding: 0 1.5rem;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  &__title {
+    font-family: var(--font-jakarta-sans);
+    font-size: var(--page-title-font-size);
+    color: var(--main-font-color);
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    font-family: var(--font-jakarta-sans);
+    font-size: 1.1rem;
+    color: rgba(var(--main-font-color-rgb), 0.7);
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+}
+
+.chiffres-page__row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem;
+
+  @media screen and (min-width: 900px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 3rem;
+
+    .chiffres-section {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.chiffres-section {
+  margin-bottom: 4rem;
+
+  &__title {
+    font-family: var(--font-jakarta-sans);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--light-primary-color);
+  }
+
+  &__intro {
+    font-family: var(--font-jakarta-sans);
+    font-size: 1.05rem;
+    color: rgba(var(--main-font-color-rgb), 0.7);
+    margin-bottom: 1.5rem;
+  }
+
+  &__content {
+    &--groups {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    &--compare {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+
+      @media screen and (min-width: 700px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    &--split {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: flex-start;
+
+      @media screen and (min-width: 900px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        > * {
+          flex: 1;
+        }
+      }
+    }
+
+    &--pyramid {
+      width: 100%;
+      margin-top: 2.5rem;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed rgba(var(--main-font-color-rgb), 0.12);
+
+    &:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+  }
+}

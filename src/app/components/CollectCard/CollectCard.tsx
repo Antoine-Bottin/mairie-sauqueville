@@ -3,7 +3,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { getNextCollection } from "@/app/utils";
 import "./styles.scss";
 
-export default function CollectCard() {
+const CollectCard = () => {
   const today = new Date();
   const nextCollection = getNextCollection(today);
 
@@ -57,4 +57,6 @@ export default function CollectCard() {
       </div>
     </div>
   );
-}
+};
+
+export default CollectCard;

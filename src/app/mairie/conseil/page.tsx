@@ -3,7 +3,7 @@ import { CONSEIL_MUNICIPAL } from "@/app/data";
 
 import "./styles.scss";
 
-export default function PageConseil() {
+const PageConseil = () => {
   return (
     <div className="conseil-page">
       <div className="conseil-page__header">
@@ -21,4 +21,6 @@ export default function PageConseil() {
       </section>
     </div>
   );
-}
+};
+
+export default PageConseil;

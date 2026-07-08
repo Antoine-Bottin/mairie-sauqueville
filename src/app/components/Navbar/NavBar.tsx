@@ -7,7 +7,7 @@ import { navigationLinks } from "./navigationLinks";
 
 import "./styles.scss";
 
-export default function Navbar() {
+const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar__container">
@@ -32,4 +32,6 @@ export default function Navbar() {
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
