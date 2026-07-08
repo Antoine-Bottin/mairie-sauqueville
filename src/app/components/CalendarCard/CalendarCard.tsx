@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { EvenementMunicipal } from "@/sanity/lib/queries";
 import { formatEventDate } from "@/app/utils";
+import PhotoCard from "../PhotoCard/PhotoCard";
 
 import "./styles.scss";
 
@@ -18,16 +18,13 @@ const CalendarCard = ({ event, date, isSingle }: CalendarCardProps) => {
       }`}
     >
       {event.image && (
-        <div className="event-simple-card__image-wrapper">
-          <Image
-            src={event.image}
-            alt={`Illustration pour ${event.title}`}
-            fill
-            priority
-            className="event-simple-card__image"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        </div>
+        <PhotoCard
+          url={event.image}
+          cleanTitle={event.title}
+          customWrapperClass="event-simple-card__image-wrapper"
+          customImageClass="event-simple-card__image"
+          hideCaption={true}
+        />
       )}
 
       <div className="event-simple-card__content">
