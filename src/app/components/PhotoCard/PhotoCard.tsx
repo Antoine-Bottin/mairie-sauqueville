@@ -15,14 +15,14 @@ interface PhotoCardProps {
   hideCaption?: boolean;
 }
 
-export default function PhotoCard({
+const PhotoCard = ({
   url,
   cleanTitle,
   sizeClass = "",
   customWrapperClass,
   customImageClass,
   hideCaption = false,
-}: PhotoCardProps) {
+}: PhotoCardProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const openModal = () => dialogRef.current?.showModal();
@@ -93,4 +93,6 @@ export default function PhotoCard({
       </dialog>
     </>
   );
-}
+};
+
+export default PhotoCard;

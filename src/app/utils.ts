@@ -106,7 +106,7 @@ const getCollectionType = (date: Date): CollecteType => {
 };
 
 // Fonction utilitaire pour la Card : Trouve la prochaine collecte à venir
-export function getNextCollection(fromDate: Date = new Date()) {
+export const getNextCollection = (fromDate: Date = new Date()) => {
   const checkDate = new Date(fromDate);
   checkDate.setHours(0, 0, 0, 0);
 
@@ -122,4 +122,4 @@ export function getNextCollection(fromDate: Date = new Date()) {
     checkDate.setDate(checkDate.getDate() + 1);
   }
   return null;
-}
+};

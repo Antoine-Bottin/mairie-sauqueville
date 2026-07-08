@@ -28,7 +28,7 @@ export interface AlerteMunicipale {
   lien?: string;
 }
 
-export async function getEvenements(): Promise<EvenementMunicipal[]> {
+export const getEvenements = async (): Promise<EvenementMunicipal[]> => {
   return client.fetch(`
   *[_type == "evenement" && dateTime(dateDebut) >= dateTime(now()) - 60*60*24] | order(dateDebut asc) {
     _id,
@@ -41,9 +41,9 @@ export async function getEvenements(): Promise<EvenementMunicipal[]> {
     lieu
 }
   `);
-}
+};
 
-export async function getRetoursSur(): Promise<RetourSur[]> {
+export const getRetoursSur = async (): Promise<RetourSur[]> => {
   return client.fetch(`
   *[_type == "evenement" && dateTime(dateDebut) < dateTime(now()) && defined(galerie)] | order(dateDebut desc) [0...4] {
     _id,
@@ -53,9 +53,9 @@ export async function getRetoursSur(): Promise<RetourSur[]> {
     "images": galerie[].asset->url
 }
   `);
-}
+};
 
-export async function getAlerteActive(): Promise<AlerteMunicipale | null> {
+export const getAlerteActive = async (): Promise<AlerteMunicipale | null> => {
   return client.fetch(
     `*[_type == "alerte" && isActive == true] | order(_updatedAt desc)[0] {
       _id,
@@ -66,4 +66,4 @@ export async function getAlerteActive(): Promise<AlerteMunicipale | null> {
     {},
     { cache: "no-store" },
   );
-}
+};

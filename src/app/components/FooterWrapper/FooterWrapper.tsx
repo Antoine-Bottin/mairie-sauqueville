@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import Footer from "../Footer/Footer";
 
-export default function FooterWrapper() {
+const FooterWrapper = () => {
   const pathname = usePathname();
 
   if (pathname.startsWith("/admin")) {
@@ -11,4 +11,6 @@ export default function FooterWrapper() {
   }
 
   return <Footer />;
-}
+};
+
+export default FooterWrapper;

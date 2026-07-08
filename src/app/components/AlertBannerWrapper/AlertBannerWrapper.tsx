@@ -2,11 +2,11 @@
 
 import { usePathname } from "next/navigation";
 
-export default function AlertBannerWrapper({
+const AlertBannerWrapper = ({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}) => {
   const pathname = usePathname();
 
   if (pathname.startsWith("/admin")) {
@@ -14,4 +14,6 @@ export default function AlertBannerWrapper({
   }
 
   return <>{children}</>;
-}
+};
+
+export default AlertBannerWrapper;

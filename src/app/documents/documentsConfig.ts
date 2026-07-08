@@ -33,6 +33,6 @@ export const documentCategories: DocumentCategory[] = [
   },
 ];
 
-export function getDocumentCategory(slug: string) {
+export const getDocumentCategory = (slug: string) => {
   return documentCategories.find((category) => category.slug === slug);
-}
+};

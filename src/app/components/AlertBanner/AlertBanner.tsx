@@ -7,7 +7,7 @@ const NIVEAU_LABELS: Record<string, string> = {
   danger: "Urgent",
 };
 
-export default async function BandeauAlerte() {
+const BandeauAlerte = async () => {
   const alerte = await getAlerteActive();
 
   if (!alerte) return null;
@@ -43,4 +43,6 @@ export default async function BandeauAlerte() {
       </div>
     </div>
   );
-}
+};
+
+export default BandeauAlerte;

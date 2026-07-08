@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import "./styles.scss";
 import Button from "../Button/Button";
 
-export default function Hero() {
+const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -68,4 +68,6 @@ export default function Hero() {
       </div>
     </header>
   );
-}
+};
+
+export default Hero;
