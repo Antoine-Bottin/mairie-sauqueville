@@ -1,0 +1,57 @@
+.population-chart {
+  width: 100%;
+  max-width: 60rem;
+
+  &__svg {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  &__axis {
+    stroke: rgba(var(--main-font-color-rgb), 0.15);
+    stroke-width: 1;
+  }
+
+  &__line {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+
+  &__point {
+    fill: var(--primary-color);
+    transition: r 0.15s ease-in-out;
+  }
+
+  &__hit-area {
+    fill: transparent;
+    cursor: pointer;
+  }
+
+  &__tooltip {
+    pointer-events: none;
+
+    rect {
+      fill: var(--dark-primary-color);
+    }
+
+    text {
+      fill: #ffffff;
+      font-family: var(--font-jakarta-sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+    }
+  }
+
+  &__labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-family: var(--font-jakarta-sans);
+    font-size: 0.85rem;
+    color: rgba(var(--main-font-color-rgb), 0.65);
+  }
+}

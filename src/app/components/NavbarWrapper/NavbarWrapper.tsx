@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import Navbar from "../Navbar/NavBar";
 
-export default function NavbarWrapper() {
+const NavbarWrapper = () => {
   const pathname = usePathname();
 
   if (pathname.startsWith("/admin")) {
@@ -11,4 +11,6 @@ export default function NavbarWrapper() {
   }
 
   return <Navbar />;
-}
+};
+
+export default NavbarWrapper;

@@ -1,0 +1,62 @@
+.proportion-bar {
+  width: 100%;
+  --bar-gradient: linear-gradient(
+    90deg,
+    var(--light-primary-color),
+    var(--primary-color)
+  );
+  --bar-value-color: var(--dark-primary-color);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.35rem;
+    font-family: var(--font-jakarta-sans);
+  }
+
+  &__label {
+    font-size: 0.95rem;
+    color: var(--main-font-color);
+  }
+
+  &__value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--bar-value-color);
+    white-space: nowrap;
+  }
+
+  &__track {
+    width: 100%;
+    height: 0.6rem;
+    border-radius: 999px;
+    background-color: rgba(var(--main-font-color-rgb), 0.08);
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    border-radius: 999px;
+    background: var(--bar-gradient);
+    transition: width 0.4s ease-in-out;
+  }
+
+  &--blue {
+    --bar-gradient: linear-gradient(
+      90deg,
+      var(--light-secondary-color),
+      var(--secondary-color)
+    );
+    --bar-value-color: var(--dark-secondary-color);
+  }
+
+  &--yellow {
+    --bar-gradient: linear-gradient(
+      90deg,
+      var(--light-tertiary-color),
+      var(--tertiary-color)
+    );
+    --bar-value-color: var(--dark-tertiary-color);
+  }
+}

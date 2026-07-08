@@ -1,3 +1,4 @@
+import { FaLandmark } from "react-icons/fa";
 import FeatureCard from "./components/FeatureCard/FeatureCard";
 import Hero from "./components/Hero/Hero";
 import SmallCard from "./components/SmallCard/SmallCard";
@@ -13,6 +14,19 @@ import CalendarCard from "./components/CalendarCard/CalendarCard";
 import CollecteCard from "./components/CollectCard/CollectCard";
 
 import "./styles.scss";
+
+const LIENS_UTILES = [
+  {
+    label: "Communauté d'agglomération Dieppe Maritime",
+    href: "https://www.agglodieppe-maritime.com/",
+  },
+  { label: "Ville de Dieppe", href: "https://www.dieppe.fr/" },
+  { label: "Mairie d'Offranville", href: "https://www.offranville.fr/" },
+  {
+    label: "Mairie de Saint-Aubin-sur-Scie",
+    href: "https://www.saint-aubin-sur-scie.fr/",
+  },
+];
 
 const Page = async () => {
   const evenements = await getEvenements();
@@ -80,6 +94,22 @@ const Page = async () => {
             ))
           )}
         </div>
+      </section>
+
+      <hr className="home-divider" />
+
+      <section className="home-section">
+        <h2 className="home-section__title">Liens utiles</h2>
+        <ul className="home-page__liens-utiles">
+          {LIENS_UTILES.map((lien) => (
+            <li key={lien.href}>
+              <a href={lien.href} target="_blank" rel="noopener noreferrer">
+                <FaLandmark aria-hidden="true" />
+                {lien.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );

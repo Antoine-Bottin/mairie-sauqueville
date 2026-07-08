@@ -1,0 +1,99 @@
+.age-pyramid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-family: var(--font-jakarta-sans);
+
+  &__legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__legend-item {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.85rem;
+    color: rgba(var(--main-font-color-rgb), 0.7);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+    }
+
+    &--hommes::before {
+      background-color: var(--secondary-color);
+    }
+
+    &--femmes::before {
+      background-color: var(--tertiary-color);
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__label {
+    font-size: 0.8rem;
+    color: rgba(var(--main-font-color-rgb), 0.75);
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  &__side {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+
+    &--hommes {
+      justify-content: flex-end;
+    }
+
+    &--femmes {
+      justify-content: flex-start;
+    }
+  }
+
+  &__bar {
+    height: 1rem;
+    min-width: 2px;
+
+    &--hommes {
+      background: linear-gradient(
+        to left,
+        var(--light-secondary-color),
+        var(--secondary-color)
+      );
+      border-radius: 0.25rem 0 0 0.25rem;
+    }
+
+    &--femmes {
+      background: linear-gradient(
+        to right,
+        var(--light-tertiary-color),
+        var(--tertiary-color)
+      );
+      border-radius: 0 0.25rem 0.25rem 0;
+    }
+  }
+
+  &__value {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(var(--main-font-color-rgb), 0.6);
+    flex-shrink: 0;
+  }
+}
