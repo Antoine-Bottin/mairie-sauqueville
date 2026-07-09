@@ -18,7 +18,7 @@ import "./styles.scss";
 const LIENS_UTILES = [
   {
     label: "Communauté d'agglomération Dieppe Maritime",
-    href: "https://www.agglodieppe-maritime.com/",
+    href: "http://www.agglodieppe-maritime.com/",
   },
   { label: "Ville de Dieppe", href: "https://www.dieppe.fr/" },
   { label: "Mairie d'Offranville", href: "https://www.offranville.fr/" },
