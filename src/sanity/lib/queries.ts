@@ -28,6 +28,15 @@ export interface AlerteMunicipale {
   lien?: string;
 }
 
+export interface AnnonceExterne {
+  _id: string;
+  titre: string;
+  description?: string;
+  image?: string;
+  fichier?: string;
+  lien?: string;
+}
+
 export const getEvenements = async (): Promise<EvenementMunicipal[]> => {
   return client.fetch(`
   *[_type == "evenement" && dateTime(dateDebut) >= dateTime(now()) - 60*60*24] | order(dateDebut asc) {
@@ -45,7 +54,7 @@ export const getEvenements = async (): Promise<EvenementMunicipal[]> => {
 
 export const getRetoursSur = async (): Promise<RetourSur[]> => {
   return client.fetch(`
-  *[_type == "evenement" && dateTime(dateDebut) < dateTime(now()) && defined(galerie)] | order(dateDebut desc) [0...4] {
+  *[_type == "evenement" && dateTime(dateDebut) < dateTime(now()) && defined(galerie)] | order(dateDebut desc) [0...6] {
     _id,
     title,
     dateDebut,
@@ -66,4 +75,17 @@ export const getAlerteActive = async (): Promise<AlerteMunicipale | null> => {
     {},
     { cache: "no-store" },
   );
+};
+
+export const getAnnonces = async (): Promise<AnnonceExterne[]> => {
+  return client.fetch(`
+  *[_type == "annonce" && isActive == true && (!defined(dateExpiration) || dateTime(dateExpiration) >= dateTime(now()))] | order(_createdAt desc) [0...4] {
+    _id,
+    titre,
+    description,
+    "image": image.asset->url,
+    "fichier": fichier.asset->url,
+    lien
+}
+  `);
 };
