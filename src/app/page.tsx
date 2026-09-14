@@ -1,10 +1,13 @@
-import { FaGraduationCap, FaLandmark } from "react-icons/fa";
+import { FaLandmark } from "react-icons/fa";
 import FeatureCard from "./components/FeatureCard/FeatureCard";
 import Hero from "./components/Hero/Hero";
 import SmallCard from "./components/SmallCard/SmallCard";
+import AnnonceCard from "./components/AnnonceCard/AnnonceCard";
 import { smallCardContent } from "./data";
 import {
+  AnnonceExterne,
   EvenementMunicipal,
+  getAnnonces,
   getEvenements,
   getRetoursSur,
   RetourSur,
@@ -36,29 +39,11 @@ const Page = async () => {
 
   const retoursSur = await getRetoursSur();
 
+  const annonces = await getAnnonces();
+
   return (
     <div className="home-page">
       <Hero />
-
-      <a
-        href="https://u4qk5gakwyzi6aiz.public.blob.vercel-storage.com/autres-documents/rentree_2026-2027_cocteau.pdf?download=1"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="home-highlight-link"
-      >
-        <FaGraduationCap
-          aria-hidden="true"
-          className="home-highlight-link__icon"
-        />
-        <span className="home-highlight-link__text">
-          <strong>Rentrée scolaire</strong> — horaires du collège Jean Cocteau
-        </span>
-        <span className="home-highlight-link__arrow" aria-hidden="true">
-          →
-        </span>
-        <span className="sr-only"> (ouverture dans un nouvel onglet)</span>
-      </a>
-
       <section className="home-section">
         <h2 className="home-section__title">Informations utiles</h2>
         <div className="home-page__cards">
@@ -115,6 +100,21 @@ const Page = async () => {
           )}
         </div>
       </section>
+
+      {annonces.length > 0 && (
+        <>
+          <hr className="home-divider" />
+
+          <section className="home-section">
+            <h2 className="home-section__title">À noter</h2>
+            <div className="home-page__annonces">
+              {annonces.map((annonce: AnnonceExterne) => (
+                <AnnonceCard key={annonce._id} annonce={annonce} />
+              ))}
+            </div>
+          </section>
+        </>
+      )}
 
       <hr className="home-divider" />
 
