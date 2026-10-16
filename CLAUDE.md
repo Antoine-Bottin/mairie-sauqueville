@@ -43,7 +43,7 @@ Route dynamique unique `src/app/documents/[slug]/page.tsx` configurée par `src/
 
 ### Navigation
 
-`src/app/components/Navbar/navigationLinks.ts` — source unique pour desktop et mobile. La Navbar, le Footer et l'AlertBanner sont chacun enveloppés dans un `*Wrapper` client (`NavbarWrapper`, `FooterWrapper`, `AlertBannerWrapper`) qui les masque sur `/admin` via `usePathname`.
+`src/app/components/Navbar/navigationLinks.ts` — source unique pour desktop et mobile. Une sous-entrée dont la page n'existe pas encore porte `disabled: true` (grisée, non cliquable, annoncée "bientôt disponible") : retirer le drapeau une fois la page créée. La Navbar, le Footer et l'AlertBanner sont chacun enveloppés dans un `*Wrapper` client (`NavbarWrapper`, `FooterWrapper`, `AlertBannerWrapper`) qui les masque sur `/admin` via `usePathname`.
 
 ### Données statiques
 
