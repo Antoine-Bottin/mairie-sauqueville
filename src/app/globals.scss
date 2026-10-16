@@ -23,6 +23,11 @@
   /* Urgent / Infos pratiques : repris à l'identique sur les cartes événements et documents */
   --danger-color: #b30000;
 
+  /* Avertissement : mêmes tons orangés que le bandeau d'alerte "warning" */
+  --warning-color: #e65100;
+  --light-warning-color: #fff3e0;
+  --border-warning-color: #ffe0b2;
+
   // Canaux RGB séparés pour permettre des rgba() à opacité variable
   --main-font-color-rgb: 26, 26, 26;
   --primary-color-rgb: 27, 67, 50;
