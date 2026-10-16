@@ -8,9 +8,11 @@ import "./styles.scss";
 
 interface AnnonceCardProps {
   annonce: AnnonceExterne;
+  // Masque le titre et la description (le titre reste utilisé pour l'accessibilité)
+  hideContent?: boolean;
 }
 
-const AnnonceCard = ({ annonce }: AnnonceCardProps) => {
+const AnnonceCard = ({ annonce, hideContent = false }: AnnonceCardProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const openModal = () => dialogRef.current?.showModal();
@@ -38,7 +40,7 @@ const AnnonceCard = ({ annonce }: AnnonceCardProps) => {
                 superposé se charge d'ouvrir la vue plein écran au clic.
               */}
               <iframe
-                src={`${annonce.fichier}#toolbar=0`}
+                src={`${annonce.fichier}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
                 title=""
                 aria-hidden="true"
                 tabIndex={-1}
@@ -77,12 +79,14 @@ const AnnonceCard = ({ annonce }: AnnonceCardProps) => {
         )
       )}
 
-      <div className="annonce-card__content">
-        <h3 className="annonce-card__title">{annonce.titre}</h3>
-        {annonce.description && (
-          <p className="annonce-card__description">{annonce.description}</p>
-        )}
-      </div>
+      {!hideContent && (
+        <div className="annonce-card__content">
+          <h3 className="annonce-card__title">{annonce.titre}</h3>
+          {annonce.description && (
+            <p className="annonce-card__description">{annonce.description}</p>
+          )}
+        </div>
+      )}
     </article>
   );
 };

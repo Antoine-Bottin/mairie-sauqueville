@@ -62,7 +62,9 @@ export const alert = defineType({
       title: "Lien d'information (Optionnel)",
       type: "url",
       description:
-        "Lien vers un article du site, l'arrêté municipal, ou Météo France.",
+        "Lien vers un article du site, l'arrêté municipal, ou Météo France. Pour renvoyer vers la rubrique \"Actualité importante\" de l'accueil, saisir : /#actualite-importante",
+      // allowRelative : accepte les liens internes au site (ex: /#actualite-importante)
+      validation: (Rule) => Rule.uri({ allowRelative: true }),
     }),
   ],
   // Personnalisation de l'affichage dans la liste Sanity

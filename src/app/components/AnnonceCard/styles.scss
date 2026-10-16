@@ -45,8 +45,12 @@
 
   &__pdf {
     position: absolute;
-    inset: 0;
-    width: 100%;
+    top: 0;
+    left: 0;
+    // Plus large que le wrapper : la barre de défilement de la visionneuse PDF
+    // (inutilisable en aperçu) est rognée par l'overflow: hidden du wrapper.
+    // Chrome ignore le paramètre #scrollbar=0, d'où ce débordement.
+    width: calc(100% + 1.5rem);
     height: 100%;
     border: none;
     // Aperçu non interactif : le clic est géré par __pdf-overlay au-dessus.

@@ -26,12 +26,16 @@ Pas de tests automatisés dans ce projet.
 
 ### Données et CMS
 
-Toutes les requêtes Sanity passent par `src/sanity/lib/queries.ts`. Deux schémas actifs :
+Toutes les requêtes Sanity passent par `src/sanity/lib/queries.ts`. Quatre schémas actifs :
 
 - `evenement` — utilisé de deux façons selon la date :
   - `getEvenements()` → événements futurs (section "Évènements à venir")
   - `getRetoursSur()` → événements passés **avec** le champ `galerie` renseigné (section "Retour sur"). Pour faire apparaître un retour sur, il suffit d'ajouter des photos dans le champ `galerie` d'un événement passé dans le Studio — pas de code à toucher.
-- `alerte` — bandeau d'alerte affiché en haut du site si `isActive == true`
+- `alerte` — bandeau d'alerte affiché en haut du site si `isActive == true`. Le champ `lien` accepte les liens relatifs (ex: `/#actualite-importante` pour pointer vers la rubrique du même nom).
+- `annonce` — section "À noter" de l'accueil (`getAnnonces()`), une `AnnonceCard` par annonce (image ou aperçu PDF).
+- `actualiteImportante` — rubrique "Actualité importante" sous "Informations utiles" (`getActualitesImportantes()`), masquée si vide. Chaque document = un encadré orangé avec son titre + une `AnnonceCard` (`hideContent`) par fichier (PDF ou image).
+
+`annonce` et `actualiteImportante` ont `isActive` + `dateExpiration` (champ `date`, sans heure). Dans les requêtes GROQ, comparer avec `dateTime(dateExpiration + "T23:59:59Z")` : `dateTime()` renvoie `null` sur une date seule.
 
 ### PDFs / Documents
 
