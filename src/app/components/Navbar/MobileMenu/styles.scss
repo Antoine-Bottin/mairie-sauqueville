@@ -104,6 +104,15 @@ $breakpoint-md: 768px;
         color: white;
       }
     }
+
+    // Page pas encore créée : entrée grisée, non cliquable
+    li .is-disabled {
+      display: block;
+      padding: 0.75rem 0;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 1.1rem;
+      cursor: not-allowed;
+    }
   }
 }
 

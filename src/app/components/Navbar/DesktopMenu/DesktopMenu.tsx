@@ -47,7 +47,14 @@ const DesktopMenu = ({ links }: DesktopMenuProps) => {
                 <ul className={`desktop-submenu ${isOpen ? "is-open" : ""}`}>
                   {link.subMenu.map((subItem, subIndex) => (
                     <li key={subIndex}>
-                      <a href={subItem.href}>{subItem.label}</a>
+                      {subItem.disabled ? (
+                        <span className="is-disabled" aria-disabled="true">
+                          {subItem.label}
+                          <span className="sr-only"> (bientôt disponible)</span>
+                        </span>
+                      ) : (
+                        <a href={subItem.href}>{subItem.label}</a>
+                      )}
                     </li>
                   ))}
                 </ul>

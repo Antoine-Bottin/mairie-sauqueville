@@ -14,6 +14,56 @@
     gap: 1rem;
   }
 
+  &__actualites {
+    margin-top: 2.5rem;
+    width: 100%;
+    max-width: 120rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__actualite {
+    padding: 1rem;
+    border-radius: 1.25rem;
+    background-color: var(--light-warning-color);
+    border: 1px solid var(--border-warning-color);
+    border-left: 0.375rem solid var(--warning-color);
+
+    // Les cartes internes héritent de la grille des annonces, sans marge haute
+    .home-page__annonces {
+      margin-top: 1rem;
+      gap: 1rem;
+    }
+
+    // Carte dans une carte : marge intérieure réduite pour laisser la place au document
+    .annonce-card {
+      padding: 0.5rem;
+    }
+
+    @media screen and (min-width: 1024px) {
+      padding: 1.5rem;
+
+      .home-page__annonces {
+        margin-top: 1.5rem;
+        gap: 1.5rem;
+      }
+
+      .annonce-card {
+        padding: 1rem;
+      }
+    }
+  }
+
+  &__actualite-title {
+    margin: 0;
+    font-family: var(--font-jakarta-sans);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--main-font-color);
+  }
+
   &__retours {
     margin-top: 2.5rem;
     width: 100%;
@@ -28,7 +78,8 @@
     width: 100%;
     max-width: 120rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    // min() : sur mobile, la colonne ne doit pas dépasser la largeur disponible
+    grid-template-columns: repeat(auto-fill, minmax(min(22rem, 100%), 1fr));
     gap: 1.5rem;
   }
 
@@ -65,6 +116,8 @@
   max-width: 120rem;
   padding-inline: 2rem;
   margin-top: 2.5rem;
+  // Navbar sticky : évite que le titre soit masqué en arrivant via une ancre
+  scroll-margin-top: 6rem;
 
   &__title {
     font-family: var(--font-jakarta-sans);

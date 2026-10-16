@@ -9,10 +9,10 @@ export const smallCardContent = [
       <>
         <ul>
           <li>
-            <strong>Lundi:</strong> 17h00 -19h00
+            <strong>Lundi:</strong> 17h00 - 19h00
           </li>
           <li>
-            <strong>Vendredi:</strong> 16h00 -18h00
+            <strong>Vendredi:</strong> 16h00 - 18h00
           </li>
         </ul>
       </>

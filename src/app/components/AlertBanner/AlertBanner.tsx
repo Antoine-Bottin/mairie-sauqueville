@@ -24,7 +24,7 @@ const BandeauAlerte = async () => {
           <span className="sr-only">
             {NIVEAU_LABELS[alerte.niveau]} —{" "}
           </span>
-          <strong>Info Mairie :</strong>
+          <strong className="alerte-bandeau__label">Info Mairie :</strong>
         </div>
 
         {/* 2. PARTIE CENTRALE DÉFILANTE */}
