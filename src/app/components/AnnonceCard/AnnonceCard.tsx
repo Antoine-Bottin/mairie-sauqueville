@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { AnnonceExterne } from "@/sanity/lib/queries";
 import PhotoCard from "../PhotoCard/PhotoCard";
+import PdfThumbnail from "../PdfThumbnail/PdfThumbnail";
 
 import "./styles.scss";
 
@@ -15,7 +16,15 @@ interface AnnonceCardProps {
 const AnnonceCard = ({ annonce, hideContent = false }: AnnonceCardProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const openModal = () => dialogRef.current?.showModal();
+  // Sur mobile/tactile, l'iframe PDF de la modale ne s'affiche pas :
+  // on ouvre le document dans le visionneur natif du navigateur.
+  const openModal = () => {
+    if (window.matchMedia("(pointer: coarse)").matches && annonce.fichier) {
+      window.open(annonce.fichier, "_blank", "noopener");
+      return;
+    }
+    dialogRef.current?.showModal();
+  };
   const closeModal = () => dialogRef.current?.close();
 
   return (
@@ -33,20 +42,10 @@ const AnnonceCard = ({ annonce, hideContent = false }: AnnonceCardProps) => {
           <>
             <div className="annonce-card__pdf-wrapper">
               {/*
-                L'iframe ne peut pas déclencher le clic du bouton qui l'englobe :
-                elle affiche un document dans son propre contexte de navigation,
-                qui capture ses propres clics. On l'affiche donc en aperçu non
-                interactif (pointer-events: none) et un bouton transparent
-                superposé se charge d'ouvrir la vue plein écran au clic.
+                Aperçu rendu en canvas (pdf.js) : une iframe PDF ne s'affiche
+                pas sur mobile. Un bouton transparent superposé gère le clic.
               */}
-              <iframe
-                src={`${annonce.fichier}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                title=""
-                aria-hidden="true"
-                tabIndex={-1}
-                loading="lazy"
-                className="annonce-card__pdf"
-              />
+              <PdfThumbnail url={annonce.fichier} />
               <button
                 type="button"
                 className="annonce-card__pdf-overlay"
