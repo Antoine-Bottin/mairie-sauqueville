@@ -1,0 +1,41 @@
+.pdf-thumbnail {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  background-color: rgba(var(--main-font-color-rgb), 0.04);
+
+  &__canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &[data-status="ready"] &__canvas {
+    animation: pdf-thumbnail-fade 0.3s ease-out;
+  }
+
+  &:not([data-status="ready"]) &__canvas {
+    display: none;
+  }
+
+  &__placeholder {
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
+    font-family: var(--font-jakarta-sans);
+    font-size: 0.9rem;
+    color: rgba(var(--main-font-color-rgb), 0.6);
+  }
+}
+
+@keyframes pdf-thumbnail-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
