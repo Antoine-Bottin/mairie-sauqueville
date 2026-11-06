@@ -8,9 +8,10 @@ Site de la mairie de Sauqueville (Next.js + Sanity), contenu géré via le Studi
 - Aperçu PDF des cartes « À noter » rendu en canvas (pdf.js) via `PdfThumbnail`, pour fonctionner sur mobile.
 
 ## En cours
-- Vérification visuelle de l'aperçu PDF sur un vrai mobile.
+- Vérification visuelle de l'aperçu PDF sur un vrai mobile (v1.2.1 en production).
 
 ## Prochaine étape
+- Refonte design ambitieuse (design actuel trop fade, site vitrine du portfolio) : définir une direction artistique d'abord.
 - Tester sur mobile (iOS Safari + Android Chrome) avec un PDF Sanity réel.
 
 ## Décisions (avec le pourquoi)
