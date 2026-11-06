@@ -19,6 +19,18 @@ git push origin develop   # Vercel génère un lien de Preview
 
 ## 2. Publier une version (merge sur `main` + tag)
 
+D'abord, sur `develop`, aligner la version de `package.json` (et `package-lock.json`) sur le futur tag, puis pousser :
+
+```bash
+git checkout develop
+npm version 1.0.0 --no-git-tag-version
+git add package.json package-lock.json
+git commit -m "chore: aligner la version de package.json sur 1.0.0"
+git push origin develop
+```
+
+Puis merger sur `main` et taguer :
+
 ```bash
 git checkout main
 git merge develop --no-ff -m "Release v1.0.0"
