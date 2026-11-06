@@ -5,14 +5,14 @@ _Dernière mise à jour : 2026-11-06_
 Site de la mairie de Sauqueville (Next.js + Sanity), contenu géré via le Studio `/admin`.
 
 ## Fait
+- Aperçu PDF testé sur Chrome mobile : OK (v1.2.1).
 - Aperçu PDF des cartes « À noter » rendu en canvas (pdf.js) via `PdfThumbnail`, pour fonctionner sur mobile.
 
 ## En cours
-- Vérification visuelle de l'aperçu PDF sur un vrai mobile (v1.2.1 en production).
+- Vérification de l'aperçu PDF sur iOS Safari (Chrome OK).
 
 ## Prochaine étape
 - Refonte design ambitieuse (design actuel trop fade, site vitrine du portfolio) : définir une direction artistique d'abord.
-- Tester sur mobile (iOS Safari + Android Chrome) avec un PDF Sanity réel.
 
 ## Décisions (avec le pourquoi)
 - pdf.js plutôt qu'iframe : les navigateurs mobiles n'affichent pas les PDF en iframe (bouton « Ouvrir » seul).
