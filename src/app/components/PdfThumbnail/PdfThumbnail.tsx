@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FaFilePdf } from "react-icons/fa";
 
 import "./styles.scss";
 
@@ -26,9 +27,11 @@ const PdfThumbnail = ({ url }: PdfThumbnailProps) => {
 
     const render = async () => {
       try {
-        const pdfjs = await import("pdfjs-dist");
+        // Build « legacy » : polyfills pour les navigateurs mobiles plus anciens
+        // (le build moderne exige Promise.withResolvers, Safari ≥ 17.4 / Chrome ≥ 119)
+        const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
         pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-          "pdfjs-dist/build/pdf.worker.min.mjs",
+          "pdfjs-dist/legacy/build/pdf.worker.min.mjs",
           import.meta.url,
         ).toString();
 
@@ -47,7 +50,8 @@ const PdfThumbnail = ({ url }: PdfThumbnailProps) => {
 
         await page.render({ canvas, viewport }).promise;
         if (!cancelled) setStatus("ready");
-      } catch {
+      } catch (error) {
+        console.error("Aperçu PDF indisponible :", error);
         if (!cancelled) setStatus("error");
       }
     };
@@ -63,9 +67,19 @@ const PdfThumbnail = ({ url }: PdfThumbnailProps) => {
   return (
     <div className="pdf-thumbnail" data-status={status} aria-hidden="true">
       <canvas ref={canvasRef} className="pdf-thumbnail__canvas" />
-      {status !== "ready" && (
+      {status === "loading" && (
         <span className="pdf-thumbnail__placeholder">
-          {status === "loading" ? "Chargement de l'aperçu…" : "Aperçu indisponible"}
+          Chargement de l&apos;aperçu…
+        </span>
+      )}
+      {status === "error" && (
+        // Échec du rendu : la carte reste un document cliquable, pas un message d'erreur
+        <span className="pdf-thumbnail__placeholder pdf-thumbnail__placeholder--fallback">
+          <FaFilePdf className="pdf-thumbnail__fallback-icon" />
+          Document PDF
+          <span className="pdf-thumbnail__fallback-hint">
+            Toucher pour ouvrir
+          </span>
         </span>
       )}
     </div>

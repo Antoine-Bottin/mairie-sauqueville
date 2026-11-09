@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Literata } from "next/font/google";
+import {
+  Plus_Jakarta_Sans,
+  Literata,
+  Bricolage_Grotesque,
+} from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import FooterWrapper from "./components/FooterWrapper/FooterWrapper";
 import AlertBannerWrapper from "./components/AlertBannerWrapper/AlertBannerWrapper";
@@ -20,6 +24,14 @@ const LiterataFont = Literata({
   subsets: ["latin"],
   display: "swap",
   style: "normal",
+});
+
+// Police d'affichage : la graisse et la chasse (wdth) variables servent au titre du Hero
+const BricolageFont = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["latin"],
+  display: "swap",
+  axes: ["wdth"],
 });
 
 export const metadata: Metadata = {
@@ -62,7 +74,7 @@ const RootLayout = ({
   return (
     <html
       lang="fr"
-      className={`${PlusJakartaSansFont.variable} ${LiterataFont.variable}`}
+      className={`${PlusJakartaSansFont.variable} ${LiterataFont.variable} ${BricolageFont.variable}`}
     >
       <body className={PlusJakartaSansFont.className}>
         <Analytics />

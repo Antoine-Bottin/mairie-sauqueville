@@ -1,3 +1,8 @@
+import {
+  FaExclamationCircle,
+  FaExclamationTriangle,
+  FaInfoCircle,
+} from "react-icons/fa";
 import { getAlerteActive } from "@/sanity/lib/queries";
 import "./styles.scss";
 
@@ -17,13 +22,11 @@ const BandeauAlerte = async () => {
       <div className="alerte-bandeau__container">
         <div className="alerte-bandeau__fixed-left">
           <span className="alerte-bandeau__icon" aria-hidden="true">
-            {alerte.niveau === "info" && "ℹ️"}
-            {alerte.niveau === "warning" && "⚠️"}
-            {alerte.niveau === "danger" && "🚨"}
+            {alerte.niveau === "info" && <FaInfoCircle />}
+            {alerte.niveau === "warning" && <FaExclamationTriangle />}
+            {alerte.niveau === "danger" && <FaExclamationCircle />}
           </span>
-          <span className="sr-only">
-            {NIVEAU_LABELS[alerte.niveau]} —{" "}
-          </span>
+          <span className="sr-only">{NIVEAU_LABELS[alerte.niveau]} — </span>
           <strong className="alerte-bandeau__label">Info Mairie :</strong>
         </div>
 

@@ -1,7 +1,6 @@
 import { Elu } from "@/app/data";
 import Image from "next/image";
 
-import { getRandomColor } from "@/app/utils";
 import "./styles.scss";
 
 interface ConseilCardProps {
@@ -11,9 +10,10 @@ interface ConseilCardProps {
 const ConseilCard = ({ elu }: ConseilCardProps) => {
   const imageSrc =
     elu.photoUrl ||
+    // Avatar d'initiales aux couleurs du site (fond lin clair, lettres lin) en attendant de vraies photos
     "https://ui-avatars.com/api/?name=" +
       encodeURIComponent(elu.nom) +
-      `&background=e2e8f0&color=${getRandomColor()}&size=500`;
+      "&background=dce6fb&color=1f4fd1&bold=true&size=200";
 
   return (
     <article className="conseil-card">
@@ -23,8 +23,7 @@ const ConseilCard = ({ elu }: ConseilCardProps) => {
           alt={elu.nom}
           fill
           style={{ objectFit: "cover" }}
-          priority
-          sizes="300px"
+          sizes="96px"
         />
       </div>
       <div className="conseil-card__info">

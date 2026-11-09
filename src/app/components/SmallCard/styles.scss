@@ -1,28 +1,20 @@
+@use "../../card" as *;
+
 .small-card {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1rem;
 
-  height: 14rem;
-  padding: 2rem;
-  border-radius: 1.25rem;
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(var(--main-font-color-rgb), 0.03);
-  border: 1px solid rgba(var(--main-font-color-rgb), 0.08);
+  padding: 1.25rem 1.5rem;
+  @include card-surface;
   width: 100%;
   text-align: left;
-
-  transition: all 0.25s ease-in-out;
 
   @media screen and (min-width: 768px) {
     width: 100%;
   }
 
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(var(--main-font-color-rgb), 0.07);
-  }
 
   &__left {
     display: flex;
@@ -33,20 +25,20 @@
   &__right {
     display: flex;
     flex-direction: column;
-    row-gap: 2rem;
+    row-gap: 0.75rem;
   }
 
   &__icon-wrapper {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
 
     svg {
-      width: 1.75rem;
-      height: 1.75rem;
+      width: 1.5rem;
+      height: 1.5rem;
     }
   }
 
@@ -78,10 +70,7 @@
   }
 
   &--green {
-    border-left: 4px solid var(--primary-color);
-    &:hover {
-      border-color: var(--primary-color);
-    }
+    border-left: 8px solid var(--primary-color);
     .small-card__icon-wrapper {
       background-color: var(--light-primary-color);
       color: var(--dark-primary-color);
@@ -89,10 +78,7 @@
   }
 
   &--blue {
-    border-left: 4px solid var(--secondary-color);
-    &:hover {
-      border-color: var(--secondary-color);
-    }
+    border-left: 8px solid var(--secondary-color);
     .small-card__icon-wrapper {
       background-color: var(--light-secondary-color);
       color: var(--dark-secondary-color);
@@ -100,10 +86,7 @@
   }
 
   &--yellow {
-    border-left: 4px solid var(--tertiary-color);
-    &:hover {
-      border-color: var(--tertiary-color);
-    }
+    border-left: 8px solid var(--tertiary-color);
     .small-card__icon-wrapper {
       background-color: var(--light-tertiary-color);
       color: var(--dark-tertiary-color);

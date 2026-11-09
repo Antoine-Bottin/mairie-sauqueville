@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { AnnonceExterne } from "@/sanity/lib/queries";
 import PhotoCard from "../PhotoCard/PhotoCard";
 import PdfThumbnail from "../PdfThumbnail/PdfThumbnail";
+import ReadMore from "../ReadMore/ReadMore";
 
 import "./styles.scss";
 
@@ -82,7 +83,12 @@ const AnnonceCard = ({ annonce, hideContent = false }: AnnonceCardProps) => {
         <div className="annonce-card__content">
           <h3 className="annonce-card__title">{annonce.titre}</h3>
           {annonce.description && (
-            <p className="annonce-card__description">{annonce.description}</p>
+            <ReadMore
+              title={annonce.titre}
+              text={annonce.description}
+              lines={3}
+              textClassName="annonce-card__description"
+            />
           )}
         </div>
       )}

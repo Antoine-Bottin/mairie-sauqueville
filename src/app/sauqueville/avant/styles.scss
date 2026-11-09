@@ -1,3 +1,5 @@
+@use "../../card" as *;
+
 .gallery-page {
   width: 100%;
   max-width: 120rem;
@@ -41,21 +43,13 @@
 
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
-    border-radius: 1rem;
+    @include card-surface;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(var(--main-font-color-rgb), 0.03);
-    border: 1px solid rgba(var(--main-font-color-rgb), 0.06);
-    transition:
-      transform 0.25s ease-in-out,
-      box-shadow 0.25s ease-in-out;
     cursor: pointer;
 
     grid-row: span 2;
 
     &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(var(--main-font-color-rgb), 0.08);
 
       .gallery-page__img {
         transform: scale(1.02);
