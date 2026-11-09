@@ -39,19 +39,20 @@ export interface PopulationEvolution {
 // chiffre connu à part. Alimente le graphique d'évolution (KeyFigure + PopulationChart)
 // en haut de la page /sauqueville/chiffres.
 // PMUN = "population municipale", la seule mesure présente dans ce jeu de données.
-export const getPopulationEvolution = async (): Promise<PopulationEvolution> => {
-  const observations = await fetchMelodiData("DS_POPULATIONS_HISTORIQUES");
+export const getPopulationEvolution =
+  async (): Promise<PopulationEvolution> => {
+    const observations = await fetchMelodiData("DS_POPULATIONS_HISTORIQUES");
 
-  const series = observations
-    .filter((o) => o.dimensions.POPREF_MEASURE === "PMUN")
-    .map((o) => ({
-      year: Number(o.dimensions.TIME_PERIOD),
-      population: o.measures.OBS_VALUE_NIVEAU.value,
-    }))
-    .sort((a, b) => a.year - b.year);
+    const series = observations
+      .filter((o) => o.dimensions.POPREF_MEASURE === "PMUN")
+      .map((o) => ({
+        year: Number(o.dimensions.TIME_PERIOD),
+        population: o.measures.OBS_VALUE_NIVEAU.value,
+      }))
+      .sort((a, b) => a.year - b.year);
 
-  return { series, latest: series[series.length - 1] };
-};
+    return { series, latest: series[series.length - 1] };
+  };
 
 export interface PyramideAgesTranche {
   label: string;
@@ -331,61 +332,62 @@ const partMaisonsValue = (
 // lance en parallèle tous les appels nécessaires (Melodi pour les chiffres INSEE,
 // geo.api.gouv.fr pour le classement démographique et la distance), puis combine
 // les résultats en un seul objet prêt à être affiché par la page.
-export const getComparaisonAgglomeration = async (): Promise<ComparaisonAgglomeration> => {
-  const [
-    epciNom,
-    communesEpci,
-    sauquevilleCentre,
-    dieppeCentre,
-    populationSauqueville,
-    populationEpci,
-    emploiSauqueville,
-    emploiEpci,
-    logementSauqueville,
-    logementEpci,
-  ] = await Promise.all([
-    getEpciNom(EPCI_CODE),
-    getCommunesEpci(EPCI_CODE),
-    getCommuneCentre(SAUQUEVILLE_INSEE_CODE),
-    getCommuneCentre(DIEPPE_INSEE_CODE),
-    fetchMelodiData("DS_RP_POPULATION_PRINC"),
-    fetchMelodiData("DS_RP_POPULATION_PRINC", { GEO: EPCI_GEO }),
-    fetchMelodiData("DS_RP_EMPLOI_LR_PRINC"),
-    fetchMelodiData("DS_RP_EMPLOI_LR_PRINC", { GEO: EPCI_GEO }),
-    fetchMelodiData("DS_RP_LOGEMENT_PRINC"),
-    fetchMelodiData("DS_RP_LOGEMENT_PRINC", { GEO: EPCI_GEO }),
-  ]);
+export const getComparaisonAgglomeration =
+  async (): Promise<ComparaisonAgglomeration> => {
+    const [
+      epciNom,
+      communesEpci,
+      sauquevilleCentre,
+      dieppeCentre,
+      populationSauqueville,
+      populationEpci,
+      emploiSauqueville,
+      emploiEpci,
+      logementSauqueville,
+      logementEpci,
+    ] = await Promise.all([
+      getEpciNom(EPCI_CODE),
+      getCommunesEpci(EPCI_CODE),
+      getCommuneCentre(SAUQUEVILLE_INSEE_CODE),
+      getCommuneCentre(DIEPPE_INSEE_CODE),
+      fetchMelodiData("DS_RP_POPULATION_PRINC"),
+      fetchMelodiData("DS_RP_POPULATION_PRINC", { GEO: EPCI_GEO }),
+      fetchMelodiData("DS_RP_EMPLOI_LR_PRINC"),
+      fetchMelodiData("DS_RP_EMPLOI_LR_PRINC", { GEO: EPCI_GEO }),
+      fetchMelodiData("DS_RP_LOGEMENT_PRINC"),
+      fetchMelodiData("DS_RP_LOGEMENT_PRINC", { GEO: EPCI_GEO }),
+    ]);
 
-  // Classe les communes de l'EPCI par population décroissante, puis trouve la position
-  // de Sauqueville dans ce classement (+1 car findIndex commence à 0, donc "3e" et non "2e").
-  const rangSauqueville =
-    [...communesEpci]
-      .sort((a, b) => b.population - a.population)
-      .findIndex((commune) => commune.nom === "Sauqueville") + 1;
+    // Classe les communes de l'EPCI par population décroissante, puis trouve la position
+    // de Sauqueville dans ce classement (+1 car findIndex commence à 0, donc "3e" et non "2e").
+    const rangSauqueville =
+      [...communesEpci]
+        .sort((a, b) => b.population - a.population)
+        .findIndex((commune) => commune.nom === "Sauqueville") + 1;
 
-  return {
-    epciNom,
-    nbCommunes: communesEpci.length,
-    rangSauqueville,
-    distanceDieppeKm:
-      Math.round(distanceKm(sauquevilleCentre, dieppeCentre) * 10) / 10,
-    evolutionPopulation: {
-      sauqueville: evolutionPopulationPct(populationSauqueville),
-      agglomeration: evolutionPopulationPct(populationEpci),
-    },
-    tauxChomage: {
-      sauqueville: tauxChomageValue(
-        emploiSauqueville,
-        latestYear(emploiSauqueville),
-      ),
-      agglomeration: tauxChomageValue(emploiEpci, latestYear(emploiEpci)),
-    },
-    partMaisons: {
-      sauqueville: partMaisonsValue(
-        logementSauqueville,
-        latestYear(logementSauqueville),
-      ),
-      agglomeration: partMaisonsValue(logementEpci, latestYear(logementEpci)),
-    },
+    return {
+      epciNom,
+      nbCommunes: communesEpci.length,
+      rangSauqueville,
+      distanceDieppeKm:
+        Math.round(distanceKm(sauquevilleCentre, dieppeCentre) * 10) / 10,
+      evolutionPopulation: {
+        sauqueville: evolutionPopulationPct(populationSauqueville),
+        agglomeration: evolutionPopulationPct(populationEpci),
+      },
+      tauxChomage: {
+        sauqueville: tauxChomageValue(
+          emploiSauqueville,
+          latestYear(emploiSauqueville),
+        ),
+        agglomeration: tauxChomageValue(emploiEpci, latestYear(emploiEpci)),
+      },
+      partMaisons: {
+        sauqueville: partMaisonsValue(
+          logementSauqueville,
+          latestYear(logementSauqueville),
+        ),
+        agglomeration: partMaisonsValue(logementEpci, latestYear(logementEpci)),
+      },
+    };
   };
-};

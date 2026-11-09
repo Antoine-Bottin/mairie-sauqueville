@@ -1,6 +1,8 @@
 // Client bas niveau pour l'API Découpage administratif (https://geo.api.gouv.fr)
 // Données ouvertes, pas de clé d'API requise.
 
+import { fetchWithRetry } from "../fetchWithRetry";
+
 const GEO_API_BASE_URL = "https://geo.api.gouv.fr";
 
 // Le découpage communal/intercommunal ne change qu'une fois par an au mieux :
@@ -19,8 +21,8 @@ interface CommuneCentreResponse {
 // Appelle une URL de l'API Découpage administratif et parse la réponse JSON.
 // Même rôle que fetchMelodiJson côté Melodi : centralise le cache et la gestion d'erreur
 // pour tous les appels à geo.api.gouv.fr.
-const fetchGeoApiJson = async <T,>(path: string): Promise<T> => {
-  const res = await fetch(`${GEO_API_BASE_URL}${path}`, {
+const fetchGeoApiJson = async <T>(path: string): Promise<T> => {
+  const res = await fetchWithRetry(`${GEO_API_BASE_URL}${path}`, {
     next: { revalidate: GEO_API_REVALIDATE_SECONDS },
   });
 
