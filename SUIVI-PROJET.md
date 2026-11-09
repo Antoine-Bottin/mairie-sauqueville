@@ -26,3 +26,4 @@ Site de la mairie de Sauqueville (Next.js + Sanity), contenu géré via le Studi
 ## Points ouverts / blocages
 - L'aperçu dépend du CORS du CDN Sanity (normalement `*`) : à confirmer en conditions réelles.
 - Textes RGPD (page de confidentialité, mentions légales) : Sanity et Vercel ajoutés ; à faire valider par la mairie avant la release — en particulier la phrase sur les transferts hors UE et l'identité exacte de Sanity AS. À revoir quand le formulaire « Discutons » existera.
+- Build : les API INSEE et geo.api.gouv.fr passent par `src/lib/fetchWithRetry.ts` (4 tentatives, 1/2/4 s) ; un refus de connexion passager avait fait échouer le build de production v1.3.0 (prérendu de `/sauqueville/chiffres`). Si l'API reste indisponible plus longtemps, le build échouera encore : relancer le déploiement.

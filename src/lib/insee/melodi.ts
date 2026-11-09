@@ -1,6 +1,8 @@
 // Client bas niveau pour l'API Melodi de l'INSEE (https://portail-api.insee.fr)
 // Données ouvertes, pas de clé d'API requise.
 
+import { fetchWithRetry } from "../fetchWithRetry";
+
 export const SAUQUEVILLE_GEO = "COM-76667";
 
 // Les données du recensement ne sont republiées qu'une fois par an (~janvier) :
@@ -23,8 +25,8 @@ interface MelodiDataResponse {
 // Appelle une URL Melodi et parse la réponse JSON.
 // Tous les appels passent par ici pour partager la même stratégie de cache (revalidate)
 // et le même traitement d'erreur (les erreurs HTTP deviennent des exceptions JS).
-const fetchMelodiJson = async <T,>(url: string): Promise<T> => {
-  const res = await fetch(url, {
+const fetchMelodiJson = async <T>(url: string): Promise<T> => {
+  const res = await fetchWithRetry(url, {
     next: { revalidate: MELODI_REVALIDATE_SECONDS },
   });
 
@@ -62,7 +64,8 @@ export const fetchMelodiData = async (
 // recensement est publié : les chiffres se mettent à jour automatiquement).
 export const latestYear = (observations: MelodiObservation[]): string => {
   return observations.reduce(
-    (max, o) => (o.dimensions.TIME_PERIOD > max ? o.dimensions.TIME_PERIOD : max),
+    (max, o) =>
+      o.dimensions.TIME_PERIOD > max ? o.dimensions.TIME_PERIOD : max,
     observations[0]?.dimensions.TIME_PERIOD ?? "",
   );
 };
