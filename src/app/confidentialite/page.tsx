@@ -28,7 +28,36 @@ const Page = () => {
 
       <section className="politique__section">
         <h2 className="politique__subtitle">
-          3. Finalité et durée de conservation
+          3. Données techniques et prestataires
+        </h2>
+        <p>
+          Pour afficher le site, la Mairie fait appel à des prestataires
+          techniques :
+        </p>
+        <ul className="politique__list">
+          <li>
+            <strong>Vercel Inc.</strong> : hébergement du site, stockage de
+            certains documents (PDF) et mesure d&apos;audience (Vercel
+            Analytics), sans cookie publicitaire ;
+          </li>
+          <li>
+            <strong>Sanity AS</strong> : gestion et diffusion des contenus du
+            site (textes, images et documents).
+          </li>
+        </ul>
+        <p>
+          Lors de votre navigation, votre adresse IP est transmise à ces
+          prestataires afin de permettre l&apos;affichage des pages, des images
+          et des documents, et d&apos;en assurer la sécurité. Ces prestataires
+          agissent pour le compte de la Mairie. Certains peuvent traiter des
+          données en dehors de l&apos;Union européenne ; ces transferts sont
+          encadrés par les mécanismes prévus par le RGPD.
+        </p>
+      </section>
+
+      <section className="politique__section">
+        <h2 className="politique__subtitle">
+          4. Finalité et durée de conservation
         </h2>
         <p>
           Ces données sont utilisées uniquement pour répondre à vos
@@ -39,7 +68,7 @@ const Page = () => {
       </section>
 
       <section className="politique__section">
-        <h2 className="politique__subtitle">4. Vos droits</h2>
+        <h2 className="politique__subtitle">5. Vos droits</h2>
         <p>
           Vous disposez d&apos;un droit d&apos;accès, de rectification et
           d&apos;effacement de vos données. Pour toute demande, contactez-nous à
@@ -48,7 +77,7 @@ const Page = () => {
       </section>
 
       <section className="politique__section">
-        <h2 className="politique__subtitle">5. Sécurité</h2>
+        <h2 className="politique__subtitle">6. Sécurité</h2>
         <p>
           La Mairie met en œuvre des mesures techniques appropriées pour
           garantir la sécurité et la confidentialité de vos échanges.

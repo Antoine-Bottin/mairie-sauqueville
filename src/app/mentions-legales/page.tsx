@@ -37,6 +37,10 @@ const Page = () => {
         <h2 className="mentions__subtitle">2. Hébergement</h2>
         <p>Le site est hébergé par la société Vercel Inc.</p>
         <p>340 S Lemon Ave #4133, Walnut, CA 91789, USA</p>
+        <p>
+          Les contenus du site (textes, images, documents) sont gérés et
+          diffusés via la plateforme Sanity (Sanity AS).
+        </p>
       </section>
 
       <section className="mentions__section">
