@@ -1,19 +1,12 @@
+@use "../../card" as *;
+
 .cr-card {
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(var(--main-font-color-rgb), 0.08);
-  box-shadow: 0 4px 12px rgba(var(--main-font-color-rgb), 0.03);
+  @include card-surface;
   overflow: hidden;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(var(--main-font-color-rgb), 0.08);
-
     .cr-card__preview {
       background-color: rgba(var(--primary-color-rgb), 0.06);
     }

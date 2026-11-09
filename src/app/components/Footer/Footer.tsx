@@ -31,7 +31,7 @@ const Footer = () => {
           <h4 className="footer__block-title">Services en ligne</h4>
           <ul className="footer__links-list">
             <li>
-              <Link href="/sauqueville/actu">Actualités</Link>
+              <Link href="/#discutons">Discutons</Link>
             </li>
 
             <li>

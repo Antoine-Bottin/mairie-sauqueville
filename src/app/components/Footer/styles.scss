@@ -1,17 +1,17 @@
 .footer {
   width: 100%;
-  background-color: var(--primary-color);
+  background-color: var(--dark-primary-color);
   color: var(--neutral-color);
-  padding-top: 4rem;
+  padding-top: 2.5rem;
   font-family: var(--font-jakarta-sans);
 
   &__container {
     max-width: 75rem;
     margin: 0 auto;
-    padding: 0 1.5rem 3rem 1.5rem;
+    padding: 0 1.5rem 2rem 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
 
     @media screen and (min-width: 768px) {
       flex-direction: row;

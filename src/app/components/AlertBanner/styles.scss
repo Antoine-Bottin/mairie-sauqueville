@@ -108,7 +108,10 @@
     }
   }
 
+  // Icône SVG (currentColor) : suit la couleur du texte du bandeau, donc contraste garanti
+  // (un émoji a ses propres couleurs et se fondait dans le fond jaune)
   &__icon {
+    display: inline-flex;
     font-size: 1.1rem;
   }
 
@@ -124,20 +127,22 @@
     }
   }
 
+  // Aplats francs : le texte garde un contraste ≥ 6:1 (blanc/lin 6,8:1,
+  // silex/colza 10,6:1, blanc/rouge 7,6:1) ; le filet silex détache le bandeau de la Navbar
   &--info {
-    background-color: #e3f2fd;
-    color: #0d47a1;
-    border-bottom: 1px solid #bbdefb;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-bottom: 2px solid var(--dark-primary-color);
   }
   &--warning {
-    background-color: #fff3e0;
-    color: #e65100;
-    border-bottom: 1px solid #ffe0b2;
+    background-color: var(--tertiary-color);
+    color: var(--dark-primary-color);
+    border-bottom: 2px solid var(--dark-primary-color);
   }
   &--danger {
-    background-color: #ffebee;
-    color: #b71c1c;
-    border-bottom: 1px solid #ffcdd2;
+    background-color: var(--danger-color);
+    color: #ffffff;
+    border-bottom: 2px solid var(--dark-primary-color);
   }
 }
 

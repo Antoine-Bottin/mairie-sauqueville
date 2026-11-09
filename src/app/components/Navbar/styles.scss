@@ -5,7 +5,7 @@
   left: 0;
   z-index: 100;
   background-color: #ffffff;
-  border-bottom: 1px solid rgba(var(--main-font-color-rgb), 0.08);
+  border-bottom: 2px solid var(--dark-primary-color);
 
   &__container {
     display: flex;

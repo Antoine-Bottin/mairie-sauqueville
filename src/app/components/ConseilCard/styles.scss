@@ -1,47 +1,52 @@
+@use "../../card" as *;
+
 .conseil-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(17rem, 100%), 1fr));
+  gap: 1rem 1.25rem;
 }
 
+// Carte horizontale compacte : avatar à gauche, nom et fonction à droite
 .conseil-card {
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(var(--main-font-color-rgb), 0.05);
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
+  @include card-surface;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
 
   &__photo-container {
     position: relative;
-    width: 100%;
-    aspect-ratio: 4/5;
+    flex-shrink: 0;
+    width: 4.5rem;
+    aspect-ratio: 1;
+    border: 2px solid var(--dark-primary-color);
+    border-radius: 0.25rem;
+    overflow: hidden;
   }
 
   &__info {
-    padding: 1.5rem;
-    text-align: center;
+    min-width: 0;
+    text-align: left;
   }
 
   &__nom {
-    font-size: 1.1rem;
+    font-family: var(--font-jakarta-sans);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.2;
     margin: 0;
   }
 
   &__poste {
     font-size: 0.9rem;
-    color: rgba(var(--main-font-color-rgb), 0.6);
-    margin-top: 0.5rem;
+    color: rgba(var(--main-font-color-rgb), 0.75);
+    margin-top: 0.25rem;
   }
 
   &__metier {
     font-size: 0.85rem;
     color: var(--main-font-color);
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
     font-style: italic;
   }
 
