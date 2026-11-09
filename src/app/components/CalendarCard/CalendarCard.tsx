@@ -1,6 +1,7 @@
 import { EvenementMunicipal } from "@/sanity/lib/queries";
 import { formatEventDate } from "@/app/utils";
 import PhotoCard from "../PhotoCard/PhotoCard";
+import ReadMore from "../ReadMore/ReadMore";
 
 import "./styles.scss";
 
@@ -37,7 +38,22 @@ const CalendarCard = ({ event, date, isSingle }: CalendarCardProps) => {
 
         <h3 className="event-simple-card__card-title">{event.title}</h3>
         {event.description && (
-          <p className="event-simple-card__desc">{event.description}</p>
+          <ReadMore
+            title={event.title}
+            text={event.description}
+            lines={4}
+            textClassName="event-simple-card__desc"
+            meta={
+              <>
+                <span className="event-simple-card__badge">
+                  {event.categorie}
+                </span>
+                <span className="event-simple-card__date">
+                  {formatEventDate(date)}
+                </span>
+              </>
+            }
+          />
         )}
         <span className="event-simple-card__lieu">
           <span aria-hidden="true">📍</span>{" "}
