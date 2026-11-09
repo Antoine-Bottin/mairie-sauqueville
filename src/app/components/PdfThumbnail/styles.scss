@@ -27,7 +27,28 @@
     text-align: center;
     font-family: var(--font-jakarta-sans);
     font-size: 0.9rem;
-    color: rgba(var(--main-font-color-rgb), 0.6);
+    color: rgba(var(--main-font-color-rgb), 0.75);
+
+    &--fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      color: var(--main-font-color);
+    }
+  }
+
+  &__fallback-icon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--danger-color);
+  }
+
+  &__fallback-hint {
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: rgba(var(--main-font-color-rgb), 0.75);
   }
 }
 

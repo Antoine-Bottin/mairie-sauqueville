@@ -1,0 +1,18 @@
+// Surface de carte commune : bord franc silex + ombre pleine décalée.
+// Sur une bande sombre, `--card-shadow-color` (défini par la bande) remplace
+// l'ombre silex, invisible sur fond silex ; `--card-border-color` fait de même
+// pour le contour, afin que bord et ombre ne se fondent pas dans le fond.
+@mixin card-surface {
+  background-color: #ffffff;
+  border: 2px solid var(--card-border-color, var(--dark-primary-color));
+  border-radius: 0.5rem;
+  box-shadow: 6px 6px 0 var(--card-shadow-color, var(--dark-primary-color));
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--card-shadow-color, var(--dark-primary-color));
+  }
+}

@@ -1,0 +1,159 @@
+.read-more {
+  &__text {
+    // Coupure à N lignes (--read-more-lines défini par le composant)
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--read-more-lines, 4);
+    line-clamp: var(--read-more-lines, 4);
+    overflow: hidden;
+    white-space: pre-line;
+  }
+
+  &__trigger {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0;
+    border: none;
+    background: none;
+    font-family: var(--font-jakarta-sans);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    cursor: pointer;
+
+    &:hover .read-more__arrow {
+      transform: translateX(4px);
+    }
+  }
+
+  &__arrow {
+    transition: transform 0.2s ease;
+  }
+}
+
+.read-more-modal {
+  // <dialog> centré : marges auto + hauteur au contenu
+  margin: auto;
+  padding: 0;
+  width: min(90vw, 40rem);
+  max-height: 85dvh;
+  border: none;
+  background: transparent;
+  overflow: visible;
+
+  &::backdrop {
+    background-color: rgba(var(--dark-primary-color-rgb), 0.8);
+    backdrop-filter: blur(4px);
+    animation: read-more-backdrop-in 0.25s ease-out;
+  }
+
+  &[open] .read-more-modal__panel {
+    animation: read-more-panel-in 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  }
+
+  &--closing {
+    &::backdrop {
+      animation: read-more-backdrop-out 0.2s ease-in forwards;
+    }
+
+    .read-more-modal__panel {
+      animation: read-more-panel-out 0.2s ease-in forwards !important;
+    }
+  }
+
+  &__panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 85dvh;
+    overflow-y: auto;
+    padding: 2rem 1.5rem 1.5rem;
+    background-color: #ffffff;
+    // Bord et ombre colza : un bord silex se fondrait dans le fond sombre
+    border: 2px solid var(--tertiary-color);
+    border-radius: 0.5rem;
+    box-shadow: 8px 8px 0 var(--tertiary-color);
+    color: var(--main-font-color);
+
+    @media screen and (min-width: 768px) {
+      padding: 2.5rem 2.5rem 2rem;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    padding: 0 0.5rem;
+    border: none;
+    background: none;
+    font-size: 2.25rem;
+    line-height: 1;
+    color: var(--main-font-color);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    padding-right: 2.5rem;
+  }
+
+  &__title {
+    margin: 0;
+    padding-right: 2rem;
+    font-family: var(--font-display);
+    font-size: #{clamp(1.5rem, 4vw, 2rem)};
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  &__text {
+    margin: 0;
+    font-family: var(--font-jakarta-sans);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    white-space: pre-line;
+    color: rgba(var(--main-font-color-rgb), 0.9);
+  }
+}
+
+@keyframes read-more-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes read-more-panel-out {
+  to {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.97);
+  }
+}
+
+@keyframes read-more-backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes read-more-backdrop-out {
+  to {
+    opacity: 0;
+  }
+}
