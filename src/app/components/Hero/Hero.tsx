@@ -45,21 +45,20 @@ const Hero = () => {
         Votre navigateur ne supporte pas la lecture de vidéos.
       </video>
 
-      <div className="hero__overlay"></div>
+      {/*
+        Calque silex en mix-blend-mode: multiply : le blanc du titre laisse
+        passer la vidéo (les lettres sont des « fenêtres »), le fond silex
+        l'assombrit presque entièrement.
+      */}
+      <div className="hero__mask">
+        <h1 className="hero__title">Sauqueville</h1>
+      </div>
 
       <div className="hero__content">
-        <h1 className="hero__title">Bien vivre ensemble à Sauqueville</h1>
-        <p className="hero__subtitle">
-          Découvrez l&apos;actualité et les services de votre commune
-        </p>
+        <p className="hero__subtitle">Bien vivre ensemble</p>
         <div className="hero__actions">
-          <Button
-            size="medium"
-            variant="primary"
-            disabled
-            title="Bientôt disponible"
-          >
-            Actualités
+          <Button size="medium" variant="tertiary" href="#discutons">
+            Discutons
           </Button>
           <Button size="medium" variant="secondary" href="/contact">
             Nous contacter

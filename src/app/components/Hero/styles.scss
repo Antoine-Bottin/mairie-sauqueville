@@ -1,92 +1,89 @@
 .hero {
   position: relative;
+  // Crée le contexte de mélange : le calque __mask ne se mélange qu'avec la vidéo
+  isolation: isolate;
   width: 100%;
-  height: 50dvh;
+  // Compact sur mobile : le mot tient sur une ligne, inutile de laisser un grand vide
+  height: min(70dvh, 22rem);
+
+  @media screen and (min-width: 768px) {
+    height: 65dvh;
+    min-height: 28rem;
+  }
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow: hidden;
-  background-color: var(--primary-color);
+  background-color: var(--dark-primary-color);
 
   &__video {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: 1;
   }
 
-  &__overlay {
+  &__mask {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     z-index: 2;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.5) 100%
-    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-primary-color);
+    color: #ffffff;
+    mix-blend-mode: multiply;
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    // Chasse resserrée (axe wdth) pour que le mot tienne sur une seule ligne
+    font-variation-settings: "wdth" 75;
+    // « Sauqueville » ≈ 4,2em de large à cette chasse : 22,5vw ≈ 95 % de l'écran
+    font-size: 22.5vw;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    margin: 0;
+    padding-bottom: 5rem;
+    white-space: nowrap;
+
+    @media screen and (min-width: 768px) {
+      padding-bottom: 7rem;
+    }
   }
 
   &__content {
     position: relative;
     z-index: 3;
-    text-align: center;
-    padding: 0 1.5rem;
-    max-width: 900px;
-  }
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 120rem;
+    margin-inline: auto;
+    padding: 0 1rem 1.25rem;
 
-  &__title {
-    font-size: #{clamp(2.5rem, 7dvh, 6rem)};
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.65) 0%,
-      rgba(255, 255, 255, 0.65) 40%,
-      rgba(255, 255, 255, 0.95) 50%,
-      rgba(255, 255, 255, 0.65) 60%,
-      rgba(255, 255, 255, 0.65) 100%
-    );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-
-    animation: windGlow 7s ease-in-out infinite;
+    @media screen and (min-width: 768px) {
+      padding: 0 2rem 2rem;
+    }
   }
 
   &__subtitle {
+    font-family: var(--font-display);
+    font-size: #{clamp(1.5rem, 3.5vw, 2.5rem)};
+    font-weight: 600;
     color: #ffffff;
-    font-size: #{clamp(1.1rem, 3vw, 1.5rem)};
-    margin-bottom: 2.5rem;
-    opacity: 0.9;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    margin: 0;
   }
 
   &__actions {
     display: flex;
     gap: 1rem;
-    justify-content: center;
     flex-wrap: wrap;
-  }
-}
-
-@keyframes windGlow {
-  0% {
-    background-position: -200% 0;
-  }
-  50% {
-    background-position: 0% 0;
-  }
-  100% {
-    background-position: 200% 0;
   }
 }
