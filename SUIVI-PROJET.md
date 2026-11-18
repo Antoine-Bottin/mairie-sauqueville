@@ -1,19 +1,22 @@
 # SUIVI-PROJET
-_Dernière mise à jour : 2026-11-09_
+_Dernière mise à jour : 2026-11-18_
 
 ## Objectif
 Site de la mairie de Sauqueville (Next.js + Sanity), contenu géré via le Studio `/admin`.
 
 ## Fait
+- v1.3.2 en production : case « Événement annulé » (champ `annule` du schéma `evenement`) qui affiche un ruban diagonal « Annulé » sur la carte (`CalendarCard`) ; cartes « Évènements à venir » à hauteur fixe (titre 2 lignes, description 3 lignes + place du « Lire + », en-tête réservé pour une date sur 2 lignes).
+- Refonte design mergée dans `develop` et publiée (v1.3.0, puis v1.3.1 pour le correctif de build).
 - Aperçu PDF testé sur Chrome mobile : OK (v1.2.1).
 - Aperçu PDF des cartes « À noter » rendu en canvas (pdf.js) via `PdfThumbnail`, pour fonctionner sur mobile.
 
 ## En cours
-- Refonte design, branche `feat/refonte-design` (commitée, pas encore mergée dans `develop`) : phases 1, 2 et 3 faites (variables « silex & lin », Bricolage Grotesque, Hero à lettres découpées, accueil en bandes craie/silex/lin, cartes à bord franc via le mixin `src/app/card.scss`, Footer en silex) ; espacements resserrés (page d'accueil ≈ −17 % de hauteur) et titre du Hero sur une seule ligne en mobile ; bandeau d'alerte en aplats (colza/lin/rouge), Navbar à filet silex, cartes intérieures au nouveau style, focus clavier global ; textes tronqués avec « Lire + » (composant `ReadMore`, modale animée) sur évènements, retours et annonces ; galerie photo en grille adaptative + visionneuse à navigation (`PhotoGallery`) à la place du slider.
+- Refonte design (déjà en production) : phases 1, 2 et 3 faites (variables « silex & lin », Bricolage Grotesque, Hero à lettres découpées, accueil en bandes craie/silex/lin, cartes à bord franc via le mixin `src/app/card.scss`, Footer en silex) ; espacements resserrés (page d'accueil ≈ −17 % de hauteur) et titre du Hero sur une seule ligne en mobile ; bandeau d'alerte en aplats (colza/lin/rouge), Navbar à filet silex, cartes intérieures au nouveau style, focus clavier global ; textes tronqués avec « Lire + » (composant `ReadMore`, modale animée) sur évènements, retours et annonces ; galerie photo en grille adaptative + visionneuse à navigation (`PhotoGallery`) à la place du slider.
 - Vérification de l'aperçu PDF sur iOS Safari (Chrome OK).
 
 ## Prochaine étape
-- Valider la refonte en local avec `BLOB_READ_WRITE_TOKEN` (pages Documents et « Sauqueville avant » non vérifiées visuellement), puis commit de `feat/refonte-design`, merge dans `develop`, release (flow dans `AGENTS.md`).
+- Vérifier visuellement les pages Documents et « Sauqueville avant » (nécessite `BLOB_READ_WRITE_TOKEN` en local).
+- Vérifier sur mobile réel le ruban « Annulé » et la hauteur des cartes évènements (rendu non contrôlé avant release).
 - Vérifier sur mobile réel : Hero, menu burger, focus clavier ; passer un outil d'audit (axe / Lighthouse).
 
 ## Décisions (avec le pourquoi)
@@ -23,7 +26,11 @@ Site de la mairie de Sauqueville (Next.js + Sanity), contenu géré via le Studi
 - Direction « Silex & lin » (craie #f4f6f3, silex #0f1b26, lin #1f4fd1, colza #f5c400) : ancrée dans le territoire (falaises, silex, lin, colza) ; remplace crème + vert forêt jugé générique. Noms de variables CSS conservés pour que tout le site bascule.
 - Un seul moment « waouh » (Hero), le reste sobre et contrasté.
 
+- Ruban « Annulé » : silex + colza (palette du design system), incliné de haut-gauche à bas-droite et placé dans la zone de l'image pour ne pas masquer date ni heure ; pas de texte barré. Sens inversable via le signe de `rotate()` dans `CalendarCard/styles.scss`.
+- Cartes évènements : hauteur tenue par des emplacements réservés calculés en `rem` ; à réajuster si la typo de la carte change.
+
 ## Points ouverts / blocages
+- Une carte évènement sans image reste plus courte qu'une carte avec image (sauf étirement dans la rangée) ; emplacement image par défaut à ajouter si besoin.
 - L'aperçu dépend du CORS du CDN Sanity (normalement `*`) : à confirmer en conditions réelles.
 - Textes RGPD (page de confidentialité, mentions légales) : Sanity et Vercel ajoutés ; à faire valider par la mairie avant la release — en particulier la phrase sur les transferts hors UE et l'identité exacte de Sanity AS. À revoir quand le formulaire « Discutons » existera.
 - Build : les API INSEE et geo.api.gouv.fr passent par `src/lib/fetchWithRetry.ts` (4 tentatives, 1/2/4 s) ; un refus de connexion passager avait fait échouer le build de production v1.3.0 (prérendu de `/sauqueville/chiffres`). Si l'API reste indisponible plus longtemps, le build échouera encore : relancer le déploiement.
