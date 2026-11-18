@@ -43,6 +43,14 @@ export const evenement = defineType({
       },
     }),
     defineField({
+      name: "annule",
+      title: "Événement annulé",
+      description:
+        'Cochez pour afficher une bannière "Annulé" sur la carte de l\'événement. Il reste visible sur le site.',
+      type: "boolean",
+      initialValue: false,
+    }),
+    defineField({
       name: "categorie",
       title: "Catégorie / Tag",
       type: "string",
@@ -91,6 +99,11 @@ export const evenement = defineType({
     select: {
       title: "title",
       subtitle: "dateDebut",
+      annule: "annule",
     },
+    prepare: ({ title, subtitle, annule }) => ({
+      title: annule ? `[ANNULÉ] ${title}` : title,
+      subtitle,
+    }),
   },
 });

@@ -16,8 +16,11 @@ const CalendarCard = ({ event, date, isSingle }: CalendarCardProps) => {
     <article
       className={`event-simple-card event-simple-card--${event.categorie} ${
         isSingle ? "event-simple-card--single" : ""
-      }`}
+      } ${event.annule ? "event-simple-card--cancelled" : ""}`}
     >
+      {event.annule && (
+        <p className="event-simple-card__cancelled-banner">Annulé</p>
+      )}
       {event.image && (
         <PhotoCard
           url={event.image}
@@ -37,24 +40,27 @@ const CalendarCard = ({ event, date, isSingle }: CalendarCardProps) => {
         </div>
 
         <h3 className="event-simple-card__card-title">{event.title}</h3>
-        {event.description && (
-          <ReadMore
-            title={event.title}
-            text={event.description}
-            lines={4}
-            textClassName="event-simple-card__desc"
-            meta={
-              <>
-                <span className="event-simple-card__badge">
-                  {event.categorie}
-                </span>
-                <span className="event-simple-card__date">
-                  {formatEventDate(date)}
-                </span>
-              </>
-            }
-          />
-        )}
+        {/* Emplacement réservé (3 lignes + « Lire + ») : toutes les cartes gardent la même hauteur */}
+        <div className="event-simple-card__body">
+          {event.description && (
+            <ReadMore
+              title={event.title}
+              text={event.description}
+              lines={3}
+              textClassName="event-simple-card__desc"
+              meta={
+                <>
+                  <span className="event-simple-card__badge">
+                    {event.categorie}
+                  </span>
+                  <span className="event-simple-card__date">
+                    {formatEventDate(date)}
+                  </span>
+                </>
+              }
+            />
+          )}
+        </div>
         <span className="event-simple-card__lieu">
           <span aria-hidden="true">📍</span>{" "}
           <span className="sr-only">Lieu : </span>
