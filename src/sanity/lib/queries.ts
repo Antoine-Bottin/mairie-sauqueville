@@ -11,6 +11,7 @@ export interface EvenementMunicipal {
   description?: string;
   image: string;
   lieu: string;
+  annule?: boolean;
 }
 
 export interface RetourSur {
@@ -53,7 +54,8 @@ export const getEvenements = async (): Promise<EvenementMunicipal[]> => {
     categorie,
     description,
     "image": image.asset->url,
-    lieu
+    lieu,
+    annule
 }
   `);
 };

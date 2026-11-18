@@ -1,6 +1,7 @@
 @use "../../card" as *;
 
 .event-simple-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   @include card-surface;
@@ -12,6 +13,35 @@
   &--single {
     width: 100%;
     flex: 0 0 100%;
+  }
+
+  // Bandeau diagonal « Annulé » : ruban silex + texte colza, de haut-gauche à bas-droite
+  // (passer rotate() en négatif pour l'inverser)
+  &__cancelled-banner {
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    z-index: 2;
+    width: 150%;
+    margin: 0;
+    padding: 0.55rem 0;
+    transform: translate(-50%, -50%) rotate(16deg);
+    background-color: var(--dark-primary-color);
+    border-block: 3px solid var(--tertiary-color);
+    color: var(--tertiary-color);
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    text-align: center;
+    pointer-events: none;
+    box-shadow: 0 0.25rem 1rem rgba(var(--dark-primary-color-rgb), 0.35);
+  }
+
+  &--cancelled &__image-wrapper {
+    filter: grayscale(1);
+    opacity: 0.7;
   }
 
   &__image-wrapper {
@@ -53,6 +83,9 @@
     justify-content: space-between;
     gap: 0.75rem;
     margin-bottom: 0.5rem;
+    // La date peut passer sur 2 lignes (« sam. 21 nov. 2026 à 20:00 ») : on réserve ces 2 lignes
+    // pour que la hauteur de la carte ne dépende pas de la longueur de la date
+    min-height: calc(2 * 0.85rem * 1.3);
   }
 
   &__badge {
@@ -68,10 +101,12 @@
   &__date {
     font-family: var(--font-jakarta-sans);
     font-size: 0.85rem;
+    line-height: 1.3;
     font-weight: 600;
     color: rgba(var(--main-font-color-rgb), 0.6);
   }
 
+  // Titre limité à 2 lignes, avec la place de 2 lignes réservée
   &__card-title {
     font-family: var(--font-jakarta-sans);
     font-size: 1.25rem;
@@ -79,6 +114,20 @@
     color: var(--main-font-color);
     line-height: 1.2;
     margin: 0;
+    min-height: 2.4em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+
+  // 3 lignes de description (0.95rem × 1.4) + le bouton « Lire + » (≈ 1.6rem) + l'écart entre les deux
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: calc(3 * 0.95rem * 1.4 + 1.6rem + 0.5rem);
   }
 
   &__desc {
